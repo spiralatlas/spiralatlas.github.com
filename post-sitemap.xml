@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://spiralatlas.github.io</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Pax-2017-Panels-day-1/</loc>
+        <lastmod>2018-12-06T15:09:36.029Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Tutorial-Dealing-with-Character-Spacing-in-Unity/</loc>
+        <lastmod>2018-12-06T15:04:37.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/A-Basic-Guide-to-Visual-Novels/</loc>
+        <lastmod>2018-12-06T15:02:56.542Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Filtering-with-GIMP/</loc>
+        <lastmod>2018-12-06T15:02:36.143Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/GCAP-2017-Day-2/</loc>
+        <lastmod>2018-12-06T15:02:16.433Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Non-Violent-Video-Games/</loc>
+        <lastmod>2018-12-06T15:01:35.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Paintovers-with-Artrage/</loc>
+        <lastmod>2018-12-06T15:01:11.914Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Panel-From-Player-to-Developer/</loc>
+        <lastmod>2018-12-06T15:00:43.368Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/PAX-Australia-2017-Day-3/</loc>
+        <lastmod>2018-12-06T14:59:55.328Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/So-You-Want-To-Make-A-Video-Game/</loc>
+        <lastmod>2018-12-06T14:59:36.504Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Tutorial-Modelling-a-Building-From-a-Photo-in-Blender/</loc>
+        <lastmod>2018-12-06T14:57:24.620Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Tutorial-Paintovers-with-Corel-Painter/</loc>
+        <lastmod>2018-12-06T14:56:57.083Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Tutorial-Tiling-in-Tiled/</loc>
+        <lastmod>2018-12-06T14:55:50.365Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Welcome-to-Spiral-Atlas-Games/</loc>
+        <lastmod>2018-12-06T14:37:46.080Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/GCAP-Game-Connect-Asia-Pacific-2017-Day-1/</loc>
+        <lastmod>2018-12-06T14:36:40.254Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Indie-games-at-PAX-2017/</loc>
+        <lastmod>2018-12-06T13:10:14.645Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Miscellaneous-Links/</loc>
+        <lastmod>2018-12-06T12:52:50.381Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Let-s-Plays-of-My-Games/</loc>
+        <lastmod>2018-12-06T12:52:16.279Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Various-Tutorials/</loc>
+        <lastmod>2018-12-06T12:52:01.622Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/uncategorized/Various-Free-Game-Resources/</loc>
+        <lastmod>2018-12-06T12:51:51.354Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
