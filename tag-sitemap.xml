@@ -66,20 +66,6 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/blender/</loc>
-        <lastmod>2018-12-06T14:57:24.620Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://spiralatlas.github.io/tags/3d-rendering/</loc>
-        <lastmod>2018-12-06T14:57:24.620Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://spiralatlas.github.io/tags/accessibility/</loc>
         <lastmod>2018-12-06T14:59:55.328Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -171,13 +157,6 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/tutorial/</loc>
-        <lastmod>2018-12-06T15:04:37.041Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://spiralatlas.github.io/tags/unity/</loc>
         <lastmod>2018-12-06T15:04:37.041Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -187,13 +166,6 @@
     <url>
         <loc>https://spiralatlas.github.io/tags/fonts/</loc>
         <lastmod>2018-12-06T15:04:37.041Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://spiralatlas.github.io/tags/from-tumblr/</loc>
-        <lastmod>2018-12-06T15:09:36.029Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -236,6 +208,34 @@
     <url>
         <loc>https://spiralatlas.github.io/tags/queer/</loc>
         <lastmod>2018-12-06T15:09:36.029Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/tutorial/</loc>
+        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/from-tumblr/</loc>
+        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/blender/</loc>
+        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/3d-rendering/</loc>
+        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
