@@ -59,13 +59,6 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/corel-painter-essentials/</loc>
-        <lastmod>2018-12-06T14:56:57.083Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://spiralatlas.github.io/tags/accessibility/</loc>
         <lastmod>2018-12-06T14:59:55.328Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -75,13 +68,6 @@
     <url>
         <loc>https://spiralatlas.github.io/tags/perth-games-festival/</loc>
         <lastmod>2018-12-06T15:00:43.368Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://spiralatlas.github.io/tags/artrage/</loc>
-        <lastmod>2018-12-06T15:01:11.914Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -122,35 +108,7 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/software/</loc>
-        <lastmod>2018-12-06T15:02:36.143Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://spiralatlas.github.io/tags/links/</loc>
-        <lastmod>2018-12-06T15:02:36.143Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://spiralatlas.github.io/tags/gimp/</loc>
-        <lastmod>2018-12-06T15:02:36.143Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://spiralatlas.github.io/tags/art/</loc>
-        <lastmod>2018-12-06T15:02:36.143Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://spiralatlas.github.io/tags/backgrounds/</loc>
         <lastmod>2018-12-06T15:02:36.143Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -213,36 +171,78 @@
     </url>
 
     <url>
+        <loc>https://spiralatlas.github.io/tags/links/</loc>
+        <lastmod>2018-12-21T13:34:24.531Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://spiralatlas.github.io/tags/from-tumblr/</loc>
-        <lastmod>2018-12-07T01:25:43.291Z</lastmod>
+        <lastmod>2018-12-21T13:34:24.531Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/artrage/</loc>
+        <lastmod>2018-12-21T13:34:24.531Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/software/</loc>
+        <lastmod>2018-12-21T13:35:23.025Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/backgrounds/</loc>
+        <lastmod>2018-12-21T13:35:23.025Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/corel-painter-essentials/</loc>
+        <lastmod>2018-12-21T13:35:23.025Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://spiralatlas.github.io/tags/tutorial/</loc>
-        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
+        <lastmod>2018-12-21T13:42:20.608Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/art/</loc>
+        <lastmod>2018-12-21T13:42:20.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://spiralatlas.github.io/tags/blender/</loc>
-        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
+        <lastmod>2018-12-21T13:42:20.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://spiralatlas.github.io/tags/3d-rendering/</loc>
-        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
+        <lastmod>2018-12-21T13:42:20.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://spiralatlas.github.io/tags/fotosketcher/</loc>
-        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
+        <lastmod>2018-12-21T13:42:20.608Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
