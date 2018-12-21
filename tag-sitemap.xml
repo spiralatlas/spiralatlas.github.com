@@ -87,13 +87,6 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/meta/</loc>
-        <lastmod>2018-12-06T15:01:35.892Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://spiralatlas.github.io/tags/recommendations/</loc>
         <lastmod>2018-12-06T15:01:35.892Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -101,7 +94,14 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/gcap/</loc>
+        <loc>https://spiralatlas.github.io/tags/meta/</loc>
+        <lastmod>2018-12-06T15:01:35.892Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/game-design/</loc>
         <lastmod>2018-12-06T15:02:16.433Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -115,7 +115,7 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/game-design/</loc>
+        <loc>https://spiralatlas.github.io/tags/gcap/</loc>
         <lastmod>2018-12-06T15:02:16.433Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -171,20 +171,6 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/panels/</loc>
-        <lastmod>2018-12-06T15:09:36.029Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://spiralatlas.github.io/tags/other-people-s-games/</loc>
-        <lastmod>2018-12-06T15:09:36.029Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://spiralatlas.github.io/tags/visual-novels/</loc>
         <lastmod>2018-12-06T15:09:36.029Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -206,6 +192,20 @@
     </url>
 
     <url>
+        <loc>https://spiralatlas.github.io/tags/other-people-s-games/</loc>
+        <lastmod>2018-12-06T15:09:36.029Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/panels/</loc>
+        <lastmod>2018-12-06T15:09:36.029Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://spiralatlas.github.io/tags/queer/</loc>
         <lastmod>2018-12-06T15:09:36.029Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -213,29 +213,36 @@
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/tutorial/</loc>
-        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
+        <loc>https://spiralatlas.github.io/tags/from-tumblr/</loc>
+        <lastmod>2018-12-07T01:25:43.291Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://spiralatlas.github.io/tags/from-tumblr/</loc>
-        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
+        <loc>https://spiralatlas.github.io/tags/tutorial/</loc>
+        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://spiralatlas.github.io/tags/blender/</loc>
-        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
+        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://spiralatlas.github.io/tags/3d-rendering/</loc>
-        <lastmod>2018-12-06T15:19:00.992Z</lastmod>
+        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://spiralatlas.github.io/tags/fotosketcher/</loc>
+        <lastmod>2018-12-21T13:28:28.641Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
