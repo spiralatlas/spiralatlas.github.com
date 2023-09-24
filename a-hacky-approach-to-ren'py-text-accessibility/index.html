@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <!-- https://github.com/joshbuchea/HEAD -->
+  
+  <!-- Recommended -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta -->
+  <meta name="description" content="Small Australian creator of visual novels and other diversions." />
+  <meta name="author" content="Sean Atlas" />
+  <meta name="generator" content="Eleventy">
+
+  <!-- Link -->
+  <link rel="alternate" href="" type="application/rss+xml" title="RSS">
+
+  <!-- Icons -->
+  <!-- https://favicon.io/favicon-generator/?t=CM&ff=Open+Sans&fs=75&fc=%23FFFFFF&b=rounded&bc=%23dc3545 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Social -->
+
+  <!-- Facebook -->
+  <meta property="og:url" content="https://spiralatlas.github.io/a-hacky-approach-to-ren&amp;#39;py-text-accessibility/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="A Hacky approach to Ren&#39;Py Text Accessibility">
+  <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
+  <meta property="og:site_name" content="Spiral Atlas Games">
+  <meta property="og:locale" content="en_AU">
+  <meta property="article:author" content="Sean Atlas">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@spiral_atlas">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/a-hacky-approach-to-ren&amp;#39;py-text-accessibility/">
+  <meta name="twitter:title" content="A Hacky approach to Ren&#39;Py Text Accessibility">
+  <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
+
+  <title>A Hacky approach to Ren&#39;Py Text Accessibility</title>
+
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap"></noscript>
+
+  <link rel="stylesheet" href="/site.css" />
+</head>
+
+<body class="text-gray-700 bg-gray-100 dark:bg-gray-900 dark:text-gray-400">
+
+  <nav class="flex flex-no-wrap justify-between max-w-5xl mx-auto">
+
+  <a class="flex-1" href="https://spiralatlas.github.io/">Spiral Atlas Games</a>
+
+  <ul class="flex items-center justify-end flex-1">
+
+    <li class="px-3 md:px-6"><a id="toggle" aria-label="light dark toggle" class="text-gray-700 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-700" href="#">
+      <i id="pref" class="align-middle material-icons">brightness_4</i>
+      <i id="moon" class="hidden align-middle material-icons">brightness_2</i>
+      <i id="sun" class="hidden align-middle material-icons">brightness_5</i>
+    </a></li>
+
+    
+      <li class="px-3"><a class="uppercase" href="/">Home</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/about">About</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/blog">Blog</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/tags">Tags</a></li>
+    
+  </ul>
+
+</nav>
+
+
+  <main class="max-w-5xl mx-auto prose">
+<h1>A Hacky approach to Ren&#39;Py Text Accessibility</h1>
+<p>Tags: 
+
+
+<a href="/tags/posts/" class="post-tag">posts</a>,
+
+
+<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
+
+
+<a href="/tags/accessibility/" class="post-tag">accessibility</a>,
+
+
+<a href="/tags/renpy/" class="post-tag">renpy</a>,
+
+
+<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
+
+
+<a href="/tags/coding/" class="post-tag">coding</a>,
+ 
+</p>
+<time datetime="2019-10-24"> 24 Oct 2019</time>
+
+<p><a href="https://tofurocks.itch.io/renpy-gui-template">Ren'Py All-In-One GUI Template</a> is a much less hacky approach but I couldn't get it to do what I wanted without having the code break. So this is what I did instead.</p>
+<p>What I wanted: The ability to have very large text in Renpy, including button and UI text etc, <em>and</em> having the text box resize to match.</p>
+<p>And here's how I did it, if only for my own future reference, as well as some rambling about why I made the decisions I did.
+<cut>
+I use the <a href="https://npckc.itch.io/caption-tool-for-renpy">Caption Tool</a> basically as is.</p>
+<p>I based my code on the in-built Renpy accessibility screen (found in 00accessibility.rpy in the main renpy folder) and <a href="https://www.renpy.org/doc/html/gui_advanced.html#gui-preferences">GUI Preferences</a> example code. I also drew on <a href="https://tofurocks.itch.io/renpy-gui-template">Ren'Py All-In-One GUI Template</a>, which in turn draws on <a href="https://minute.itch.io/renpy-accessibility">Ren'Py Accessibility Add-On</a>.</p>
+<p>I probably could have done a lot of this with styles, but styles confuse me, so I didn't.</p>
+<p>The principles I decided upon after some thought and rereading the <a href="http://gameaccessibilityguidelines.com/">Game Accessibility Guidelines</a>:</p>
+<ul><li>Large text options should include <em>all</em> text necessary to play the game: dialogue, button text, and menus. 
+<li>The game should start with moderately large text by default. It's no good having a "change text size" button that people with poor vision can't see. 
+<li>the largest text size should be as large as possible without making the menus unreadable.
+<li>Don't offer the player too many options they don't need.
+<li>The small text size should be fairly readable, but is mostly there for The Aesthetic, since it looks cute and shows more of the sprites/background.
+<li>Every text size should fit nicely in it's text box.
+<li><a href="https://www.understood.org/en/learning-thinking-differences/child-learning-disabilities/dyslexia/dyslexia-friendly-font">"Dyslexic Fonts" don't actually offer any specific extra benefit to dyslexic people</a>, <a href="https://webaim.org/techniques/fonts/">as long as there's a nice clean option like Deja Vu Sans that's good enough</a>. 
+<li>Including accessibility options in the general preferences screen normalises them and makes more sense. All preferences are accessibility preferences for someone!</ul>
+<p>So! I have two new additions to the Preferences screen: a font choice, and a text size choice.</p>
+<p><b>Font</b></p>
+<p>Overwrite/replace the following in gui.rpy:</p>
+<pre>define gui.text_font = gui.preference("font", "gui/IMFeDPrm28P.ttf") #the font used for dialogue, buttons etc.
+
+define gui.interface_text_font = gui.preference("UIfont", "gui/IMFeENsc28P.ttf") #the font used for user interfaces
+
+define gui.history_height = None</pre>
+<p>My default is <a href="https://fonts.google.com/specimen/IM+Fell+English">IM Fell</a>.</p>
+<p>Since I wanted my preferences screen to look good with very large text, I made sure every line only had two columns. I also added &quot;xsize  400&quot; and &quot;spacing 5&quot; to each block to stop the text getting garbled.</p>
+<p>So here's the row in screens.rpy with the font and text size choices in the Preferences menu:</p>
+<pre>
+hbox:
+    box_wrap True
+        
+    null height (4 * gui.pref_spacing)
+    vbox:
+        {I have multiple versions of this, see below}
+                            
+        
+    vbox:
+        xsize  400
+        spacing 5
+
+        style_prefix "radio"
+        label _("Typeface")
+
+        textbutton "{font=DejaVuSans.ttf}Sans-Serif{/font}" action [
+            gui.SetPreference("font","DejaVuSans.ttf"),gui.SetPreference("UIfont", "DejaVuSans.ttf")]
+
+        textbutton "{font=gui/IMFeDPrm28P.ttf}Serif{/font}" action [
+            gui.SetPreference("font","gui/IMFeDPrm28P.ttf"),gui.SetPreference("UIfont", "gui/IMFeENsc28P.ttf")]
+
+null height (4 * gui.pref_spacing)        </pre>
+<p>I decided the actual font names would just confuse people, but I'm not sure Sans Serif vs Serif is the best dichotomy. I might change it to simple vs fancy or something.</p>
+<p><b>Text Size: Version One</b></p>
+<p>This has three text size options, and three matching unscaled textboxes. I couldn't be bothered implementing text box transparency options, so just made the largest text size box entirely opaque. This is the only version that adjusts the history.</p>
+<p>Overwrite/replace the following in gui.rpy:</p>
+<pre>
+ 
+define gui.textbox_height = gui.preference("text_height", 186) #the height of the text box image
+
+define gui.dialogue_xpos = gui.preference("text_start", 59) #how far right into the textbox the dialogue starts
+
+define gui.dialogue_width = gui.preference("text_width", 1160) #how wide the dialogue is allowed to get
+
+define gui.history_text_xpos = gui.preference("history_xpos", 170) #where history dialogue starts
+
+define gui.history_text_width = gui.preference("history_width", 740) #how wide history dialogue is
+</pre>
+<p>Add this to the Preferences screen in screens.rpy:</p>
+<pre>
+vbox:
+    xsize  400
+    spacing 5
+
+    style_prefix "radio"
+    label _("Font Size")
+
+    textbutton "Small" action [Preference("font size", 0.8), gui.SetPreference("text_height", 185),
+        gui.SetPreference("text_start", 165), gui.SetPreference("text_width", 950),
+        gui.SetPreference("history_xpos", 170),gui.SetPreference("history_width", 740)]
+
+    textbutton "Medium" action [Preference("font size", 1.0), gui.SetPreference("text_height", 186),
+        gui.SetPreference("text_start", 59),gui.SetPreference("text_width", 1160),
+        gui.SetPreference("history_xpos", 171),gui.SetPreference("history_width", 739)]
+ 
+    textbutton "Large" action [Preference("font size", 1.25), gui.SetPreference("text_height", 240),
+        gui.SetPreference("text_start", 60),gui.SetPreference("text_width", 1166),
+        gui.SetPreference("history_xpos", 260),gui.SetPreference("history_width", 660)]</pre>
+<p>Note that I made some of the sizes one pixel different, this was to stop Renpy thinking the choices counted as the same (I said this was hacky &gt;.&gt;)</p>
+<p>And here's the new code for the dialogue window:</p>
+<pre>
+style window:
+    xalign 0.5
+    xfill True
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height 
+
+    background ConditionSwitch("preferences.font_size<=0.8", Image("gui/textbox_small.png"),
+                "preferences.font_size<=1.25", Image("gui/textbox_medium.png"),
+                 "True", Image("gui/textbox_large.png")) 
+ </pre>
+<p>These numbers were found via a lot of trial and error. I initially just used a frame for the textbox until I had the size right.</p>
+<p><b>Text Size: Version Two</b></p>
+<p>This has a text size slider and resizes the textbox to fit. Inspired by <a href="https://lemmasoft.renai.us/forums/viewtopic.php?t=45097#p461572">this approach</a> which I couldn't quite get to work. I couldn't figure out how to stop long character names overlapping the text in the history.</p>
+<p>Add/overwrite the following variables in gui.rpy:</p>
+<pre>define gui.dialogue_ypos = 0 
+
+define gui.textbox_height = None #resize automatically
+
+define gui.textbox_borders = Borders(10, 10, 10, 10) #size of corners
+
+define gui.textbox_min = 185 #minimum height</pre>
+<p><a href="https://www.renpy.org/doc/html/gui.html?highlight=padding%20borders">Here's some documentation on Frames and Borders</a>.</p>
+<p>In screens.rpy:</p>
+<p>Add the line &quot;has vbox&quot; and some padding to the say screen:</p>
+<pre>
+window:
+        id "window"
+        has vbox
+
+        if who is not None:
+
+            window:
+                id "namebox"
+                style "namebox"
+                text who id "who"
+        else:
+            text " "        
+
+        text what id "what"
+        text " "</pre>
+<p>Edit the dialogue window:</p>
+<pre>
+style window:
+    xalign 0.5
+    xfill True
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height
+    yminimum gui.textbox_min
+
+    background Frame("gui/textbox.png", gui.textbox_borders) </pre>
+<p>And that should work automatically! You can either just link to the accessibility screen, or add the text size bar to your preferences screen:</p>
+<pre>
+vbox:
+    style_prefix "slider"
+    box_wrap True
+    xsize  400
+    spacing 5
+    label _("Text Size Scaling")
+
+    null height 10
+
+    bar value Preference("font size")
+
+    textbutton _("Reset"):
+        action Preference("font size", 1.0)</pre>
+<p><b>Text Size: Version 3</b></p>
+<p>If you want a fancy unscaled textbox by default but a scaled one if the text size gets larger, use Version Two, but replace the window code with:</p>
+<pre>
+style window:
+    xalign 0.5
+    xfill True
+    yalign gui.textbox_yalign
+    ysize gui.textbox_height 
+    yminimum gui.textbox_min
+
+    background ConditionSwitch("preferences.font_size<=1", Image("gui/textbox_fancy.png"),
+               "True", Frame("gui/textbox_scalable.png", gui.textbox_borders)) </pre>
+
+</main>
+
+
+  <footer class="text-center">
+
+  <ul class="flex justify-center my-10">
+    
+    <li class="px-5 sm:px-10"><a href="https://mastodon.gamedev.place/@spiralatlas" aria-label="mastodon">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="mastodon" viewbox="0 0 24 24"><path fill="currentColor" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://twitter.com/spiral_atlas" aria-label="twitter">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="twitter" viewbox="0 0 24 24"><path fill="currentColor" d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://spiralatlas.tumblr.com/" aria-label="tumblr">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="tumblr" viewbox="0 0 24 24"><path fill="currentColor" d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://github.com/spiralatlas" aria-label="github">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="github" viewbox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></div>
+    </a></li>
+    
+  </ul>
+
+</footer>
+
+
+  <script src="/themetoggle.js"></script>
+  <script async src="/topscroll.js"></script>
+  
+</body>
+</html>

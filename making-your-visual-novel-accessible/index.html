@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <!-- https://github.com/joshbuchea/HEAD -->
+  
+  <!-- Recommended -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta -->
+  <meta name="description" content="Small Australian creator of visual novels and other diversions." />
+  <meta name="author" content="Sean Atlas" />
+  <meta name="generator" content="Eleventy">
+
+  <!-- Link -->
+  <link rel="alternate" href="" type="application/rss+xml" title="RSS">
+
+  <!-- Icons -->
+  <!-- https://favicon.io/favicon-generator/?t=CM&ff=Open+Sans&fs=75&fc=%23FFFFFF&b=rounded&bc=%23dc3545 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Social -->
+
+  <!-- Facebook -->
+  <meta property="og:url" content="https://spiralatlas.github.io/making-your-visual-novel-accessible/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Making Your Visual Novel Accessible">
+  <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
+  <meta property="og:site_name" content="Spiral Atlas Games">
+  <meta property="og:locale" content="en_AU">
+  <meta property="article:author" content="Sean Atlas">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@spiral_atlas">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/making-your-visual-novel-accessible/">
+  <meta name="twitter:title" content="Making Your Visual Novel Accessible">
+  <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
+
+  <title>Making Your Visual Novel Accessible</title>
+
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap"></noscript>
+
+  <link rel="stylesheet" href="/site.css" />
+</head>
+
+<body class="text-gray-700 bg-gray-100 dark:bg-gray-900 dark:text-gray-400">
+
+  <nav class="flex flex-no-wrap justify-between max-w-5xl mx-auto">
+
+  <a class="flex-1" href="https://spiralatlas.github.io/">Spiral Atlas Games</a>
+
+  <ul class="flex items-center justify-end flex-1">
+
+    <li class="px-3 md:px-6"><a id="toggle" aria-label="light dark toggle" class="text-gray-700 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-700" href="#">
+      <i id="pref" class="align-middle material-icons">brightness_4</i>
+      <i id="moon" class="hidden align-middle material-icons">brightness_2</i>
+      <i id="sun" class="hidden align-middle material-icons">brightness_5</i>
+    </a></li>
+
+    
+      <li class="px-3"><a class="uppercase" href="/">Home</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/about">About</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/blog">Blog</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/tags">Tags</a></li>
+    
+  </ul>
+
+</nav>
+
+
+  <main class="max-w-5xl mx-auto prose">
+<h1>Making Your Visual Novel Accessible</h1>
+<p>Tags: 
+
+
+<a href="/tags/posts/" class="post-tag">posts</a>,
+
+
+<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
+
+
+<a href="/tags/accessibility/" class="post-tag">accessibility</a>,
+
+
+<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
+
+
+<a href="/tags/visual-novels/" class="post-tag">visual novels</a>,
+ 
+</p>
+<time datetime="2021-11-03"> 03 Nov 2021</time>
+
+<p>There's a lot of general guides to accessibility in video games but they can be a bit overwhelming, and I haven't seen any focussing on the stuff that comes up with visual novels, and other games that primarily revolve around reading text, looking at images, and clicking buttons.</p>
+<p>I'm not an accessibility expert, just a well meaning developer, and this post is kinda slapdash. Don't take anything I say as gospel, and if I've missed/misrepresented anything, please let me know!
+<cut></p>
+<h4>General philosophy</h4>
+No game can be accessible to literally everyone, the goal is to make the game as enjoyable and playable as possible for as many people as possible. And not just disabled people, accessibility features make games more fun for everyone. All options are accessibility options for someone, and there's no neat line between disabled players and everyone else. Making your game accessible is really just a specific facet of generally making your game <i>good</i>.
+<p>The first priority is that it's playable at all. The second priority is that players get the full experience.</p>
+<p>And I suppose the zeroeth priority is that if your game is intractably inaccessible in some way, then just make sure players can tell. That way they can move on to a game they <i>can</i> play, instead of paying/downloading and being disappointed.</p>
+<p>For example: blind players can only understand information provided in images if an alternate description is added.</p>
+<p>If your 'start' button uses an image with no description, blind players literally cannot start your game. If your backgrounds don't have descriptions, they can play your game but will miss out on the environmental storytelling.</p>
+<p>So, if possible, you should have image descriptions for all visual elements. But if you just focus on vital things like user interface elements then that's better than nothing. And if you are unable or unwilling to make your game playable for visually impaired players, make that clear on the game page.</p>
+<p>General Accessibility Guides and Tools:</p>
+<ul><li><a href="http://gameaccessibilityguidelines.com/">Game Accessibility Guidelines</a> These are nicely organised and very much worth checking out!
+<li><a href="https://www.color-blindness.com/coblis-color-blindness-simulator/">Coblis—Color Blindness Simulator</a>
+</ul>
+<h4>Basics</h4>
+These are things you should always try to include in your visual novel. 
+<ul>
+<li> Skip: Fast forwards through text, generally has the option to only skip text the player has already seen. Useful for games with repeated sections that a player is likely to see more than once. Those of us who experience pain from too much clicking need this feature more than most, but it's useful for basically everyone. 
+<li> Autoplay: Advances the text automatically after a pause. Many players, myself included, can manage the occasional click but will experience pain or frustration if we have to click constantly to advance the text. 
+<li> Self Voicing: The game interfaces with the player's computer's text to speech function to read out the text of the game and add extra descriptions of visual elements. Helps visually impaired players. Included in Ren'py by default, for other engines you may have to just output the text to the clipboard and let the player handle it. Make sure you include any important text or other information shown as images.
+<li> Keyboard navigation: Some players can only use keyboard controls, so make sure your game doesn't unnecessarily assume the ability to use a mouse.
+<li> Large text size: Either have all text large by default, or give the option to change to larger text. If you have multiple text sizes, make sure the game actually works with all of them. 
+<li> Key Remapping: Players can change which keys have what effect. This comes up as important in a lot of accessibility guides and I have to be honest: I've never figured out how to make it work. As far as I can tell it's <i>less</i> important for games where players don't have to react quickly, but it's still better to offer if you can.
+<li> Simple, easy to understand language and user interface: This is good for everyone, but especially players with cognitive issues.
+<li> Don't rely on sound: Make sure all dialogue has subtitles, and any important sounds have text descriptions.
+</ul>
+<h4>Readability</h4>
+Playing a visual novel is mostly reading text, so you should make that as easy for the player as possible. Even people with perfect vision will get annoyed if they have to read lots of hard to read text. 
+<p>By default, you should use relatively large text in a simple font against a contrasting colour. This applies to the main text as well as the user interface, and any important in-game text like letters.</p>
+<p>You can test if something is colourblind friendly by looking at it in black and white and making sure everything is still readable.</p>
+<p>If you want, you can offer different fonts, text sizes, text box opacity, and colour options, but this requires a little extra work.</p>
+<h4>Audibility</h4>
+I don't use a lot of sound in my games so haven't looked into this very hard myself. But if you have a combination of music, sound effects, dialogue etc, it's good to make sure anything containing information is clear, and to let the player change the volumes or turn the sound off separately in case they have issues processing too much sound at once, or find certain sounds difficult to deal with, etc. 
+<h4>Described images and music</h4>
+Beyond the basic text of the game, visual novels by definition have a visual element, and often also include sounds and music.
+<p>It's vital to add descriptions to those parts that are core features of the game, such as user interface elements and the keys to puzzles etc. But it also adds a lot to the player's experience  to generally know what things look like and how they sound.</p>
+<h4>Non-standard visual novel elements</h4>
+I'm not going to go into all the many different sorts of non-standard mini-games and mechanics that show up in visual novels. But in general, if your game requires any skill beyond reading text and clicking buttons at your own pace, some players who are fine with typical VNs may find your game difficult or impossible. 
+<p>One of the most common issues is with timed sections or actions which require fast reaction speeds, even those that seem generous/easy to able bodied people.</p>
+<p>The easiest way around this is to make these parts skippable/avoidable. Have an option in the menu to remove time limits on making choices, for example, or have a &quot;skip minigame&quot; button. Otherwise, check out <a href="http://gameaccessibilityguidelines.com/">Game Accessibility Guidelines</a> for general suggestions on making various game mechanics accessible.</p>
+<p>And once again, if you can't make it accessible, at least let players know what they're getting into.</p>
+<p>This all helps not only disabled players, but also those who simply find such mechanics irritating, which may be more players than you think.</p>
+<h4>Ren'py Accessibility Features and Tools</h4>
+I make my games in the visual novel engine <a href="https://www.renpy.org/">Ren'py</a>. It has a lot of accessibility features included as standard, like self voicing and autoplay. As far as I can tell it's harder, but not impossible, to include these features in games made in Unity etc, but it's not something I'm personally familiar with. I wrote this all based on Ren'py 7.4.10, later versions may be different.
+<p>Although Renpy's accessibility features are included automatically, it's worth making sure they function well with your game in particular.</p>
+<p>Key Remapping: <I>Not</i> automatically included, and I have yet to figure out how to make it work :(</p>
+<p>Autoplay and skip: Automatically included. Just don't remove them from the menu!!</p>
+<p>Keyboard navigation: Automatically included, but can be broken by minigames etc if you're not careful.</p>
+<p>Sound options: Sounds are divided into music, sound effects, and voice, with separate channels and volume controls. So make sure to declare your sounds as the right type.</p>
+<p><a href="https://www.renpy.org/doc/html/self_voicing.html">Self Voicing</a>: The player's computer reads out the text of the game. Enabled by pressing 'v'. This works well with normal buttons and dialogue etc but can go weird with things like screens and tables of data. Has the option to add extra descriptions that only show up when self voicing is enabled, which is vitally important for any text/information shown as images.</p>
+<p>Accessibility menu: opened by pressing 'a'. This menu is functional but ugly, so a lot of devs prefer to create their own prettier versions of these options in the preferences menu.</p>
+<ul><li>Font Override: Can go weird if you've built your game around an unusually shaped font, so check to make sure it works. 
+<li>Text size and line spacing: these don't automatically scale the text box/menus etc, so the game very easily becomes unreadable after any significant change. <a href="https://spiral-atlas.dreamwidth.org/2130.html">Here's how I implement text size options in my own games</a>.
+<li>High contrast text: Effective for colourblind etc players, but super ugly!
+<li>Self voicing: I don't know anything useful about these options.
+<li>Self Voicing Drop: I have no idea what this does! 
+</ul>
+<p>Ren'py Accessibility Tools:</p>
+<ul><li><a href="https://npckc.itch.io/caption-tool-for-renpy">Caption Tool for Ren'py</a>: makes it easier to do image and sound captions. 
+<li><a href="https://minute.itch.io/renpy-accessibility">Ren'Py Accessibility Add-On</a> A prettier version of the in-built accessibility menu, plus a text box opacity option. Note: The text size options are limited, and accessibility guidelines generally discourage separating accessibility options from other preferences like this. 
+<li><a href="https://tofurocks.itch.io/renpy-gui-template">Ren'Py All-In-One GUI Template</a>: Combines a wide variety of tools into a single package, including the two above.
+</ul>
+<h4>Accessibility Tools And Features In Other Engines</h4>
+<p>Note that I haven't tested these myself. More suggestions appreciated!</p>
+<ul>
+<li><a href="https://assetstore.unity.com/packages/tools/gui/ui-accessibility-plugin-uap-87935">UI Accessibility Plugin (UAP)</a> A free Unity plugin to make your project compatible with screen readers
+<li><a href="https://www.raywenderlich.com/5783444-improving-accessibility-in-unity-games-part-1">Improving Accessibility in Unity Games – Part 1</a>
+</ul>
+<h4>Little Tips and Tricks</h4> 
+<ul><li>Names like "???" sound awkward with screenreaders, so it's better to use a specific name like "Strange voice" if you can. 
+</ul>
+
+</main>
+
+
+  <footer class="text-center">
+
+  <ul class="flex justify-center my-10">
+    
+    <li class="px-5 sm:px-10"><a href="https://mastodon.gamedev.place/@spiralatlas" aria-label="mastodon">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="mastodon" viewbox="0 0 24 24"><path fill="currentColor" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://twitter.com/spiral_atlas" aria-label="twitter">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="twitter" viewbox="0 0 24 24"><path fill="currentColor" d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://spiralatlas.tumblr.com/" aria-label="tumblr">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="tumblr" viewbox="0 0 24 24"><path fill="currentColor" d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://github.com/spiralatlas" aria-label="github">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="github" viewbox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></div>
+    </a></li>
+    
+  </ul>
+
+</footer>
+
+
+  <script src="/themetoggle.js"></script>
+  <script async src="/topscroll.js"></script>
+  
+</body>
+</html>

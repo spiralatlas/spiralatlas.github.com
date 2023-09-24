@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <!-- https://github.com/joshbuchea/HEAD -->
+  
+  <!-- Recommended -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta -->
+  <meta name="description" content="Small Australian creator of visual novels and other diversions." />
+  <meta name="author" content="Sean Atlas" />
+  <meta name="generator" content="Eleventy">
+
+  <!-- Link -->
+  <link rel="alternate" href="" type="application/rss+xml" title="RSS">
+
+  <!-- Icons -->
+  <!-- https://favicon.io/favicon-generator/?t=CM&ff=Open+Sans&fs=75&fc=%23FFFFFF&b=rounded&bc=%23dc3545 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Social -->
+
+  <!-- Facebook -->
+  <meta property="og:url" content="https://spiralatlas.github.io/guide-to-the-renpy-sprite-creator/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Guide to the Renpy Sprite Creator">
+  <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
+  <meta property="og:site_name" content="Spiral Atlas Games">
+  <meta property="og:locale" content="en_AU">
+  <meta property="article:author" content="Sean Atlas">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@spiral_atlas">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/guide-to-the-renpy-sprite-creator/">
+  <meta name="twitter:title" content="Guide to the Renpy Sprite Creator">
+  <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
+
+  <title>Guide to the Renpy Sprite Creator</title>
+
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap"></noscript>
+
+  <link rel="stylesheet" href="/site.css" />
+</head>
+
+<body class="text-gray-700 bg-gray-100 dark:bg-gray-900 dark:text-gray-400">
+
+  <nav class="flex flex-no-wrap justify-between max-w-5xl mx-auto">
+
+  <a class="flex-1" href="https://spiralatlas.github.io/">Spiral Atlas Games</a>
+
+  <ul class="flex items-center justify-end flex-1">
+
+    <li class="px-3 md:px-6"><a id="toggle" aria-label="light dark toggle" class="text-gray-700 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-700" href="#">
+      <i id="pref" class="align-middle material-icons">brightness_4</i>
+      <i id="moon" class="hidden align-middle material-icons">brightness_2</i>
+      <i id="sun" class="hidden align-middle material-icons">brightness_5</i>
+    </a></li>
+
+    
+      <li class="px-3"><a class="uppercase" href="/">Home</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/about">About</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/blog">Blog</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/tags">Tags</a></li>
+    
+  </ul>
+
+</nav>
+
+
+  <main class="max-w-5xl mx-auto prose">
+<h1>Guide to the Renpy Sprite Creator</h1>
+<p>Tags: 
+
+
+<a href="/tags/posts/" class="post-tag">posts</a>,
+
+
+<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
+
+
+<a href="/tags/renpy/" class="post-tag">renpy</a>,
+
+
+<a href="/tags/renpy-sprite-creator/" class="post-tag">renpy sprite creator</a>,
+
+
+<a href="/tags/my-games/" class="post-tag">my games</a>,
+
+
+<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
+ 
+</p>
+<time datetime="2019-08-28"> 28 Aug 2019</time>
+
+<p><a name="top"></a>Contents:</p>
+<ul><li><a href="#about">About This Creator</a>
+<li><a href="#images">Images and scales</a>
+<li><a href="#simple">Simple sprites in black and white</a>
+<li><a href="#dollmaker">The Dollmaker</a><ul><li><a href="#basic">Basic instructions</a>
+<li><a href="#details">Details</a><ul><li><a href="#general">General</a>
+<li><a href="#colour">Colour chooser</a>
+<li><a href="#body">Body Editor</a>
+<li><a href="#outfit">Outfit Editor</a> 
+<li><a href="#expression">Expression Editor</a><li><a href="#settings">Settings</a> </ul></ul><li><a href="#code">Code details</a><ul><li><a href="#structure">Basic Structure</a> 
+<li><a href="#dollparts">The parts of a sprite</a>
+<li><a href="#functions">Functions</a>
+<li><a href="#examples">Examples</a>
+</ul><li><a href="#layered">Layered image files</a>
+<li><a href="#adding">Adding your own images and textures to the dollmaker</a>
+<li><a href="#python">The Python script</a>
+<li><a href="#working">Working with other Visual Novel engines</a>
+<li><a href="#using">Using the dollmaker code for your own projects</a></ul>
+<p>There is a html version of these instruction at https://spiral-atlas.dreamwidth.org/1357.html
+<cut></p>
+<p><a name="about"></a><h2>About This Creator:</h2>
+This is a guide to the <a href="https://spiralatlas.itch.io/renpy-sprite-creator">Renpy Sprite Creator</a> from Spiral Atlas Games, a tool for creating sprites for Renpy and other Visual Novel programs. It is no way officially affiliated with the Renpy engine, it's just designed for use within Renpy games.</p>
+<p>Download the latest version of this tool at https://spiralatlas.itch.io/renpy-sprite-creator. Please contact me there if you need help, hit a bug, or have suggestions for later releases.</p>
+<p>Although this tool is primarily intended for Renpy developers, it's possible to create flat sprites that could be used in other visual novel engines, as described in the section &quot;Working with other Visual Novel engines&quot;.</p>
+<p>The contents of this tool are released under a Creative Commons license, including the art and code, and can be used for commercial works.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dct:title" rel="dct:type">Renpy Sprite Creator</span> by <span xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Spiral Atlas Games</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://spiralatlas.itch.io/renpy-sprite-creator" rel="dct:source">https://spiralatlas.itch.io/renpy-sprite-creator</a>.</p>
+<p><a name="images"></a><h2>Images and sprite_scale</h2>
+The images are all saved as 428x1200 pixel black and white pngs in the spritecreator_images folder, with names of the form:
+<pre>pix_{imagetype}_{imagename}.png</pre>
+So for example, <i>pix_hat_crown.png</i> is a picture of a hat, specifically a crown. It's within the <i>/spritecreator_images/clothes/hats</i> folder.</p>
+<p>You don't have to remember these names, since the dollmaker will pick them out for you.</p>
+<p>The tool creates sprites by colouring and layering these images, then scaling and cropping them.</p>
+<p>Each sprite's size is defined by two dimensions: the floor and the size. The floor is how many pixels the sprite is cut off above it's feet, and the height is how many pixels tall it is once cropped. This includes the empty space above the sprite's head.</p>
+<p>The <i>sprite_scale(floor,height)</i> transform resizes any 1200 pixel image into a <i>{height+floor}</i> pixel tall image, then crops off the bottom <i>{floor}</i> pixels, leaving a <i>{height}</i> pixels tall image.</p>
+<p>The default dimensions are a floor of 200 and height of 750.</p>
+<p><a name="simple"></a><h2>Simple sprites in black and white</h2>
+The code defines a pix layeredimage sprite which just uses the black and white images in their unedited form. It's 1200 pixels high, so to create a useable black and white sprite of a custom height, create a proxy, eg:</p>
+   <pre>image pix_sprite = LayeredImageProxy("pix", sprite_scale(200,750))</pre>
+<p>is 750 pixels tall, with the bottom 200 pixels cut off.</p>
+<p>If you want to show this sprite wearing a crown, call it like so:</p>
+   <pre>show pix_sprite crown</pre>
+<p>and Renpy will automatically know to use the image <i>pix_hat_crown.png</i> for the sprite's hat. Unfortunately there's many repeated image names so this sprite is best used if you want something featureless but simple.</p>
+<p><a name="dollmaker"></a><h2>The Dollmaker</h2>
+The dollmaker lets you create coloured, patterned, resized sprites with a variety of outfits, bodies, and expressions, and returns the code required to call them from within your renpy project.</p>
+<p><a name="basic"></a><h3>Basic instructions for using the Dollmaker to create sprites</h3></p>
+<ol>
+<li>
+<p>Have a Renpy project ready to put the sprites into. Place a copy of the <i>/spritecreator_images</i> folder within your project's <i>/images</i> folder, and a copy of the <i>/spritecreator_scripts</i> folder within your project's <i>/game</i> folder.</p>
+</li>
+<li>
+<p>Open the Renpy Sprite Creator game. Click through to the dollmaker.</p>
+</li>
+<li>
+<p>Tweak the settings until you like the look of your sprite.</p>
+</li>
+<li>
+<p>Select &quot;Copy Body/Outfit&quot; to copy your sprite's code to the clipboard. Paste this code into a text editor.</p>
+</li>
+<li>
+<p>If you want to create custom expressions: Select &quot;Copy Expression&quot; to get code for each specific expression. Paste the relevant line of this into the <i>emotion</i> section of the base code, either overwriting an existing emotion or creating a new one.</p>
+</li>
+<li>
+<p>Do a search and replace for <i>temp_name</i>, changing it to the name of your character.</p>
+</li>
+<li>
+<p>Post this code into your Renpy project.</p>
+</li>
+</ol>
+<p>You should be able to use your sprite!</p>
+<p>Note: Using a lot of sprites with patterns or extra items may make Renpy run slowly or crash. If using dollmaker sprites slows your game down too much, use simpler sprites, or use the python script described below to create flattened images.</p>
+<p><a name="details"></a><h3>Doll maker details</h3><a name="general"></a><h4>General:</h4>
+On the left-hand side of the screen is an image of the current doll being edited.</p>
+<p>On the right-hand side of the screen is the editor window, showing the Body Editor, Outfit Editor or Expression editor.</p>
+<p>These screens allow you to edit the properties of the different parts of the sprite:
+<u>Style:</u> The style/shape/kind of item
+<u>Colour:</u> the fill colour
+<u>Line:</u> the line colour
+<u>Pattern:</u> The pattern
+<u>P. Colour:</u> The pattern colour</p>
+<p>See <a href="#dollparts">The parts of a sprite</a> for a description of each part.</p>
+<p>The Style and Pattern buttons cycle through all possible options, including &quot;none&quot;.</p>
+<p>The colour/linecolour/patterncolour buttons lead to the colour picking screen.</p>
+<p>Some items are edited as a group, eg the front, middle, and back parts of the hair are automatically given the same colour/linecolour/pattern/patterncolour.</p>
+<p>Below the editing options are buttons to navigate between the Body Editor, Outfit Editor and Expression editor. There's also a Randomise button, which randomises the options on the screen, and the Settings button.</p>
+<p>Below that are the copying buttons:</p>
+<p><u>Copy Body/Outfit:</u> The code for the current doll, with default expressions happy, sad, kinda_happy, kinda_sad, afraid, flirty, surprised, angry. This includes the code for the default face colours.</p>
+<p><u>Copy Expression:</u> The code for the current expression: eyebrows, eyes, cheeks, and mouth. Includes the current face colours, which can be either used or ignored depending on which line of code you use.</p>
+<p><u>Done:</u> Quit the doll maker.</p>
+<p><a name="colour"></a><h4>Colour Choice Screen</h4>
+This screen displays the current colour for whatever is being edited on the palette and on the bottom of the screen. If you have trouble seeing colours, pressing V will turn on self voicing, which includes simple colour descriptions.</p>
+<p>There are two palettes: a broad spectrum of colours organised by hue, and a more restricted set of small palettes with harmonious colour schemes. The harmonious palettes are designed for creating harmonious outfits.</p>
+<p><u>Switch Palettes</u>: Switches between the spectrum of colours, and the set of harmonious palettes.</p>
+<p><a name="body"></a><h4>Body Editor: Edit the skin and hair</h4>
+<u>Dimensions:</u> the floor and height of the sprite.
+Actual Size/Full Body: whether to show the sprite's real size, or scale it to show the entire body onscreen.</p>
+<p><u>Skin:</u> set the colour/line/pattern/patterncolour for the head and body. Styles are set individually below.</p>
+<p><u>Hair:</u> set the colour/line/pattern/patterncolour for the hair. Styles are set individually below.</p>
+<p><u>Ears:</u> All the ear settings. The &quot;Match Body&quot; button matches the colour/line/pattern/patterncolour to the head and body.</p>
+<p><u>Head/Body:</u> set the style</p>
+<p><u>Nose:</u> Set the style and colour. Note that the line colour is the same as the head and body, but the fill colour can be different. This only matters for animal type noses.</p>
+<p><u>Hair back/Hair middle/Hair front/Facial Hair:</u> set the styles of all the different parts of the hair.</p>
+<p><a name="outfit"></a><h4>Outfit Editor: Edit the clothes and accessories</h4>
+&quot;Dec&quot; is short for decoration.</p>
+<p>Note that while the dollmaker only allows one of each item, displayed in a set order, you can add extras or change the order in the code.</p>
+<p>While most of these are clothes, there's also a few body parts: wrinkles and freckles in the &quot;Face Dec&quot; section, tails in the &quot;Back&quot; section, and breast shape outlines in the &quot;Torso Dec&quot; section.</p>
+<p><a name="expression"></a><h4>Expression editor: Edit the eyebrows, eyes, cheeks, and mouth</h4>
+The expression is controlled separately from the rest of the doll: while the body and clothes stay the same, the eyebrows, eyes, cheeks, and mouth change with different emotions.</p>
+<p>None of these parts can have patterns added.</p>
+<p>The eyes consist of two parts, each with their own colours: First is the iris. In front of that is the eye_shape, which is the eyelashes, pupil, and sclera/whites. Not all eye_shape styles have a visible iris.</p>
+<p><u>Eyebrows:</u> these just have a shape because their lines are set by the face lines, and none of the current eyebrow art has a visible fill colour.</p>
+<p><u>Eye shape:</u> The shape and fill colour of the eyes. Controls the iris shape automatically.</p>
+<p><u>Iris:</u> The line and colour. The &quot;line&quot; colour affects the shade of the shadow at the top.</p>
+<p><u>Mouth:</u> just a shape because the lines are set by the &quot;Face&quot; linecolour. Some of the mouth styles can look odd with anything but red or black lines. You can edit the fill colour in the code but it might look strange.</p>
+<p><u>Face line colour:</u> sets the line colour for the eyebrows, eye lines, and mouth. These can all be set separately in the code.</p>
+<p><a name="settings"></a><h4>Settings</h4>
+The Settings screen has three options:</p>
+<p><u>Colour Randomness:</u> This controls how restricted the colours are when you randomise the options on a screen.</p>
+<ol><li>Realistic: human-plausible skin/eye/hair colours, ears match the face, outfit colours chosen from the set of pre-defined palettes. Line colours are matched to the fill colour. There's a few other limitations, like always having a head.<li>Tastefully Creative: skin/eye/hair can be any colour, but sclera of the eyes are white. Outfit colours are randomly generated but within palettes that use similar or complimentary colours. Line colours are matched to the fill colour. <li> "No LIMITS" chooses colours and linecolours entirely at random.</ol>
+<p><u>Line Colours</u>: <ol><li>Automatic: Line colours are chosen by the software to match the fill colour (darker for light colours, and lighter for dark colours)<li>Custom: Line colours are left to the user to choose. </ol></p>
+<p><u>Accessibility</u>: <ol><li>Self Voicing: Allows the user to turn on self voicing, which canm also be achieved by pressing 'v'.<li>More Options: links to Renpy's in-built accessibility menu.</ol></p>
+<p><a name="code"></a><h3>Code Structure</h3>
+So! You've made a body/outfit you like, and copied the code to a text file, along with code for all the different expressions you want for your sprite. If you're happy with the sprite as it is now, you can stop there. But if you want to tweak it, you'll need to understand how the code works.</p>
+<p>To understand this section you'll need a moderately good grasp of Ren'py and LayeredImages. Check out https://tofurocks.itch.io/renpytut-layeredimage for a good introduction.</p>
+<p><a name="structure"></a><h4>Basic Structure</h4>
+The code is divided into several parts.</p>
+<p>First is an init block that defines the face colours. It's of the form:</p>
+<pre>init:
+    # [iris shadow colour, iris fill colour, eye linecolour, eye fill colour, 
+       cheek line colour, cheek fill colour, eyebrow line colour, eyebrow fill colour,
+       mouth line colour, mouth fill colour]
+    $ {name}_facecolours = { whatever the face colours are }</pre>
+<p>The dollmaker outputs face colours where the eye linecolour, eyebrow line colour and mouth line colour are all the same, but you can edit them here if you want. The cheek fill and eyebrow fill colours don't have any effect on the current art for those items. The mouth fill will look weird as anything but white but you can still edit it if you want.</p>
+<p>Next is the actual image definition. It starts:</p>
+<pre>layeredimage {name}:
+
+    at sprite_scale({floor},{height})</pre>
+<p>which gives the name, and transforms/crops it to have the right floor and height respectively.</p>
+<p>Now to show all the parts of the sprite, from bottom to top.</p>
+<p>First are all the items below the face. These involve calls to <i>show_item</i> and <i>show_item_pattern</i>, as defined below.</p>
+<p>Then come the expressions:</p>
+<pre>group emotion:
+        attribute {feeling1}:
+            show_expression( parts of the face )
+	attribute {feeling2}:
+            show_expression( parts of the face )
+            ...</pre>
+<p>Then come all the items above the face, which again involve calls to <i>show_item</i> and <i>show_item_pattern</i>.</p>
+<p>You can rearrange the order of the items but it may look odd.
+<a name="dollparts"></a><h4>The parts of a sprite</h4></p>
+<p>From back to front:</p>
+<ul><li><u>back</u>: Things like tails or wings that go behind clothes
+<li><u>coat_back</u>: The back of the coat, if visible. Set automatically by the dollmaker.
+<li><u>hat_back</u>: The back of the hat, if visible. Set automatically by the dollmaker.
+<li><u>hair_back</u>: The part of the hairstyle behind the head.
+<li><u>ears</u>: Includes cat/bunny ears. The dollmaker only allows for one set of ears at a time.
+<li><u>body</u>: The body except for the head.
+<li><u>head</u>
+<li><u>iris</u>: The coloured part of the eye
+<li><u>eye_shape</u>: The eyelashes, eye lines, pupils, and whites of the eyes
+<li><u>mouth</u>
+<li><u>eyebrows</u>
+<li><u>socks</u>, <u>gloves</u>, <u>shoes</u>
+<li><u>top</u>: Shirts, undershirts etc
+<li><u>bottom</u>: Underpants, skirts, trousers etc
+<li><u>necklace</u>: Necklaces and ties
+<li><u>torso_dec</u>: Belts, collars, corsets etc. 
+<li><u>coat</u>
+<li><u>chest</u>: Breasts, if the character has them. Set automatically by the dollmaker. Should match the top layer of clothing that covers the chest.
+<li><u>front</u>: Collars, belts etc that cover the coat.
+<li><u>nose</u>
+<li><u>facial_hair</u>
+<li><u>face_dec</u>:  Facial decorations that sit under the hair. Includes glasses etc but also some facial features like freckles and wrinkles.
+<li><u>hair_middle</u>: Hair that sits under the bangs/fringe but in front of the face.
+<li><u>hair_front</u>: Bangs/fringe and the top of the head.
+<li><u>hat</u>
+</ul>
+<p><a name="functions"></a><h4>Functions</h4>
+Colours are in hex format. Here's an explanation for how hex codes work: https://www.pluralsight.com/blog/tutorials/understanding-hexadecimal-colors-simple</p>
+<p>If you paste a hex code into a colour picker you can see what colour it is: https://www.google.com/search?q=color+picker</p>
+<p>But most of the time you can just use whatever colour the dollmaker spits out without worrying about it.</p>
+<p>Here's some example colours to get started:</p>
+<pre>#000000: black
+#FFFFFF: white
+#ff0000: red
+#00ff00: blue
+#0000ff: green</pre>
+<p>Here are the main functions that show up in sprites made using this tool:</p>
+<p><pre>sprite_scale(floor,height)
+eg sprite_scale(100,800) is a 800 pixel tall sprite with just the bottom
+100 pixels of it's legs cropped off.</pre>
+There are two functions for showing an item of clothing or part of the body. The first just has flat colour:</p>
+<p><pre>show_item(item_type, item, linecolour, colour)
+eg: show_item(&quot;hat&quot;, &quot;crown&quot;, &quot;#00000&quot;, &quot;#FFFFFF&quot;) shows a white crown lined in black.</pre>
+If you want to add a pattern, use:</p>
+<p><pre>show_item_pattern(item_type, item, linecolour, colour, pattern, patterncolour)
+eg: show_item_pattern(&quot;hat&quot;, &quot;crown&quot;, &quot;#00000&quot;, &quot;#FFFFFF&quot;,&quot;polkadots&quot;, &quot;#ff0000&quot;)
+shows a white crown lined in black with red polkadots.</pre>
+There is one function for showing an expression:</p>
+<p><pre>show_expression_full(eyebrows, eye_shape, cheeks, mouth, colours)
+where colours = { iris shadow colour, iris fill colour, eye linecolour, eye fill colour,
+cheek linecolour, cheek fill colour,
+eyebrow line colour, eyebrow fill colour,
+mouth line colour, mouth fill colour}
+eg: show_expression(&quot;none&quot;, &quot;halfclosed&quot;, &quot;blush&quot;, &quot;shout&quot;,
+{&quot;#000000&quot;, &quot;#ff0000&quot;, &quot;#0000ff&quot;, &quot;#FFFFFF&quot;,&quot;#00ff00&quot;,
+&quot;#00ff00&quot;,&quot;#0000ff&quot;, &quot;#FFFFFF&quot;,&quot;#0000ff&quot;, &quot;#FFFFFF&quot; })
+shows an expression with no eyebrows, halfclosed red eyes with white sclera,
+blue blush, and a shouting mouth. All the lines are green.</pre>
+That's a lot of colours to keep track of, but the dollmaker provides a variable called <i>{character_name}_facecolours</i> you can just substitute into expressions. The dollmaker makes the eyebrow and mouth lines match the eye_shape, but you can change that in the code.</p>
+<p>The dollmaker outputs items in a specific order, but you can rearrange them or add extras.</p>
+<p><a name="examples"></a><h4>Examples</h4>
+All of these sprites are in the &quot;spritecreator examples.rpy&quot; file, and the  Sprite Creator game. If there's a character in the game whose code you're curious about, look up it's name in the script. Here's a few instructive examples of increasing complexity.</p>
+<p>Consider the wizard sprite. It starts with:</p>
+<pre>init:
+    # {iris shadow colour, iris fill colour, eye linecolour, sclera colour, 
+       cheek line colour, cheek fill colour, eyebrow line colour, eyebrow fill colour,
+       mouth line colour, mouth fill colour}
+    $ wizard_facecolours = {"#00004f", "#cf7fcf", "#2b230f", "#ffffff", "#ff9f9f", 
+                            "#ff9f9f", "#2b230f", "#ffffff", "#2b230f", "#ffffff"}</pre>
+<p>which are the colours chosen in the dollmaker. Since I'm not messing with them, I can ignore them.</p>
+<p>It's <i>at sprite_scale(200,750)</i>, which is about average size.</p>
+<p>Next comes the back of the coat, and short curly hair, then in front of that are the ears, body, and head, with colours as picked in the dollmaker.</p>
+<p>The expression code is just:</p>
+<pre>group emotion:
+        attribute blep:
+            show_expression("regular","wink","blush","blep", wizard_facecolours)</pre>
+<p>which is regular eyebrows, winking eyes, blushing cheeks, and a mouth with a tongue sticking out, using the colours from wizard_facecolours.</p>
+<p>In front of the face is the nose, glasses, shoes, etc. Note that there's two &quot;front&quot; items, even though the dollmaker only lets you pick one of each item type:</p>
+<p><pre>always show_item_pattern(&quot;front&quot;,&quot;scarf&quot;,&quot;#00001f&quot;,&quot;#575757&quot;,&quot;horizontalstripe&quot;,&quot;#000027&quot;)
+always show_item_pattern(&quot;front&quot;,&quot;scarfwrap&quot;,&quot;#00001f&quot;,&quot;#575757&quot;,&quot;horizontalstripe&quot;,&quot;#000027&quot;)</pre>
+How I created this code was I made one version of the wizard with the <i>scarf</i> style of front in the colours I wanted, and used that as the base. Then I changed the <i>front</i> style to the <i>scarfwrap</i>, and picked those colours, then copied the new code to another text file. I cut and pasted the line of code for the <i>scarfwrap</i> into the first file.</p>
+<p>Also the shirt <i>top</i> has been shifted in front of the trousers <i>bottom</i> to look a little messier.</p>
+<p>Now consider the goth:</p>
+<pre>init:
+    # {iris shadow colour, iris fill colour, eye linecolour, sclera colour, 
+       cheek line colour, cheek fill colour, eyebrow line colour, eyebrow fill colour, 
+       mouth line colour, mouth fill colour}
+    $ goth_facecolours = { "#5f005f", "#379ddf", "#000000", "#ffffff", 
+                           "#ff5f5f", "#ff5f5f", "#ebdb57","#ffffff", "#cf0000", "#ffffff"}</pre>
+<p>This sprite has different colours for the eyebrow lines (yellow), eye linecolour (black), and mouth (red). I made three versions of the sprite and copied the body/outfit code each time, then pasted the relevant colours in the right places.</p>
+<p>Then the emotions just use the goth_facecolours variable:
+<pre>group emotion:
+attribute meh:
+show_expression(&quot;regular&quot;,&quot;narrow&quot;,&quot;none&quot;,&quot;dubious&quot;, goth_facecolours)
+attribute kinda_happy:
+show_expression(&quot;regular&quot;, &quot;narrow&quot;,&quot;none&quot;,&quot;smallsmile&quot;, goth_facecolours)</pre>
+The &quot;half&quot; pattern, which covers the left half of the image in a flat colour, allows for one red glove and one black:
+<pre>always show_item_pattern(&quot;gloves&quot;,&quot;fingerless&quot;,&quot;#000000&quot;,&quot;#bf0000&quot;,&quot;half&quot;,&quot;#000000&quot;)</pre>
+Now consider the demon sprite. It is the only example sprite not to have it's floor set to 200 pixels:</p>
+<p><pre>layeredimage demon:</p>
+<p>at sprite_scale(0,500)</pre>
+Instead, the floor is set to 0 pixels, which means the feet/legs aren't cropped at all. But the height is only 500 pixels, which is much less than the usual 750. So it's tiny with visible feet. You could also add a transform here to make it hang in the air and move about, but I did that via a custom transform in the script instead.</p>
+<p>It has different eyecolours depending on it's expression, so they have to be included in each emotion separately:</p>
+<pre>group emotion:
+       attribute mean_smile:
+           show_expression("angry","narrow","none","bigsmile", 
+                 {"#eba45e", "#000", "#632315", "#cc1414","#264a2f","#264a2f",
+                  "#632315", "#cc1414","#632315", "#cc1414"})
+        attribute tsundere:
+            show_expression("angry","narrowsideeye","blush","pout",
+                 {"#000", "#eba45e", "#632315", "#eba45e","#264a2f", "#264a2f",
+                  "#632315", "#eba45e","#264a2f", "#eba45e" })</pre>
+<p><a name="layered"></a><h2>Using the layered image files</h2>
+The itchio page for this project has two layered image files available for download:</p>
+<p>One is in Clip Studio Paint format (clip) and one in Photoshop format (psd). The Clip Studio Paint file has vectors, but can only read by the Clip Studio Paint program.</p>
+<p>If you don't have a copy of Clip Studio Paint, psd files can be read by most image editing programs, including free programs like GIMP and FireAlpaca.</p>
+<p>I'm not going to go into how to use image editing software, but it should be possible to approximate any sprite created in the dollmaker using these images, and they can be used as a base for your own art.</p>
+<p><a name="python"></a><h2>The Python Script</h2>
+There is a python script called generate_images.py which can be used to create images from the code outputted by the dollmaker. The sprites it creates load much faster, and have much simpler renpy code. It's a little janky and will break if you mess with the dollmaker code too much, but should work for the kinds of edited sprites given in the examples.</p>
+<p>To run the script, you need to have a copy of Python installed, as well as the extension Pillow. The current version of the generator was made to run with Python 3.9.1</p>
+<p>Download Python: https://www.python.org/downloads/
+Install Pillow: https://python-pillow.org/</p>
+<p>Before you run the script, paste the renpy code for a single sprite into the sprite_code.rpy file. Use a name that doesn't conflict with any existing sprites.</p>
+<p>To run the script, open a terminal window (Mac or Linux) or command line (Windows). Navigate to this renpy project, then navigate to the python_script folder, <i>Sprite Creator/game/python_script</i></p>
+<p>Type <i>python generate_image.py</i> at the prompt and wait until it's complete. This should only take a few seconds.</p>
+<p>A file called <i>{name}.rpy</i> will be created within the <i>/generated_renpy</i> folder.
+Images named <i>{name}_back.png</i>, <i>{name}<em>emotion</em>{feeling1}.png</i>, <i>{name}<em>emotion</em>{feeling2}.png</i> etc, and <i>{name}_back.png</i> will be created within the <i>/generated_sprites</i> image folder inside <i>/images</i>.</p>
+<p>The code needs to use the following structure, matching the output of the dollmaker:</p>
+<pre>init:
+    $ {name}_facecolours = { 9 colours in hex format}
+
+layeredimage {name}:
+
+    at sprite_scale({floor},{height})
+
+    {a list of uses of create_item and create_item_pattern for the items behind the face}
+
+    group emotion:
+        attribute {feeling1}:
+            create_expression({details})
+	attribute {feeling2}:
+            create_expression({details})
+	...
+
+    group cheeks:
+        attribute blush:
+            create_item("cheeks","blush",{cheek colour}, {cheek colour})
+
+    {a list of uses of create_item and create_item_pattern for the items in front of the face}</pre>
+<p>The face colours for each emotion can be given as a list of nine colours, or just the variable <i>{name}_facecolours</i>. All the emotions have to be in one block, but otherwise the script doesn't care what order things are listed in.</p>
+<p>If you use these generated images, you don't need to copy across the <i>/spritecreator_scripts</i> or <i>/spritecreator_images</i> folders into your project, just the relevant images from <i>/generated_sprites</i> and code from <i>/generated_renpy</i>.</p>
+<p>This script only recognises comments which start with a <i>#</i> symbol and include the whole line. It will get confused if you put more than one sprite's code in the <i>sprite_code.rpy/</i> file.</p>
+<p><a name="adding"></a><h2>Adding your own images and textures to the dollmaker</h2></p>
+<p>Adding an image to an existing part of the dollmaker is pretty straightforward.</p>
+<p>Any image should be in black and white, and any clothing/body item should have black lines and white fill. Look at the existing images to get an idea. Choose a short, informative name.</p>
+<p>I'll use the example of a texture called <i>spades.png</i>.</p>
+<ol>
+<li>
+<p>Save a copy of your image in the relevant folder of <i>images/spritecreator_images</i>. Follow the naming structure of the other images, <i>pix_{imagetype}_{imagename}.png</i>.  So for example, we would go into <i>images/spritecreator_images/pattern</i> and save the file as <i>pix_pattern_spades.png</i>.</p>
+</li>
+<li>
+<p>Go into <i>/spritecreator_scripts/shared_python.rpy</i>. Scroll down to the section that starts with &quot;## Initialise all the clothing etc lists&quot; and add the base name of the image to the relevant list. So for example, we would add <i>&quot;spades&quot;</i> to the <i>pattern_list</i> list.</p>
+</li>
+</ol>
+<p>And now the image should show up in the dollmaker!</p>
+<p><a name="working"></a><h2>Working with other Visual Novel engines</h2></p>
+<p>The process for creating sprites for other engines is pretty similar. But here's a summary  that minimises the amount of Renpy coding. You'll need to install Python and Pillow as described in the previous section.</p>
+<ol>
+<li>
+<p>Open the Renpy Sprite Creator game. Click through to the dollmaker.</p>
+</li>
+<li>
+<p>Tweak the settings until you like the look of your sprite.</p>
+</li>
+<li>
+<p>Select &quot;Copy Body/Outfit&quot; to copy your sprite's code to the clipboard. Paste this code into a text editor.</p>
+</li>
+<li>
+<p>OPTIONAL: If you want to create custom expressions: Select &quot;Copy Expression&quot; to get code for each specific expression. Paste the relevant line of this into the <i>emotion</i> section of the base code, either overwriting an existing emotion or creating a new one.</p>
+</li>
+<li>
+<p>Do a search and replace for <i>temp_name</i>, changing it to the name of your character.</p>
+</li>
+<li>
+<p>Paste this sprite code into the <i>sprite_code.rpy</i> file.</p>
+</li>
+<li>
+<p>Run <i>python generate_image.py</i> in a terminal window from <i>Sprite Creator/game/python_script</i>.</p>
+</li>
+<li>
+<p>Take the sprite images from the <i>/generated_sprites</i> image folder inside <i>/images</i> and use them in your project.</p>
+</li>
+<li>
+<p>To display the character <i>{name}</i> experiencing expression <i>{feeling}</i>, combine  <i>{name}_back.png</i>, <i>{name}<em>emotion</em>{feeling}.png</i> and <i>{name}_front.png</i> in that order.</p>
+</li>
+</ol>
+<p>If this process breaks for some reason, let me know, and if neccesary I'd be happy to generate your images for you based on sent renpy code.</p>
+<p><a name="using"></a><h2>Using the dollmaker code for your own projects</h2>
+I don't have instructions here because it depends on what you're doing with it, but it should be possible to adapt the dollmaker code to create a character creator for your game, either using my images or making your own.</p>
+<p>Some of the alt text code may quietly break if you change things, make sure to test with self-voicing enabled (press &quot;v&quot;) to know the program still runs for people using screenreaders.</p>
+<p>Check if rollback works, I have had trouble with that and dollmakers in the past.
+<a href="#top">Go to top</a></p>
+
+
+</main>
+
+
+  <footer class="text-center">
+
+  <ul class="flex justify-center my-10">
+    
+    <li class="px-5 sm:px-10"><a href="https://mastodon.gamedev.place/@spiralatlas" aria-label="mastodon">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="mastodon" viewbox="0 0 24 24"><path fill="currentColor" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://twitter.com/spiral_atlas" aria-label="twitter">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="twitter" viewbox="0 0 24 24"><path fill="currentColor" d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://spiralatlas.tumblr.com/" aria-label="tumblr">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="tumblr" viewbox="0 0 24 24"><path fill="currentColor" d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://github.com/spiralatlas" aria-label="github">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="github" viewbox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></div>
+    </a></li>
+    
+  </ul>
+
+</footer>
+
+
+  <script src="/themetoggle.js"></script>
+  <script async src="/topscroll.js"></script>
+  
+</body>
+</html>

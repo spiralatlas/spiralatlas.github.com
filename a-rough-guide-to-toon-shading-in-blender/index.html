@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <!-- https://github.com/joshbuchea/HEAD -->
+  
+  <!-- Recommended -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta -->
+  <meta name="description" content="Small Australian creator of visual novels and other diversions." />
+  <meta name="author" content="Sean Atlas" />
+  <meta name="generator" content="Eleventy">
+
+  <!-- Link -->
+  <link rel="alternate" href="" type="application/rss+xml" title="RSS">
+
+  <!-- Icons -->
+  <!-- https://favicon.io/favicon-generator/?t=CM&ff=Open+Sans&fs=75&fc=%23FFFFFF&b=rounded&bc=%23dc3545 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Social -->
+
+  <!-- Facebook -->
+  <meta property="og:url" content="https://spiralatlas.github.io/a-rough-guide-to-toon-shading-in-blender/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="A rough guide to toon shading in Blender">
+  <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
+  <meta property="og:site_name" content="Spiral Atlas Games">
+  <meta property="og:locale" content="en_AU">
+  <meta property="article:author" content="Sean Atlas">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@spiral_atlas">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/a-rough-guide-to-toon-shading-in-blender/">
+  <meta name="twitter:title" content="A rough guide to toon shading in Blender">
+  <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
+
+  <title>A rough guide to toon shading in Blender</title>
+
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap"></noscript>
+
+  <link rel="stylesheet" href="/site.css" />
+</head>
+
+<body class="text-gray-700 bg-gray-100 dark:bg-gray-900 dark:text-gray-400">
+
+  <nav class="flex flex-no-wrap justify-between max-w-5xl mx-auto">
+
+  <a class="flex-1" href="https://spiralatlas.github.io/">Spiral Atlas Games</a>
+
+  <ul class="flex items-center justify-end flex-1">
+
+    <li class="px-3 md:px-6"><a id="toggle" aria-label="light dark toggle" class="text-gray-700 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-700" href="#">
+      <i id="pref" class="align-middle material-icons">brightness_4</i>
+      <i id="moon" class="hidden align-middle material-icons">brightness_2</i>
+      <i id="sun" class="hidden align-middle material-icons">brightness_5</i>
+    </a></li>
+
+    
+      <li class="px-3"><a class="uppercase" href="/">Home</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/about">About</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/blog">Blog</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/tags">Tags</a></li>
+    
+  </ul>
+
+</nav>
+
+
+  <main class="max-w-5xl mx-auto prose">
+<h1>A rough guide to toon shading in Blender</h1>
+<p>Tags: 
+
+
+<a href="/tags/posts/" class="post-tag">posts</a>,
+
+
+<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
+
+
+<a href="/tags/blender/" class="post-tag">blender</a>,
+
+
+<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
+
+
+<a href="/tags/art/" class="post-tag">art</a>,
+ 
+</p>
+<time datetime="2021-05-23"> 23 May 2021</time>
+
+<p>I've been really getting into creating non photorealistic rendered backgrounds resembling anime, with flat colours and simple shapes.</p>
+<img src="../images/dreamwidth/11081.jpg" alt="A 3d render of a regency drawing room, in a cartoony cell shaded style. " title="drawing room" />
+<p>Everything I know comes from some really great Youtube tutorials but I haven't seen any broad guides laying out the general approach I personally use. I'm very new to this so I'm sure there's better methods out there, but if nothing else this can help point people towards some good tutorials!
+<cut>
+Everything assumes a basic understanding of Blender modelling and shading.</p>
+<p>If you're new to Blender, you should start with some more basic introductory tutorials, but there's heaps of those around. Make sure your tutorials are from July 2019 or later, since that's when Blender updated to version 2.8, which changed the user interface and rendering engine.</p>
+<p><a href="https://www.iphotography.com/blog/photoshop-blending-modes/">Here's a general guide to blending modes</a> if you haven't encountered them in digital art.</p>
+<p><u><b>Youtube Tutorials</b></u></p>
+<p>These cover a bunch of useful techniques, but I won't assume you've watched them in the later sections of this post.</p>
+<p>The main source of my tutorials is <a href="https://www.youtube.com/channel/UCAcXkKCYidxGU-VIA5z-ZzQ">Kristof Dedene</a>, his tutorials are clear and not too complicated to follow.</p>
+<p><a href="https://www.youtube.com/c/LightningBoyStudio">Lightning Boy Studio</a> has some effective but complex techniques that are a mostly bit much for me, but watching the tutorials was certainly very educational!</p>
+<p>Here's some specific techniques I use myself:</p>
+<ul>
+<li><a href="https://youtu.be/Y1UVOVauRcM">Procedural shaders for stylized/anime medieval buildings in blender</a> is a nice introduction to a bunch of useful shader techniques, and a good place to start.
+<li><a href="https://youtu.be/bLufj7Cy0lA">Ghibli/anime style ocean in Blender</a> 
+<li><a href="https://youtu.be/6hyztL8btlY">Ghibli/BoTW Anime Stylized Grass in Blender with EEVEE</a> This is reasonably straightforward and looks great, but doesn't have any shadows. 
+<li><a href="https://youtu.be/FHeBI5tAGP0">Ghibli style procedural rocks in blender</a> A bunch of techniques for shaping and texturing.
+<li><a href="https://youtu.be/DEgzuMmJtu8">How to Create Ghibli Trees in 3D</a> Conceptually complex modelling technique with very pretty results
+</ul>
+<p>Techniques I do not personally use but which may be helpful:</p>
+<ul><li><a href="https://youtu.be/RjDyR_lIWm4">Stylised animated grass and painting look in Blender</a> This grass has shadows but is hard to edit. Includes a brief example of making fur.
+<li><a href="https://www.youtube.com/watch?v=2k-YdMnqWUU&amp;list=PLAwREYhSGXfKEfiHZNzA3_BPjixUzVpio&amp;index=2">Daily Blender Tip 254 - Easy outline with the inverted hull method</a> Simple but lacks flexibility.
+<li><a href="https://youtu.be/dJcglkAEqN4">Freestyle Basics</a> Using Blender's in-built lines, tends to crash my computer if the model is too complex. 
+</ul>
+<p><u><b>Basic techniques</b></u></p>
+<p>This will all theoretically make sense without having watched the tutorials above but may be hard to follow. I'm doing static backgrounds with no lines, if you're interested in animation or adding lines this will be less useful. It was too hard to add image descriptions but if you open the images in another tab you can see a larger version.</p>
+<p>From what I've seen there are three main approaches:</p>
+<ol>
+<li>Just draw/paint a pre-shaded texture, often onto a flat plane, either procedurally or with images you made in an art program.</li>
+<li>Toon shading: Make a fairly realistic model and calculate the real shading, then simplify that shading into flatter colours.</li>
+<li>Creating a geometrically complex model, then replace the normals with those of a simpler model so that the shading is smoother.</li>
+</ol>
+<p>There's a huge variety of ways of doing the first sort of faked shading. Most of <a href="https://www.youtube.com/channel/UCAcXkKCYidxGU-VIA5z-ZzQ">Kristof Dedene</a>'s tutorials use it. For example, the wood floor in the example render at the top of this post is a flat plane with a wood texture based on the roof texture from the <a href="https://youtu.be/Y1UVOVauRcM">Procedural shaders for stylized/anime medieval buildings in blender</a> tutorial, plus my toon shading as below.</p>
+<p>The third technique is a bit fiddly and I've only had good results following <a href="https://youtu.be/DEgzuMmJtu8">How to Create Ghibli Trees in 3D</a> tutorial exactly.</p>
+<p>So for now I'll just explain the second technique, toon shading.</p>
+<p><b>Modelling</b></p>
+<p>The modelling techniques are generally the same as those used for any other sort of 3D model. But since the aim is to mimic hand-drawn art, I've found it's good to avoid things looking too neatly geometric. Turn rectangular objects on a slight angle, add slight irregularities to long straight lines, have repeated objects be slightly off center from each other etc.</p>
+<p>I steal composition and colouring from regency paintings and Ghibli screenshots.</p>
+<p><b>Using Groups</b></p>
+<p>This is a general Blender organisational technique I use to make my life easier: if I'm going to use the same combination of shader nodes in multiple shaders, I select them all and make a node group. Then I can just add in that group to new shaders without having to recreate it, and if I edit the group it gets changed for every shader that uses it.</p>
+<p>But if you don't want to use groups, just recreate the same nodes every time and the effect will be the same.</p>
+<p><a href="https://artisticrender.com/how-to-work-with-node-groups-in-blender/">A node group tutorial</a>.</p>
+<p><u><b>Toon shading</b></u></p>
+<p>My default toon shader is based on a diffuse shader, but with the colours flattened out and then piped into to an emission shader. I also add some colour variation and a shadow gradient.</p>
+<p>Here's some example light blue shaders applied to the same object under a single light source (a sun):
+<img src="../images/dreamwidth/5051.jpg" alt="" title="Toon shading: monkees" /></p>
+<p>The first two are Blender's standard diffuse and emission shaders. Then we have:</p>
+<ul><li>Simple toon shader: flattens the shading of a diffuse shader. 
+<li>Texture/colour variation: A subtle shadowy gradient and some colour variation.
+<li>Full toon shader: Combines the colour variation with the toon shading, plus a little fuzziness around the edges.</ul>  
+<p><b>Simple toon shader</b></p>
+<p>First a toon shader without any bells and whistles.</p>
+<img src="../images/dreamwidth/6517.jpg" alt="" title="Toon shading: simple shader" />
+<p>It starts out with the shading from a white diffuse shader, then uses colour ramps to turn the resulting greyscale gradient into flat colours. These are then multiplied/added to the  input colour to create shadows and highlights. I was a bit lazy about this in the example, but optimally the lighting and sliders should be tweaked so that there aren't too many visible highlights or shadows, and most of the object is the unaltered original colour.</p>
+<p>The darkest shadows are blue while the medium shadows are purple. I used overlay instead of screen for the highlights because I think that looks prettier, but this means there's no blend factor to tweak. Instead, if you want to make the highlights brighter or more subtle change the brightness in the colour ramp. If you want even more vivid highlights you can pipe the same colour ramp into a screen node as well.</p>
+<p><b>Texture/Colour variation</b></p>
+<p>Next is the colour variation I add: some blobby colours and a slight dark gradient at the base. I wouldn't usually use this as a shader on it's own, though it worked well for candles.</p>
+<p>The full shader:
+<img src="../images/dreamwidth/9000.jpg" alt="" title="" width="800/"></p>
+<p>Extra texture/Colour variation:
+<img src="../images/dreamwidth/5269.jpg" alt="" title="Toon shading: colour variation" width="800/"></p>
+<p>A dark gradient from the bottom of the object:</p>
+<img src="../images/dreamwidth/5736.jpg" alt="" title="Toon shading: gradient" width="800/">
+<p>The amount of each effect is controlled by a factor set as a group input. To add a group input, within a group use Nodes:Input:Group Input, then drag a line from the little dark circle on the right hand side of the Group Input node.</p>
+<p><b>Full Toon Shader</b></p>
+<img src="../images/dreamwidth/9756.jpg" alt="" title="" width="800/">
+<p>I start with the base colour, then add the the gradient and colour variation from above. I then use a slightly more complex version of the toon shader from the first example.</p>
+<img src="../images/dreamwidth/6015.jpg" alt="" title="Toon Shading: shading group" width="800" />
+<p>The &quot;shading&quot; factor here affects how much the shadows show up.</p>
+<p>The &quot;fuzziness&quot; factor here adds some noise to make the edges of the highlights and shadows less stark. This look good on some models and not others.</p>
+<p>And there you have it, the base toon shader I use for most of my objects! I tweak all the values depending on the material, and sometimes use a glossy shader instead of a diffuse one inside the shading group.</p>
+<p>Usually I don't start with a flat colour like in these examples, eg for wood I start with a wood grain created from a waves texture. Also for blocky varnished wood, like the clock in the example, I add extra graininess to the highlights by multiplying the highlight mask by a vertically squished voronoi texture.</p>
+<p><b>Lighting</b></p>
+<p>I'm still figuring out the best approach here.</p>
+<p>Usually I have a main sun light facing away from the camera to create a lot of flat well-lit colour, and then a second more intense sun or point light facing towards the camera to create rim highlights and fill in any ugly shadows. I also add little point lights where I want some extra highlights, and point lights with a negative intensity to create extra shadows.</p>
+<p><b>Render settings</b></p>
+<p>I mostly stick to the standard settings.</p>
+<p>It's not relevant to this example, but if you have any glowing lights then turning on Bloom adds a nice effect. In theory so does Ambient Occlusion but for some reason it doesn't always show up for me and I can't figure out why /o\</p>
+<p><b>Compositing</b></p>
+<p>Toon shaders are very flat, so a little texture over the top of the render can look nice. I add a blurred version of the render and overlay some low saturation watercolour textures.</p>
+<img src="../images/dreamwidth/5502.jpg" alt="" title="Toon shading: rendered" /> 
+<p>Here's my compositer setup:</p>
+<img src="../images/dreamwidth/6684.jpg" alt="" title="Toon shading: compositer" width="800" />
+<p>You could create the same effect in an art program but I like only having to press one button.</p>
+
+
+</main>
+
+
+  <footer class="text-center">
+
+  <ul class="flex justify-center my-10">
+    
+    <li class="px-5 sm:px-10"><a href="https://mastodon.gamedev.place/@spiralatlas" aria-label="mastodon">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="mastodon" viewbox="0 0 24 24"><path fill="currentColor" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://twitter.com/spiral_atlas" aria-label="twitter">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="twitter" viewbox="0 0 24 24"><path fill="currentColor" d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://spiralatlas.tumblr.com/" aria-label="tumblr">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="tumblr" viewbox="0 0 24 24"><path fill="currentColor" d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://github.com/spiralatlas" aria-label="github">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="github" viewbox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></div>
+    </a></li>
+    
+  </ul>
+
+</footer>
+
+
+  <script src="/themetoggle.js"></script>
+  <script async src="/topscroll.js"></script>
+  
+</body>
+</html>

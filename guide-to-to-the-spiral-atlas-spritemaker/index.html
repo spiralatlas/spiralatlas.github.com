@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <!-- https://github.com/joshbuchea/HEAD -->
+  
+  <!-- Recommended -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta -->
+  <meta name="description" content="Small Australian creator of visual novels and other diversions." />
+  <meta name="author" content="Sean Atlas" />
+  <meta name="generator" content="Eleventy">
+
+  <!-- Link -->
+  <link rel="alternate" href="" type="application/rss+xml" title="RSS">
+
+  <!-- Icons -->
+  <!-- https://favicon.io/favicon-generator/?t=CM&ff=Open+Sans&fs=75&fc=%23FFFFFF&b=rounded&bc=%23dc3545 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Social -->
+
+  <!-- Facebook -->
+  <meta property="og:url" content="https://spiralatlas.github.io/guide-to-to-the-spiral-atlas-spritemaker/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Guide to to the Spiral Atlas Spritemaker">
+  <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
+  <meta property="og:site_name" content="Spiral Atlas Games">
+  <meta property="og:locale" content="en_AU">
+  <meta property="article:author" content="Sean Atlas">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@spiral_atlas">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/guide-to-to-the-spiral-atlas-spritemaker/">
+  <meta name="twitter:title" content="Guide to to the Spiral Atlas Spritemaker">
+  <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
+
+  <title>Guide to to the Spiral Atlas Spritemaker</title>
+
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap"></noscript>
+
+  <link rel="stylesheet" href="/site.css" />
+</head>
+
+<body class="text-gray-700 bg-gray-100 dark:bg-gray-900 dark:text-gray-400">
+
+  <nav class="flex flex-no-wrap justify-between max-w-5xl mx-auto">
+
+  <a class="flex-1" href="https://spiralatlas.github.io/">Spiral Atlas Games</a>
+
+  <ul class="flex items-center justify-end flex-1">
+
+    <li class="px-3 md:px-6"><a id="toggle" aria-label="light dark toggle" class="text-gray-700 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-700" href="#">
+      <i id="pref" class="align-middle material-icons">brightness_4</i>
+      <i id="moon" class="hidden align-middle material-icons">brightness_2</i>
+      <i id="sun" class="hidden align-middle material-icons">brightness_5</i>
+    </a></li>
+
+    
+      <li class="px-3"><a class="uppercase" href="/">Home</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/about">About</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/blog">Blog</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/tags">Tags</a></li>
+    
+  </ul>
+
+</nav>
+
+
+  <main class="max-w-5xl mx-auto prose">
+<h1>Guide to to the Spiral Atlas Spritemaker</h1>
+<p>Tags: 
+
+
+<a href="/tags/posts/" class="post-tag">posts</a>,
+
+
+<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
+
+
+<a href="/tags/sprites/" class="post-tag">sprites</a>,
+
+
+<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
+
+
+<a href="/tags/art/" class="post-tag">art</a>,
+
+
+<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
+
+
+<a href="/tags/my-games/" class="post-tag">my games</a>,
+ 
+</p>
+<time datetime="2023-09-15"> 15 Sep 2023</time>
+
+<p>This is a guide to using <a href="https://spiralatlas.github.io/spritemaker/index.html">the Spiral Atlas Spritemaker</a>. Note that some details may change over time. Screenshots were taken in Firefox on a Mac.
+<cut></p>
+<h1>Main page</h1>
+<img src='../images/dreamwidth/15238.jpg' alt='main page boxes' title='main page boxes' />
+<p>The main page has three sections:</p>
+<ol><li> Menu bar
+<li> Sprite 
+<li> Settings tabs</ol>
+<p>There may also be some developer information text at the bottom if I forgot to disable it.</p>
+<h2>Menu Bar</h2>
+<img src='../images/dreamwidth/12948.jpg' alt='menu bar' title='menu bar' />
+<ul><li>Dark Theme toggle: Choose between black text on a white background, or white text on a black background.
+<li>Credits: Includes resources and information about usage rights. 
+<li>About: Learn more about this sprite maker!
+<li>Export Choices: Creates a save file of your choices. 
+<li>Browse...: Loads an existing save file. </ul>
+<p>The save files are in json format, but can be read in any text editor, and contain some relatively human readable information at the start. If you hit a major bug, please send me the save file to help me figure out what went wrong.</p>
+<p>Unfortunately, updates to the code often make old saves inaccurate or unusable. If the spritemaker isn't loading a save file correctly, you can open the save file in a text editor, then re-input your choices into the spritemaker.</p>
+<h2>Sprite</h2> 
+<ul><li>Sprite mode drop-down: Choose between preview, head, expression, and outfit
+<li>Export: Export the current sprite as a png</ul>
+<p>You can usually also save the sprite by right clicking, or hold-clicking on mobile. If it's not working, try using a different browser.</p>
+<h3>Sprite settings drop-down</h3>
+<ul><li>Preview: the full sprite as it will appear in your game. 
+<li>Head: The head, nose, and complexion, to go under the expression.
+<li>Expression: The eyes, eyebrows, and mouth.
+<li>Outfit: Everything else, to go over the expression.</ul>
+<img src='../images/dreamwidth/19313.jpg' alt='Diagram of how preview = head + expression + outfit' title='sprite choices' />
+<p>If you are using the Spritemaker as a dollmaker, creating complete images to use as-is, you'll just use the preview mode.</p>
+<p>If you are creating a visual novel sprite with multiple expressions then save the head, expressions, and outfit separately. In your game code, layer these images in the order head, expression, outfit.</p>
+<p>If you would prefer your game to use separate mouths/eyes/eyebrows instead of combined expressions, cut the expression images into parts in an image editor.</p>
+<h2>Settings tabs</h2>
+<ul><li>Colouring: Set the hair, eye, and skin colour
+<li>Body/Hair: Set head shape, hairstyle etc.  
+<li>Clothes: Choose clothing style and colour
+<li>Accessory: Choose accessory style and colour
+<li>Expression: Set expressions. Choose from various presets, or tweak mouth, eyes, and <li>eyebrows individually.
+<li>Randomise: Randomise choices, or pick from a preset. 
+<li>Display: Crop and resize sprite, or add effects.  </ul>
+<h3>Colouring</h3>
+<img src='../images/dreamwidth/14531.jpg' alt='Colouring' title='Colouring' width=600 />
+<p>Choose the hair, eye, and skin colour by clicking on the little colour square and using the colour picker. The colour picker has multiple options such as RGB sliders and inbuilt html colours.</p>
+<p>There are some example colours below the buttons, which you can use the colour picker on.</p>
+<h3>Body/Hair</h3>
+<p>Note that the colour of hair/skin etc is set in the &quot;colouring&quot; tab.</p>
+<img src='../images/dreamwidth/13872.jpg' alt='body/hair' title='body/hair' width=600/>
+<ul><li>Hairstyle: The main hairstyle
+<li>Hair Back: Hair behind the head, such as ponytails, buns etc. 
+<li>Fringe: The fringe/bangs.
+<li>Sidelocks: The little bits of hair on either side of the fringe/bangs.
+<li>Facial Hair</ul>
+<ul><li>Head Shape: Note that this affects the position of the eyes, mouth, hair etc. 
+<li>Nose Shape
+<li>Chest Shape: Whether the character has breasts/large pecs etc. 
+<li>Eye Shape: The overall eye shape, separate to the expression.
+<li>Ears: Whether the ears are pointed, missing etc. 
+<li>Complexion: Freckles, wrinkles etc. 
+<li>Waist Cinch: If set to "hourglass", the waist part of the body and clothes is narrowed. 
+</ul>
+<h3>Clothes</h3>
+<img src='../images/dreamwidth/12259.jpg' alt='clothes' title='clothes' width=600/>
+<ul><li>Clothing: The kind of clothing being edited, eg shoes. 
+<li>Style: The specific style
+<li>Sleeves (coat, top, and overshirt): sets the sleeve type. Some specific styles ignore this setting, eg the bikini top never has sleeves.  
+<li>Waistline (bottom): Sets the waist of bottoms, eg if you want to add overalls to a pair of trousers, or want a skirt to have a belt. 
+</ul>
+<ul><li>Main Colour: The base colour use on most of the piece of clothing. 
+<li>Highlight Colour: Where relevant, the colour of extra detailing. Not all clothes have a highlight colour. 
+<li>Pattern: The style of pattern, or none. 
+<li>Pattern Colour: What colour the pattern is, if chosen.</ul> 
+<p>Below the buttons are some example five colour palettes. One way to create a harmonious colour scheme for your character is to pick the colours for the clothes and accessories from one of these palettes. You can also pick colours from an image on your desktop.</p>
+<h3>Accessory</h3>
+<p>This works similarly to the clothes tab.</p>
+<img src='../images/dreamwidth/13483.jpg' alt='Accesory' title='Accesory' width=600/>
+<ul><li>Clothing: The kind of clothing being edited, eg hat. 
+<li>Style: The specific style</ul>
+<ul><li>Main Colour: The base colour use on most of the piece of clothing. 
+<li>Highlight Colour: Where relevant, the colour of extra detailing. Not all clothes have a highlight colour. 
+<li>Pattern: The style of pattern, or none. 
+<li>Pattern Colour: What colour the pattern is, if chosen.</ul> 
+<h3>Expression</h3>
+<p>Each sprite has a number of expressions eg happy, sad etc. This is to make it easier to save a sprite with multiple expressions within a single save file. You can ignore the names and make other expressions if you want.</p>
+<p>Note that the overall eye shape is set in body/hair.</p>
+<img src='../images/dreamwidth/15499.jpg' alt='Expression' title='Expression' width=600/>
+<ul><li>Expression Preset: A collection of expressions for a consistent character, eg the "understated" preset expressions are all muted. If you use this drop-down, all current expressions will be overwritten.   
+<li>Expression: The expression currently being edited. Note that changes will only affect the current expression. 
+<li>Eyebrows
+<li>Eyes 
+<li>Mouth
+<li>Cheeks: Blush or sweat-drop</ul>
+<h3>Randomise</h3>
+<p>Note: &quot;Randomised&quot; expressions pick from one of the expression presets.</p>
+<img src='../images/dreamwidth/12560.jpg' alt='randomise' title='randomise' width=600/>
+<h4>Randomise</h4><ul><li>Randomise All: Randomise Body/Colouring/Clothes/Expression etc but not display settings. Affected by "customise" settings.  
+<li>Appearance Preset: Character presets. Will overwrite Body/Colouring/Clothes/Expression etc but not display settings. Currently the drop-down shows the name of the first preset even if it hasn't been selected. </ul>   
+<h4>Body/Colouring</h4><ul><li>Colouring: Randomise the colour of skin, hair and eyes. Affected by "customise" settings. 
+<li>Features: Randomise Head Shape, Nose Shape, Chest Shape, Eye Shape, Complexion. Affected by "customise" settings.</ul>
+<h4>Outfit</h4><ul><li>Colours: Randomise the colour of all clothing and accessories, including patterns and highlight colours. 
+<li>Styles: Randomise the style of all clothing and accessories, and also the style of hair and facial hair. Affected by "customise" settings.</ul>
+<h4>Customise</h4><ul><li>Fantasy Body/Colouring: Include unnatural colours like green hair or purple eyes, as well as unusual body features like pointed ears. Does not include parts like tails or horns, which are classified as accessories. 
+<li>Fantasy/Historic Outfit: Include styles of clothing and accessory which would look out of place in a contemporary setting. Include parts like tails or horns, which are classified as accessories. 
+<li>Gender Presentation: Whether randomised choices should be masculine, feminine or androgynous. This affects eye shape, hair/facial hair, waist cinch, chest, and the styles of all clothing and accessories. It does not affect expression, head shape, nose shape, ears, complexion, or the colours of anything. </ul>
+<h3>Display</h3>
+<img src='../images/dreamwidth/12433.jpg' alt='display' title='display' width=600/>
+<ul><li>Scale: What scale to display the sprite at, from 80% to 100%. Sprites at 100% are the most crisp.  
+<li>Crop (default 300): How many pixels to crop from the bottom of the sprite. If set to zero, the entire sprite is displayed. 
+<li>Effect: What effect to add to the sprite, such as making it a solid colour. 
+<li>Effect Colour: What colour to use on effects, eg what colour to use for "solid colour".<ul>
+
+</main>
+
+
+  <footer class="text-center">
+
+  <ul class="flex justify-center my-10">
+    
+    <li class="px-5 sm:px-10"><a href="https://mastodon.gamedev.place/@spiralatlas" aria-label="mastodon">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="mastodon" viewbox="0 0 24 24"><path fill="currentColor" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://twitter.com/spiral_atlas" aria-label="twitter">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="twitter" viewbox="0 0 24 24"><path fill="currentColor" d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://spiralatlas.tumblr.com/" aria-label="tumblr">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="tumblr" viewbox="0 0 24 24"><path fill="currentColor" d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://github.com/spiralatlas" aria-label="github">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="github" viewbox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></div>
+    </a></li>
+    
+  </ul>
+
+</footer>
+
+
+  <script src="/themetoggle.js"></script>
+  <script async src="/topscroll.js"></script>
+  
+</body>
+</html>
