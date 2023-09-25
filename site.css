@@ -1372,6 +1372,48 @@ h3 {
   font-size: 1.25em;
 }
 
+:is(.dark .dark\:prose-dark) {
+  color: #9ca3af;
+}
+
+:is(.dark .dark\:prose-dark) :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #9333ea;
+  text-decoration: none;
+}
+
+:is(.dark .dark\:prose-dark) :where(strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #9ca3af;
+}
+
+:is(.dark .dark\:prose-dark) :where(h1):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #e5e7eb;
+}
+
+:is(.dark .dark\:prose-dark) :where(h2):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #d1d5db;
+}
+
+:is(.dark .dark\:prose-dark) :where(h3):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #d1d5db;
+}
+
+:is(.dark .dark\:prose-dark) :where(h4):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #d1d5db;
+}
+
+:is(.dark .dark\:prose-dark) :where(h5):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #d1d5db;
+}
+
+:is(.dark .dark\:prose-dark) :where(h6):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #d1d5db;
+}
+
+:is(.dark .dark\:prose-dark) :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  color: #9ca3af;
+  background: #1c1917;
+}
+
 .hover\:text-gray-400:hover {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
