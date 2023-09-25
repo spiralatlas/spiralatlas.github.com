@@ -564,7 +564,7 @@ a.inverted:hover {
 }
 
 .prose {
-  color: var(--tw-prose-body);
+  color: #374151;
   max-width: 65ch;
 }
 
@@ -582,9 +582,10 @@ a.inverted:hover {
 }
 
 .prose :where(a):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
-  color: var(--tw-prose-links);
+  color: #9333ea;
   text-decoration: underline;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .prose :where(strong):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
