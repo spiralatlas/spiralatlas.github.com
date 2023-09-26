@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+  <!-- https://github.com/joshbuchea/HEAD -->
+  
+  <!-- Recommended -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Meta -->
+  <meta name="description" content="Small Australian creator of visual novels and other diversions." />
+  <meta name="author" content="Sean Atlas" />
+  <meta name="generator" content="Eleventy">
+
+  <!-- Link -->
+  <link rel="alternate" href="" type="application/rss+xml" title="RSS">
+
+  <!-- Icons -->
+  <!-- https://favicon.io/favicon-generator/?t=CM&ff=Open+Sans&fs=75&fc=%23FFFFFF&b=rounded&bc=%23dc3545 -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- Social -->
+
+  <!-- Facebook -->
+  <meta property="og:url" content="https://spiralatlas.github.io/spritemaker-exampletutorial/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Spritemaker Example/Tutorial">
+  <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
+  <meta property="og:site_name" content="Spiral Atlas Games">
+  <meta property="og:locale" content="en_AU">
+  <meta property="article:author" content="Sean Atlas">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@spiral_atlas">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/spritemaker-exampletutorial/">
+  <meta name="twitter:title" content="Spritemaker Example/Tutorial">
+  <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
+
+  <title>Spritemaker Example/Tutorial</title>
+
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap"></noscript>
+
+  <link rel="stylesheet" href="/site.css" />
+</head>
+
+<body class="text-gray-700 bg-gray-100 dark:bg-gray-900 dark:text-gray-400">
+
+  <nav class="flex flex-no-wrap justify-between max-w-5xl mx-auto">
+
+  <a class="flex-1" href="https://spiralatlas.github.io/">Spiral Atlas Games</a>
+
+  <ul class="flex items-center justify-end flex-1">
+
+    <li class="px-3 md:px-6"><a id="toggle" aria-label="light dark toggle" class="text-gray-700 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-700" href="#">
+      <i id="pref" class="align-middle material-icons">brightness_4</i>
+      <i id="moon" class="hidden align-middle material-icons">brightness_2</i>
+      <i id="sun" class="hidden align-middle material-icons">brightness_5</i>
+    </a></li>
+
+    
+      <li class="px-3"><a class="uppercase" href="/">Home</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/about">About</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/blog">Blog</a></li>
+    
+      <li class="px-3"><a class="uppercase" href="/tags">Tags</a></li>
+    
+  </ul>
+
+</nav>
+
+
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>Spritemaker Example/Tutorial</h1>
+<p>Tags: 
+
+
+<a href="/tags/posts/" class="post-tag">posts</a>,
+
+
+<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
+
+
+<a href="/tags/sprites/" class="post-tag">sprites</a>,
+
+
+<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
+
+
+<a href="/tags/art/" class="post-tag">art</a>,
+
+
+<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
+
+
+<a href="/tags/my-games/" class="post-tag">my games</a>,
+ 
+</p>
+<time datetime="2023-09-15"> 15 Sep 2023</time>
+
+<p>This post goes through the process of making a visual novel sprite using  <a href="https://spiralatlas.github.io/spritemaker/index.html">the Spiral Atlas Spritemaker</a>.</p>
+<p><a name="top"><ul></p>
+<li><a href="#start">Getting Started</a>
+<li><a href="#random">Randomising and Presets</a>
+<li><a href="#colour">Colour picking</a>
+<li><a href="#body">Body and Hair</a>
+<li><a href="#clothes">Clothes</a>
+<li><a href="#accessories">Accessories</a>
+<li><a href="#expression">Expression</a>
+<li><a href="#display">Display</a>
+<li><a href="#export">Exporting Images</a>
+<li><a href="#save">Saving and Loading</a>
+<li><a href="#renpy">Ren'py code</a>
+</ul>
+<p><a name="start"></a><h2>Getting Started</h2>
+For this tutorial, I'm going to design Dolly, a young woman in contemporary Western clothes.</p>
+<p>The first step is to open the Spritemaker. I am using Chrome on my Mac laptop, because <a href="https://spiralatlas.github.io/spritemaker/test.html">testing revealed</a> that my version of Firefox messes with colours, and Safari's colour picker is unhelpful.</p>
+<p>Here's the character who was randomly generated when I opened the page.
+<img src="../images/sprite_tute/start.jpg"></p>
+<p>Before doing anything else, let's zoom out to see the whole sprite by going into the Display tab and setting scale to 40% and crop to 0.
+<img src="../images/sprite_tute/display1.jpg"></p>
+<p><a name="random"></a><h2>Randomising and Presets</h2></p>
+<p>Let's try the Randomise tab.</p>
+<p>First off, I can try the various Appearance Presets. Student isn't bad, but I want something more feminine.
+<img src="../images/sprite_tute/student.jpg"></p>
+<p>So let's create a random character.</p>
+<p>Since Dolly is a human in contemporary clothes, I leave the Fantasy Body/Colouring and Fantasy/Historic Outfit boxes unchecked. Since she's a conventionally presenting woman, I set gender presentation to feminine.</p>
+<p>After pressing &quot;Randomise All&quot; a few times I find a character I like the look of.
+<img src="../images/sprite_tute/random1.jpg"></p>
+<p>I want to tweak the colours, so I click the outfit: colours button a few times until I get something I like more.</p>
+<img src="../images/sprite_tute/randomcol.jpg">
+<p>I could similarly randomise her facial features, colouring and outfit with the relevant buttons.</p>
+<p>But instead, let's tweak things manually.</p>
+<p>To see what I'm doing, first I'll go into the Accessory tab and set the hat and eyewear to &quot;none&quot;. I'll also go into Display and set the scale back to 80%, since I don't need to see the legs right now.</p>
+<p><a name="colour"></a><h2>Colour picking</h2></p>
+<p>I'm going to start by using the colouring from <a href="https://dejinyucu.itch.io/agustina-visual-novel-sprite">DejiNyucu's Agustina sprite</a>.</p>
+<p>Basing a design on other people's art can have issues with plagiarism, but Agustina's design is open source (and was in fact the base for some of the spritemaker's art).</p>
+<p>So, I open up a picture of Agustina in a separate window, and go into the Colouring tab of the Spritemaker. I click on the skin colour button and colour pick from the image of Agustina.</p>
+<img src="../images/sprite_tute/skin.jpg">
+<p>Here's the final result of colouring picking the hair, eyes and skin:
+<img src="../images/sprite_tute/agustina.jpg"></p>
+<p>I decide I don't like those eyes and hair colours for Dolly.</p>
+<p>For the hair, I'll pick from the example hair colours below.</p>
+<img src="../images/sprite_tute/hair.jpg">
+<p>For the eyes, I'll tweak the colour in the colour picker itself. I made it a little darker using the gradient, and a little more red using the spectrum.</p>
+<img src="../images/sprite_tute/eyes.jpg">
+<p>If you can't get the colour picker and the colour you want onscreen at the same time, use your browser's inbuilt zoom out function.</p>
+<p><a name="body"></a><h2>Body and Hair</h2></p>
+<p>First let's tweak Dolly's hair.</p>
+<p>Hair is divided into layers:</p>
+<ul>
+<li>Hair Back: extra decorations behind the main bulk of hair, like buns and ponytails. 
+<li>Hairstyle: the main bulk of the hair. 
+<li>Fringe/bangs: the hair at the front. 
+<li>Sidelocks: little extra bits of hair on either side of the fringe. 
+<li>Facial hair: beard/mustache etc. Not relevant to this character.
+</ul>
+<img src="../images/sprite_tute/hairstyle.jpg">
+<p>Now let's tweak the body shape.</p>
+<ul>
+<li>Head Shape: The length of the head and shape of the chin. 
+<li>Nose Shape: Shape of the nose. 
+<li>Chest Shape: The shape of the breasts/pecs. 
+<li>Eye Shape: Overall eye shape, seperate to expression. "Long eyelashes" are the most feminine looking, while "short eyelashes" are the most masculine. 
+<li>Ears: You can make the ears be pointy or even vanish, but won't generally edit them for a non-fantasy character. 
+<li>Complexion: Freckles, moles, wrinkles etc. 
+<li>Waist Cinch: Whether clothes are pulled in at the waist. "Hourglass" tends to make characters look more feminine. 
+</ul>
+<img src="../images/sprite_tute/body.jpg">
+<p><a name="clothes"></a><h2>Clothes</h2></p>
+<p>Every accessory and piece of clothing has a colour, highlight colour, pattern, and pattern colour. Many don't actually display the highlight colour. One way to pick colours is from the example colour schemes.</p>
+<p>The Top, Overshirt, and Coat also have a &quot;sleeves&quot; option, though some specific items don't actually have sleeves.</p>
+<p>I picked the colours for this Top from the top right colour scheme. Notice that the highlight colour shows up along the neckline.</p>
+<img src="../images/sprite_tute/clothes.jpg">
+<p>The Bottom has a Waistline, which has options like belt, suspenders, etc.</p>
+<p>Here I decreased the scale again to see the skirt and shoes better. The Bottom highlight colour shows up on the belt. The pattern colour doesn't show up since there's no pattern selected.</p>
+<img src="../images/sprite_tute/bottom.jpg">
+<p>Now that I've finished choosing the clothes, I've decided I like the hourglass waist cinch after all, so let's add that back.</p>
+<img src="../images/sprite_tute/cinch.jpg">
+<p><a name="accessories"></a><h2>Accessories</h2></p>
+<p>Accessories work the same way as clothes, but nothing has sleeves or a waistline.</p>
+<img src="../images/sprite_tute/accessories.jpg">
+<p><a name="expression"></a><h2>Expression</h2></p>
+<p>For now I'll just give Dolly two expressions, Neutral and Happy. The dollmaker displays the Neutral expression by default, so we'll start there.</p>
+<p>I set the scale to 100% to see the face clearly, then try out the various presets. I decide I like the Neutral expression in the Arch expression preset.</p>
+<img src="../images/sprite_tute/arch.jpg">
+<p>But I want to tweak it slightly, so I change the mouth.
+<img src="../images/sprite_tute/neutral.jpg"></p>
+<p>Now to check the happy expression:
+<img src="../images/sprite_tute/happy1.jpg"></p>
+<p>Yeah, that looks fine!</p>
+<p>If I go back to Neutral, it will still show my custom Neutral expression.</p>
+<p>And now Dolly is designed!
+<a name="display"></a><h2>Display</h2></p>
+<p>Now that I have designed my character, I use the Display tab to decide how to edit the image before exporting.</p>
+<p>If you want a really crisp sprite, I reccomend exporting at 100% and (if neccesary) resizing in a proper image program.</p>
+<p>But for the sake of this tutorial, I'll export at a scale of 80%, and crop 300 pixels from the bottom. I zoomed out in Chrome to show the cropping.
+<img src="../images/sprite_tute/display.jpg"></p>
+<p>I can make a Mysterious Black Sillouhette using the solid colour effect.
+<img src="../images/sprite_tute/black.jpg"></p>
+<p>Renpy has code to do this sort of thing in-game, but it can be useful to check out the sillouhette during the character design stage.
+<a name="export"></a><h2>Exporting Images</h2></p>
+<p>To export an image, select the image mode in the drop down above the sprite, then click the Export button. Make sure to give each image a different, informative name.</p>
+<p>Only export in Preview mode if you want a flat image for something like a user icon or a black Sillouhette.</p>
+<p>To make a visual novel sprite with multiple expressions, I need to export the images as layers. These layers get put back together in the visual novel code.</p>
+<p>First, the head.
+<img src="../images/sprite_tute/head.jpg"></p>
+<p>Then the happy and neutral expressions, switching between them in the Expression tab.
+<img src="../images/sprite_tute/exp_neutral.jpg"></p>
+<p>Then the outfit.</p>
+<img src="../images/sprite_tute/outfit.jpg">
+<p>I now have the images dolly_head.png, dolly_mood_neutral.png, dolly_mood_happy.png, and dolly_outfit.png. Using the word &quot;expression&quot; in Ren'py variable names can cause issues, which is why I used &quot;mood&quot;.</p>
+<p>And that should be everything I need to make a Dolly visual novel sprite!</p>
+<p><a name="save"></a><h2>Saving and Loading</h2></p>
+<p>Before I close the dollmaker, I make sure to click the &quot;Export Choices&quot; button and save my choices as &quot;dolly&quot;. This will create a file called &quot;dolly.json&quot;.</p>
+<p>If I later decide I want to load Dolly back up and edit her some more, I can load dolly.json via the &quot;Choose File&quot; dialogue.
+<img src="../images/sprite_tute/export.jpg"></p>
+<p>Unfortunately, save files are a bit buggy, and often break when the code gets updated. If you're having trouble loading your character correctly, you can open the save file in a text editor and copy across the values manually.</p>
+<p>For example, if we scroll through dolly.json we can find this description of the Top, giving the choices and colours:</p>
+<pre>//name: top
+//value: low vee
+//colour1: #e08e79
+//colour2: #ece5ce
+//patterncolour: #c5e0dc
+//pattern: flowers</pre>
+<p>To replicate this in the dollmaker, we would set the Top to to &quot;Low vee&quot;, with a &quot;flowers&quot; pattern, etc.</p>
+<p><a name="renpy"></a><h2>Ren'py code</h2></p>
+<p>In Ren'py, you would create a Dolly sprite like this:</p>
+<pre>
+layeredimage dolly:
+
+    always:
+        "dolly_head"
+
+    group mood:
+        attribute neutral default:
+            "dolly_mood_neutral.png"
+        attribute happy:
+            "dolly_mood_happy.png"    
+
+    always:
+        "dolly_outfit"     
+</pre>
+<p>To download an example game using this code, check out the Spritemaker itchio page.</p>
+
+
+</main>
+
+
+  <footer class="text-center">
+
+  <ul class="flex justify-center my-10">
+    
+    <li class="px-5 sm:px-10"><a href="https://mastodon.gamedev.place/@spiralatlas" aria-label="mastodon">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="mastodon" viewbox="0 0 24 24"><path fill="currentColor" d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://twitter.com/spiral_atlas" aria-label="twitter">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="twitter" viewbox="0 0 24 24"><path fill="currentColor" d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://spiralatlas.tumblr.com/" aria-label="tumblr">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="tumblr" viewbox="0 0 24 24"><path fill="currentColor" d="M14.563 24c-5.093 0-7.031-3.756-7.031-6.411V9.747H5.116V6.648c3.63-1.313 4.512-4.596 4.71-6.469C9.84.051 9.941 0 9.999 0h3.517v6.114h4.801v3.633h-4.82v7.47c.016 1.001.375 2.371 2.207 2.371h.09c.631-.02 1.486-.205 1.936-.419l1.156 3.425c-.436.636-2.4 1.374-4.156 1.404h-.178l.011.002z" /></svg></div>
+    </a></li>
+    
+    <li class="px-5 sm:px-10"><a href="https://github.com/spiralatlas" aria-label="github">
+      <div class="text-2xl text-gray-500"><svg width="24" height="24" data-icon="github" viewbox="0 0 24 24"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg></div>
+    </a></li>
+    
+  </ul>
+
+</footer>
+
+
+  <script src="/themetoggle.js"></script>
+  <script async src="/topscroll.js"></script>
+  
+</body>
+</html>
