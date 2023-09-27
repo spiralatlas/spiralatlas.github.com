@@ -118,8 +118,8 @@
 <li><a href="#accessories">Accessories</a>
 <li><a href="#expression">Expression</a>
 <li><a href="#display">Display</a>
-<li><a href="#export">Exporting Images</a>
 <li><a href="#save">Saving and Loading</a>
+<li><a href="#export">Exporting Images</a>
 <li><a href="#renpy">Ren'py code</a>
 </ul>
 <p><a name="start"></a><h2>Getting Started</h2>
@@ -191,7 +191,9 @@ For this tutorial, I'm going to design Dolly, a young woman in contemporary West
 <p>Accessories work the same way as clothes, but nothing has sleeves or a waistline.</p>
 <img src="../images/sprite_tute/accessories.jpg">
 <p><a name="expression"></a><h2>Expression</h2></p>
-<p>For now I'll just give Dolly two expressions, Neutral and Happy. The dollmaker displays the Neutral expression by default, so we'll start there.</p>
+<p>For now I'll just give Dolly three expressions: Neutral, Happy, and Sleepy.</p>
+<p>Every character has ten expressions, which the spritemaker labels Neutral, Happy, Sad, Angry, Surprised, Embarassed, Scared, Annoyed, and Other. But you can name your images whatever you want during the export process.</p>
+<p>The dollmaker displays the Neutral expression by default, so we'll start there.</p>
 <p>I set the scale to 100% to see the face clearly, then try out the various presets. I decide I like the Neutral expression in the Arch expression preset.</p>
 <img src="../images/sprite_tute/arch.jpg">
 <p>But I want to tweak it slightly, so I change the mouth.
@@ -199,9 +201,22 @@ For this tutorial, I'm going to design Dolly, a young woman in contemporary West
 <p>Now to check the happy expression:
 <img src="../images/sprite_tute/happy1.jpg"></p>
 <p>Yeah, that looks fine!</p>
-<p>If I go back to Neutral, it will still show my custom Neutral expression.</p>
-<p>And now Dolly is designed!
-<a name="display"></a><h2>Display</h2></p>
+<p>But there's no Sleepy expression in the preset, so I'll have to make it from scratch. It doesn't really matter which expression name I save it under, as long as I remember which one it is. I'll use &quot;other&quot;.</p>
+<img src="../images/sprite_tute/sleepy.jpg">
+<p><a name="save"></a><h2>Saving and Loading</h2></p>
+<p>Before I move on to designing Dolly's second outfit, I make sure to click the &quot;Export Choices&quot; button and save my choices as &quot;dolly&quot;. This will create a file called &quot;dolly.json&quot;.</p>
+<p>If I later decide I want to load this outfit back up and edit it some more, I can load dolly.json via the &quot;Choose File&quot; dialogue.
+<img src="../images/sprite_tute/export.jpg"></p>
+<p>Unfortunately, save files are a bit buggy, and often break when the code gets updated. If you're having trouble loading your character correctly, you can open the save file in a text editor and copy across the values manually.</p>
+<p>For example, if we scroll through dolly.json we can find this description of the Top, giving the choices and colours:</p>
+<pre>//name: top
+//value: low vee
+//colour1: #e08e79
+//colour2: #ece5ce
+//patterncolour: #c5e0dc
+//pattern: flowers</pre>
+<p>To replicate this in the dollmaker, we would set the Top to to &quot;Low vee&quot;, with a &quot;flowers&quot; pattern, etc.</p>
+<p><a name="display"></a><h2>Display</h2></p>
 <p>Now that I have designed my character, I use the Display tab to decide how to edit the image before exporting.</p>
 <p>If you want a really crisp sprite, I reccomend exporting at 100% and (if neccesary) resizing in a proper image program.</p>
 <p>But for the sake of this tutorial, I'll export at a scale of 80%, and crop 300 pixels from the bottom. I zoomed out in Chrome to show the cropping.
@@ -215,43 +230,40 @@ For this tutorial, I'm going to design Dolly, a young woman in contemporary West
 <p>To make a visual novel sprite with multiple expressions, I need to export the images as layers. These layers get put back together in the visual novel code.</p>
 <p>First, the head.
 <img src="../images/sprite_tute/head.jpg"></p>
-<p>Then the happy and neutral expressions, switching between them in the Expression tab.
+<p>Then the neutral, happy, and sleepy expressions, switching between them in the Expression tab.
 <img src="../images/sprite_tute/exp_neutral.jpg"></p>
 <p>Then the outfit.</p>
 <img src="../images/sprite_tute/outfit.jpg">
-<p>I now have the images dolly_head.png, dolly_mood_neutral.png, dolly_mood_happy.png, and dolly_outfit.png. Using the word &quot;expression&quot; in Ren'py variable names can cause issues, which is why I used &quot;mood&quot;.</p>
+<p>I now have the images dolly_head.png, dolly_mood_neutral.png, dolly_mood_happy.png, dolly_mood_sleepy.png, and dolly_outfit_skirt.png. Using the word &quot;expression&quot; in Ren'py variable names can cause issues, which is why I used &quot;mood&quot;.</p>
+<p>Now I can create Dolly's pajama outfit:
+<img src="../images/sprite_tute/pjs.jpg"></p>
+<p>I export the outfit as dolly_outfit_pjs.png and save the settings as dolly_pjs.json</p>
 <p>And that should be everything I need to make a Dolly visual novel sprite!</p>
-<p><a name="save"></a><h2>Saving and Loading</h2></p>
-<p>Before I close the dollmaker, I make sure to click the &quot;Export Choices&quot; button and save my choices as &quot;dolly&quot;. This will create a file called &quot;dolly.json&quot;.</p>
-<p>If I later decide I want to load Dolly back up and edit her some more, I can load dolly.json via the &quot;Choose File&quot; dialogue.
-<img src="../images/sprite_tute/export.jpg"></p>
-<p>Unfortunately, save files are a bit buggy, and often break when the code gets updated. If you're having trouble loading your character correctly, you can open the save file in a text editor and copy across the values manually.</p>
-<p>For example, if we scroll through dolly.json we can find this description of the Top, giving the choices and colours:</p>
-<pre>//name: top
-//value: low vee
-//colour1: #e08e79
-//colour2: #ece5ce
-//patterncolour: #c5e0dc
-//pattern: flowers</pre>
-<p>To replicate this in the dollmaker, we would set the Top to to &quot;Low vee&quot;, with a &quot;flowers&quot; pattern, etc.</p>
 <p><a name="renpy"></a><h2>Ren'py code</h2></p>
-<p>In Ren'py, you would create a Dolly sprite like this:</p>
+<p><a href="https://spiralatlas.itch.io/spritemaker">The Spritemaker example game</a> uses the Dolly sprite I just made.</p>
+<p>The Ren'py code looks like this:</p>
 <pre>
 layeredimage dolly:
+    zoom 1.2 # scales sprite up 
 
-    always:
+    always: #displays the head image
         "dolly_head"
 
-    group mood:
+    group mood: # sets the expression image
         attribute neutral default:
             "dolly_mood_neutral.png"
         attribute happy:
-            "dolly_mood_happy.png"    
+            "dolly_mood_happy.png"  
+        attribute sleepy:
+            "dolly_mood_sleepy.png"        
 
-    always:
-        "dolly_outfit"     
+    group outfit: #sets the outfit image
+        attribute skirt default:
+            "dolly_outfit_skirt" 
+        attribute pjs:
+            "dolly_outfit_pjs"           
 </pre>
-<p>To download an example game using this code, check out the <a href="https://spiralatlas.itch.io/spritemaker">Spritemaker itchio page</a>.</p>
+<p>You can learn more about layeredimage in <a href="https://www.renpy.org/doc/html/layeredimage.html">the Ren'py documentation</a>.</p>
 <p><a href="#top">Back to the top</a></p>
 
 
