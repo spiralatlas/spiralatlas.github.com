@@ -207,15 +207,15 @@ For this tutorial, I'm going to design Dolly, a young woman in contemporary West
 <p>Before I move on to designing Dolly's second outfit, I make sure to click the &quot;Export Choices&quot; button and save my choices as &quot;dolly&quot;. This will create a file called &quot;dolly.json&quot;. Saving is also a good idea if there's any chance you might navigate away from or reload the dollmaker, since otherwise you'll lose all your choices.</p>
 <p>If I later decide I want to load this outfit back up and edit it some more, I can load dolly.json via the &quot;Choose File&quot; dialogue.
 <img src="../images/sprite_tute/export.jpg"></p>
-<p>Unfortunately, save files are a bit buggy, and often break when the code gets updated. If you're having trouble loading your character correctly, you can open the save file in a text editor and copy across the values manually.</p>
-<p>For example, if we scroll through dolly.json we can find this description of the Top, giving the choices and colours:</p>
+<p>Unfortunately, save files are a bit buggy, and often break when the code gets updated. If you're having trouble loading your character correctly, you can open the save file in a text editor and copy across the values manually from the section marked &quot;HUMAN READABLE SUMMARY&quot;.</p>
+<p>For example, if we scroll through the dolly.json we can find this description of the Top, giving the choices and colours:</p>
 <pre>//name: top
 //value: low vee
-//colour1: #e08e79
-//colour2: #ece5ce
-//patterncolour: #c5e0dc
+//main colour: #e08e79
+//highlight colour: #ece5ce
+//pattern colour: #c5e0dc
 //pattern: flowers</pre>
-<p>To replicate this in the dollmaker, we would set the Top to to &quot;Low vee&quot;, with a &quot;flowers&quot; pattern, etc.</p>
+<p>To replicate this in the dollmaker, we would set the Top to to &quot;Low vee&quot;, with a &quot;flowers&quot; pattern, Main Colour set to the hex value #e08e79, etc.</p>
 <p><a name="display"></a><h2>Display</h2></p>
 <p>Now that I have designed my character, I use the Display tab to decide how to edit the image before exporting.</p>
 <p>If you want a really crisp sprite, I reccomend exporting at 100% and (if neccesary) resizing in a proper image program or using Ren'py's scaling functions.</p>
