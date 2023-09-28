@@ -147,7 +147,7 @@ For this tutorial, I'm going to design Dolly, a young woman in contemporary West
 <p>Basing a design on other people's art can have issues with plagiarism, but Agustina's design is open source (and was in fact the base for some of the spritemaker's art).</p>
 <p>So, I open up a picture of Agustina in a separate window, and go into the Colouring tab of the Spritemaker. I click on the skin colour button and colour pick from the image of Agustina.</p>
 <img src="../images/sprite_tute/skin.jpg">
-<p>Here's the final result of colouring picking the hair, eyes and skin:
+<p>Here's the final result of colour picking the hair, eyes and skin:
 <img src="../images/sprite_tute/agustina.jpg"></p>
 <p>I decide I don't like those eyes and hair colours for Dolly.</p>
 <p>For the hair, I'll pick from the example hair colours below.</p>
@@ -218,8 +218,8 @@ For this tutorial, I'm going to design Dolly, a young woman in contemporary West
 <p>To replicate this in the dollmaker, we would set the Top to to &quot;Low vee&quot;, with a &quot;flowers&quot; pattern, etc.</p>
 <p><a name="display"></a><h2>Display</h2></p>
 <p>Now that I have designed my character, I use the Display tab to decide how to edit the image before exporting.</p>
-<p>If you want a really crisp sprite, I reccomend exporting at 100% and (if neccesary) resizing in a proper image program.</p>
-<p>But for the sake of this tutorial, I'll export at a scale of 80%, and crop 300 pixels from the bottom. I zoomed out in Chrome to show the cropping.
+<p>If you want a really crisp sprite, I reccomend exporting at 100% and (if neccesary) resizing in a proper image program or using Ren'py's scaling functions.</p>
+<p>But for the sake of visual clarity, for this tutorial I'm using a scale of 80%, and crop 300 pixels from the bottom. I zoomed out in Chrome to show the cropping.
 <img src="../images/sprite_tute/display.jpg"></p>
 <p>I can make a Mysterious Black Sillouhette using the solid colour effect.
 <img src="../images/sprite_tute/black.jpg"></p>
@@ -240,8 +240,9 @@ For this tutorial, I'm going to design Dolly, a young woman in contemporary West
 <p>I export the outfit as dolly_outfit_pjs.png and save the settings as dolly_pjs.json</p>
 <p>And that should be everything I need to make a Dolly visual novel sprite!</p>
 <p><a name="renpy"></a><h2>Ren'py code</h2></p>
-<p><a href="https://spiralatlas.itch.io/spritemaker">The Spritemaker example game</a> uses the Dolly sprite I just made.</p>
-<p>The Ren'py code looks like this:</p>
+<p>The only example code I have is for the visual novel engine <a href="https://www.renpy.org/">Ren'py</a>, but it should be possible to use the images in any game engine which allows for layered 2D sprites.</p>
+<p><a href="https://spiralatlas.itch.io/spritemaker">The Spritemaker example game</a> is a Ren'py-based visual novel using the Dolly sprite I just made.</p>
+<p>The dolly image is defined like this:</p>
 <pre>
 layeredimage dolly:
     zoom 1.2 # scales sprite up 
@@ -262,6 +263,10 @@ layeredimage dolly:
             "dolly_outfit_skirt" 
         attribute pjs:
             "dolly_outfit_pjs"           
+</pre>
+<p>Then in the script, if we wanted to show Dolly wearing her pajamas and looking sleepy, we would write this:</p>
+<pre>
+    show dolly sleepy pjs
 </pre>
 <p>You can learn more about layeredimage in <a href="https://www.renpy.org/doc/html/layeredimage.html">the Ren'py documentation</a>.</p>
 <p><a href="#top">Back to the top</a></p>
