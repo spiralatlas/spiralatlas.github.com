@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/blog/">
+  <meta property="og:url" content="https://spiralatlas.github.io/more-on-toon-shading/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Spiral Atlas Games">
+  <meta property="og:title" content="More On Toon Shading">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/blog/">
-  <meta name="twitter:title" content="Spiral Atlas Games">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/more-on-toon-shading/">
+  <meta name="twitter:title" content="More On Toon Shading">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Spiral Atlas Games</title>
+  <title>More On Toon Shading</title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -80,15 +80,8 @@
 </nav>
 
 
-  <main class="max-w-5xl mx-auto">
-
-<h1>Blog Posts</h1>
-
-<br>
-
-<h3><a class="text-secondary" id="more-on-toon-shading" href="/more-on-toon-shading/">More On Toon Shading</a></h3>
-<time datetime="2023-12-23"> 23 Dec 2023</time>
-<p></p>
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>More On Toon Shading</h1>
 <p>Tags: 
 
 
@@ -104,174 +97,49 @@
 <a href="/tags/art/" class="post-tag">art</a>,
  
 </p>
+<time datetime="2023-12-23"> 23 Dec 2023</time>
+
+<p>This follows on from <a href="../a-rough-guide-to-toon-shading-in-blender/">my earlier Blender Toon Shading tutorial</a>. I'm going to briefly discuss some situations that have come up for me a lot when making toon shaders: adapting exisiting materials, shiny metal, glass, and flat walls.</p>
+<p>If you type &quot;toon shader&quot; into the Blenderkit search, you can fine several other approaches to creating these kinds of materials.</p>
+<h1>Setup</h1>
+I'll demonstrate this with three objects: <a href="https://www.blenderkit.com/get-blenderkit/f792553c-e983-48ac-9944-21dc44aa6162/">this basket downloaded from Blenderkit</a>, a metallic sphere, a glass monkey head, and some walls. 
+<p>Here's the objects with standard shaders:
+<img src="../images/house_backgrounds/og.jpg" width=700></p>
+<p>The basket material has a texture, normal map, and roughness map:
+<img src="../images/house_backgrounds/og_bamboo.jpg" width=700></p>
+<p>The glass material is just basic glass:
+<img src="../images/house_backgrounds/og_glass.jpg" width=700></p>
+<p>The metal material is just a Principled BDSF with the metallic set to max:
+<img src="../images/house_backgrounds/og_metal.jpg" width=700></p>
+<p>The wall is just the default Principled BDSF in blue:
+<img src="../images/house_backgrounds/og_metal.jpg" width=700></p>
+<p>These are very simple glass, metal, and shaders. This kind of glass shader doesn't look great in Evee, I'm sure there's ways around that if you want to make realistic glass but I don't, so! Moving on!</p>
+<h1>Using an existing shader</h1>
+<p>It's sometimes useful to input an existing shader into a toon shader. This is pretty similar to a standard toon shader, but with the input shader replacing the Diffuse BDSF. I took out the gradient and fuzziness to simplify things.</p>
+<p>Here's the nodes for the &quot;toon shader with input&quot; node group:
+<img src="../images/house_backgrounds/input_full.jpg" width=700></p>
+<p>And here's the adapted bamboo basket texture:
+<img src="../images/house_backgrounds/new_bamboo.jpg" width=700></p>
+<p>Note that I lowered the strength of the normal map, mixed in some grey to the roughness, and mixed in some flat colour to the base colour. This smooths out the surface texture. Which exact numbers look best depends on the material.</p>
+<p>Plugging the &quot;toon shader with input&quot; node group into all three shaders we end up with this:
+<img src="../images/house_backgrounds/naive_toon.jpg" width=700></p>
+<p>The basket looks good but the others need some work.</p>
+<h1>Glass</h1>
+<p>For glass I usually use the brightness of a glass shader to mix a flat colour with a transparent shader. Remember to set the opacity to Alpha Clip in the material tab.
+<img src="../images/house_backgrounds/new_glass.jpg" width=700></p>
+<p>This creates a shader with some parts completely transparent. If you want all of it to be at least a</p>
+<p>little bit opaque, set the black in the colour ramp to a dark grey.</p>
+<h1>Metal</h1>
+<p>Metal textures can work fine with some tweaking, but sometimes I just fake it with a mix of glossy and diffuse shaders:
+<img src="../images/house_backgrounds/new_metal.jpg"></p>
+<h1>Walls and other flat surfaces</h1>
+<p>Large flat surfaces can look strange in a toon shader, with big circles of light and shade. One way to deal with this is to smooth out the shading, while still matching the general colour scheme of the toon shader used for other materials.</p>
+<p>To create a soft toon shader, just make a copy of the &quot;toon shader with input&quot; node group, and set the highlight (and if neccesary, shadow) colour ramps to &quot;linear&quot; instead of &quot;constant&quot;:
+<img src="../images/house_backgrounds/soft_toon.jpg" width=700></p>
+<h1>Putting it all together</h1>
+<p>Here's the final render:
+<img src="../images/house_backgrounds/new_toon.jpg" width=700></p>
 
-<h3><a class="text-secondary" id="announcing:-visual-novel-house-backgrounds" href="/announcing:-visual-novel-house-backgrounds/">Announcing: Visual Novel House Backgrounds</a></h3>
-<time datetime="2023-12-22"> 22 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-the-spiral-atlas-spritemaker!!" href="/announcing:-the-spiral-atlas-spritemaker!!/">Announcing: The Spiral Atlas Spritemaker!!</a></h3>
-<time datetime="2023-09-28"> 28 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="spritemaker-exampletutorial" href="/spritemaker-exampletutorial/">Spritemaker Example/Tutorial</a></h3>
-<time datetime="2023-09-15"> 15 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="guide-to-to-the-spiral-atlas-spritemaker" href="/guide-to-to-the-spiral-atlas-spritemaker/">Guide to to the Spiral Atlas Spritemaker</a></h3>
-<time datetime="2023-09-15"> 15 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="new-browser-toy:-regency-romance-cover-generator!" href="/new-browser-toy:-regency-romance-cover-generator!/">New Browser Toy:  Regency Romance Cover Generator!</a></h3>
-<time datetime="2022-02-25"> 25 Feb 2022</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/regency-romance-cover-generator/" class="post-tag">regency romance cover generator</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="making-your-visual-novel-accessible" href="/making-your-visual-novel-accessible/">Making Your Visual Novel Accessible</a></h3>
-<time datetime="2021-11-03"> 03 Nov 2021</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/accessibility/" class="post-tag">accessibility</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/visual-novels/" class="post-tag">visual novels</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="my-approach-to-social-inequality-in-northanger-abbey:-the-game" href="/my-approach-to-social-inequality-in-northanger-abbey:-the-game/">My Approach to Social Inequality in Northanger Abbey: The Game</a></h3>
-<time datetime="2021-10-10"> 10 Oct 2021</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/northanger-abbey/" class="post-tag">northanger abbey</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-
- <nav class="flex justify-between px-5 m-auto md:max-w-md" aria-labelledby="blog-pagination">
-    
-    Previous
-    <a href="/blog/1/">Next</a>
-    <a href="/blog/5/">Last</a>
-</nav>
 
 </main>
 
