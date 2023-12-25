@@ -104,15 +104,15 @@
 <h1>Setup</h1>
 I'll demonstrate this with three objects: <a href="https://www.blenderkit.com/get-blenderkit/f792553c-e983-48ac-9944-21dc44aa6162/">this basket downloaded from Blenderkit</a>, a metallic sphere, a glass monkey head, and some walls. 
 <p>Here's the objects with standard shaders:
-<img src="../images/house_backgrounds/og.jpg" width=700></p>
+<img src="../images/house_backgrounds/og.jpg" width=600></p>
 <p>The basket material has a texture, normal map, and roughness map:
 <img src="../images/house_backgrounds/og_bamboo.jpg" width=700></p>
 <p>The glass material is just basic glass:
 <img src="../images/house_backgrounds/og_glass.jpg" width=700></p>
 <p>The metal material is just a Principled BDSF with the metallic set to max:
-<img src="../images/house_backgrounds/og_metal.jpg" width=700></p>
+<img src="../images/house_backgrounds/og_metal.jpg" width=600></p>
 <p>The wall is just the default Principled BDSF in blue:
-<img src="../images/house_backgrounds/og_metal.jpg" width=700></p>
+<img src="../images/house_backgrounds/og_metal.jpg" width=600></p>
 <p>These are very simple glass, metal, and shaders. This kind of glass shader doesn't look great in Evee, I'm sure there's ways around that if you want to make realistic glass but I don't, so! Moving on!</p>
 <h1>Using an existing shader</h1>
 <p>It's sometimes useful to input an existing shader into a toon shader. This is pretty similar to a standard toon shader, but with the input shader replacing the Diffuse BDSF. I took out the gradient and fuzziness to simplify things.</p>
@@ -122,23 +122,35 @@ I'll demonstrate this with three objects: <a href="https://www.blenderkit.com/ge
 <img src="../images/house_backgrounds/new_bamboo.jpg" width=700></p>
 <p>Note that I lowered the strength of the normal map, mixed in some grey to the roughness, and mixed in some flat colour to the base colour. This smooths out the surface texture. Which exact numbers look best depends on the material.</p>
 <p>Plugging the &quot;toon shader with input&quot; node group into all three shaders we end up with this:
-<img src="../images/house_backgrounds/naive_toon.jpg" width=700></p>
+<img src="../images/house_backgrounds/naive_toon.jpg" width=600></p>
 <p>The basket looks good but the others need some work.</p>
 <h1>Glass</h1>
-<p>For glass I usually use the brightness of a glass shader to mix a flat colour with a transparent shader. Remember to set the opacity to Alpha Clip in the material tab.
-<img src="../images/house_backgrounds/new_glass.jpg" width=700></p>
-<p>This creates a shader with some parts completely transparent. If you want all of it to be at least a</p>
-<p>little bit opaque, set the black in the colour ramp to a dark grey.</p>
+<p>There's a couple of different approaches I use for glass:</p>
+<ul>
+<li>glowing colour, for sunlight through a window etc. This is just a simple emission shader.</li>
+<li>Flat blue, or a blue/purple gradient, possibly mixed with another shader for shadows. This worked well for mirrored surfaces.</li>
+<li>transparent except for any highlights</li>
+<li>fully transparent, or just displaying whatever would be visible as a flat image.</li>
+</ul>
+<p>For any (partially) transparent material in eevee, remember to set the opacity to Alpha Clip in the material tab.</p>
+<p>Here's an example of a glowing window, using an emission shader:
+<img src="../images/house_backgrounds/window.jpg" width=600></p>
+<p>Here's a purple/blue gradient mixed with a glossy shader to fake a mirrored surface (I probably should have used a toon shader but the glossy shader works fine):
+<img src="../images/house_backgrounds/kitchen.jpg" width=600></p>
+<img src="../images/house_backgrounds/oven_glass.jpg" width=600>
+<p>But for this scene I'll use a material which is transparent except for highlights.</p>
+<img src="../images/house_backgrounds/new_glass.jpg" width=700>
+<p>This creates a shader with some parts completely transparent. If you want all of it to be at least a little bit opaque, set the black in the colour ramp to a dark grey.</p>
 <h1>Metal</h1>
 <p>Metal textures can work fine with some tweaking, but sometimes I just fake it with a mix of glossy and diffuse shaders:
-<img src="../images/house_backgrounds/new_metal.jpg"></p>
+<img src="../images/house_backgrounds/new_metal.jpg" width = 700></p>
 <h1>Walls and other flat surfaces</h1>
 <p>Large flat surfaces can look strange in a toon shader, with big circles of light and shade. One way to deal with this is to smooth out the shading, while still matching the general colour scheme of the toon shader used for other materials.</p>
 <p>To create a soft toon shader, just make a copy of the &quot;toon shader with input&quot; node group, and set the highlight (and if neccesary, shadow) colour ramps to &quot;linear&quot; instead of &quot;constant&quot;:
-<img src="../images/house_backgrounds/soft_toon.jpg" width=700></p>
+<img src="../images/house_backgrounds/soft_toon.jpg" width=600></p>
 <h1>Putting it all together</h1>
 <p>Here's the final render:
-<img src="../images/house_backgrounds/new_toon.jpg" width=700></p>
+<img src="../images/house_backgrounds/new_toon.jpg" width=600></p>
 
 
 </main>
