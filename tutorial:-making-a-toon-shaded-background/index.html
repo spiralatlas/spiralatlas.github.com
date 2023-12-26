@@ -99,7 +99,7 @@
 </p>
 <time datetime="2023-12-25"> 25 Dec 2023</time>
 
-<p>This technique requires a pretty solid grasp of Blender, and follows on from <a href="../a-rough-guide-to-toon-shading-in-blender/">my earlier Blender Toon Shading tutorial</a> and <a href="../more-on-toon-shading/">More On Toon Shading</a>. I probably changed some parts and forgot to note it down, but this is the rough method I used.</p>
+<p>This technique requires a pretty solid grasp of Blender, and follows on from <a href="../a-rough-guide-to-toon-shading-in-blender/">my earlier Blender Toon Shading tutorial</a> and <a href="../more-on-toon-shading/">More On Toon Shading</a>. I'm sure there's other ways to do this sort of thing, and I may have misremembered some things while writing this tutorial.</p>
 <p>Here's the final image:
 <img src="../images/house_backgrounds/bathroom_final.jpg" width=700></p>
 <h1>Setup</h1>
@@ -114,8 +114,8 @@
 <p>I positioned the camera to be at about eye-height, and made sure everything was in scale, using a simple human-sized guide. Here's the scene with one wall removed, to show the lights, camera, and scale guide:</p>
 <img src="../images/house_backgrounds/camera.jpg" width=700>
 <h1>Rendering</h1>
-<p>I turned on bloom, used an object in the middle of the scene for depth of field on the camera, and made sure each light had contact shadows turned on.</p>
-<p><a href="https://blender.stackexchange.com/questions/275416/eevee-displays-shadows-as-though-they-levitate">Here's a general discussion of working around some of eevee's quirks with shadows.</a></p>
+<p>I turned on bloom, used an object in the middle of the scene for depth of field on the camera, and made sure each light had contact shadows turned on. <a href="https://blender.stackexchange.com/questions/275416/eevee-displays-shadows-as-though-they-levitate">Here's a general discussion of working around some of eevee's quirks with shadows.</a></p>
+<p>I don't add any effects with the compositor, because for some reason that always causes visual artefacts when I add Bloom.</p>
 <p>Here's the render again:
 <img src="../images/house_backgrounds/draft1.jpg" width=700></p>
 <p>This looks pretty good, and you could stop here.</p>
@@ -137,7 +137,7 @@
 <p>Here's the rendered lines:
 <img src="../images/house_backgrounds/lines.jpg" width=700></p>
 <h1>Post Processing</h1>
-<p>I use Clip Studio Paint but you could so something similar with any art program with layers, like Krita, GIMP, or FireAlpaca.</p>
+<p>I use Clip Studio Paint but you could do something similar with any art program with layers, like Krita, GIMP, or FireAlpaca.</p>
 <p>From bottom to top, the layers are:</p>
 <ul><li>The original render.
 <li>The original render blurred by 30 pixels with Gaussian Blur, then set to Hue blending and 50% opacity. This softens the colours. 
@@ -146,14 +146,14 @@
 <li>The original render, clipped to the opacity of the lines layer, so it just changes the colour of the lines</ul>
 <li>A painted blobby yellow and purple texture layer, set to Soft Light and 50% opacity.
 <li>A light yellow gradient diagonally across the screen, fading to transparent at the bottom set to Screen, and 14% opacity. 
-<li>A brightness/contrast layer increasing contrast by 22. </ul>
+<li>A brightness/contrast layer increasing brightness by 22. </ul>
 <p>There is a mask on the lines folder which erases the lines here and there with a soft edged brush to make things look more organic.</p>
 <img src="../images/house_backgrounds/layers.jpg" width=700>
 <p>Here's the texture I use for the soft light layer, feel free to use it in your own renders.
 <img src="../images/house_backgrounds/soft_light.jpg" width=700></p>
 <p>And here is the final image!</p>
 <img src="../images/house_backgrounds/bathroom_final.jpg" width=700>
-<p>I'm still working out how to do night versions of these backgrounds, so a tutorial on that will have to wait.</p>
+<p>I'm still working out how to do night versions of these backgrounds, so a tutorial on that will have to wait. I'm also pondering adding some paint-stroke-esque textures.</p>
 
 
 </main>

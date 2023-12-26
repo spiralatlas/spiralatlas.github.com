@@ -100,7 +100,7 @@
 <time datetime="2023-12-23"> 23 Dec 2023</time>
 
 <p>This follows on from <a href="../a-rough-guide-to-toon-shading-in-blender/">my earlier Blender Toon Shading tutorial</a>. I'm going to briefly discuss some situations that have come up for me a lot when making toon shaders: adapting exisiting materials, shiny metal, glass, and flat walls.</p>
-<p>If you type &quot;toon shader&quot; into the Blenderkit search, you can fine several other approaches to creating these kinds of materials.</p>
+<p>If you type &quot;toon shader&quot; into the Blenderkit search, you can find several other approaches to creating these kinds of materials.</p>
 <h1>Setup</h1>
 I'll demonstrate this with three objects: <a href="https://www.blenderkit.com/get-blenderkit/f792553c-e983-48ac-9944-21dc44aa6162/">this basket downloaded from Blenderkit</a>, a metallic sphere, a glass monkey head, and some walls. 
 <p>Here's the objects with standard shaders:
@@ -115,8 +115,8 @@ I'll demonstrate this with three objects: <a href="https://www.blenderkit.com/ge
 <img src="../images/house_backgrounds/og_metal.jpg" width=600></p>
 <p>These are very simple glass, metal, and shaders. This kind of glass shader doesn't look great in Evee, I'm sure there's ways around that if you want to make realistic glass but I don't, so! Moving on!</p>
 <h1>Using an existing shader</h1>
-<p>It's sometimes useful to input an existing shader into a toon shader. This is pretty similar to a standard toon shader, but with the input shader replacing the Diffuse BDSF. I took out the gradient and fuzziness to simplify things.</p>
-<p>Here's the nodes for the &quot;toon shader with input&quot; node group:
+<p>It's sometimes useful to input an existing shader into a toon shader. This is pretty similar to a standard toon shader, but with the input shader replacing the Diffuse BDSF. I took out the gradient, texture, and fuzziness from the toon shader in my earlier tutorial to simplify things. I've also tweaked some of the nodes to create more of the look I want.</p>
+<p>So, here's the nodes for my &quot;toon shader with input&quot; node group:
 <img src="../images/house_backgrounds/input_full.jpg" width=700></p>
 <p>And here's the adapted bamboo basket texture:
 <img src="../images/house_backgrounds/new_bamboo.jpg" width=700></p>
@@ -140,7 +140,7 @@ I'll demonstrate this with three objects: <a href="https://www.blenderkit.com/ge
 <img src="../images/house_backgrounds/oven_glass.jpg" width=600>
 <p>But for this scene I'll use a material which is transparent except for highlights.</p>
 <img src="../images/house_backgrounds/new_glass.jpg" width=700>
-<p>This creates a shader with some parts completely transparent. If you want all of it to be at least a little bit opaque, set the black in the colour ramp to a dark grey.</p>
+<p>This creates a material with some parts completely transparent. If you want all of it to be at least a little bit opaque, set the black in the colour ramp to a dark grey.</p>
 <h1>Metal</h1>
 <p>Metal textures can work fine with some tweaking, but sometimes I just fake it with a mix of glossy and diffuse shaders:
 <img src="../images/house_backgrounds/new_metal.jpg" width = 700></p>
@@ -151,6 +151,7 @@ I'll demonstrate this with three objects: <a href="https://www.blenderkit.com/ge
 <h1>Putting it all together</h1>
 <p>Here's the final render:
 <img src="../images/house_backgrounds/new_toon.jpg" width=600></p>
+<p><a href="../tutorial:-making-a-toon-shaded-background/">Tutorial: Making a Toon Shaded Background</a> explains how I use these techniques to create a background.</p>
 
 
 </main>
