@@ -331,4 +331,10 @@
     <changefreq>monthly</changefreq>
   </url>
   
+  <url>
+    <loc>/credits/</loc>
+    <lastmod>2024-07-22T06:14:31.058Z</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
 </urlset>
