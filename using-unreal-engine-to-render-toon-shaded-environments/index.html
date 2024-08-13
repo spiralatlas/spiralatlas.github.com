@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/blog/">
+  <meta property="og:url" content="https://spiralatlas.github.io/using-unreal-engine-to-render-toon-shaded-environments/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Spiral Atlas Games">
+  <meta property="og:title" content="Using Unreal Engine to Render Toon Shaded Environments">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/blog/">
-  <meta name="twitter:title" content="Spiral Atlas Games">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/using-unreal-engine-to-render-toon-shaded-environments/">
+  <meta name="twitter:title" content="Using Unreal Engine to Render Toon Shaded Environments">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Spiral Atlas Games</title>
+  <title>Using Unreal Engine to Render Toon Shaded Environments</title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -80,15 +80,8 @@
 </nav>
 
 
-  <main class="max-w-5xl mx-auto">
-
-<h1>Blog Posts</h1>
-
-<br>
-
-<h3><a class="text-secondary" id="using-unreal-engine-to-render-toon-shaded-environments" href="/using-unreal-engine-to-render-toon-shaded-environments/">Using Unreal Engine to Render Toon Shaded Environments</a></h3>
-<time datetime="2024-08-11"> 11 Aug 2024</time>
-<p></p>
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>Using Unreal Engine to Render Toon Shaded Environments</h1>
 <p>Tags: 
 
 
@@ -107,168 +100,50 @@
 <a href="/tags/unreal/" class="post-tag">unreal</a>,
  
 </p>
+<time datetime="2024-08-11"> 11 Aug 2024</time>
+
+<p>This tutorial is aimed at people with no experience with Unreal Engine who just want to render an existing model made by someone else. I'm very new to Unreal myself, and this is a bit slapdash, so I have plausibly gotten some details wrong.</p>
+<p>Here's an example render I made from <a href="https://www.unrealengine.com/marketplace/en-US/product/factory-environment-collection">Factory Environment Collection
+</a>: <img src="../images/unreal/warehouse.jpg" alt = "A toon shaded warehouse"></p>
+<p>If you don't want to use toon shading and are happy with the environment's in-built shading, just skip the &quot;Create an Unreal project containing a toon shader&quot; and &quot;Adding the toon shader to your project&quot; steps.</p>
+<h2>Setup</h2>
+<p><a href="https://www.unrealengine.com/en-US/download">Install Unreal Engine</a>:<ul></p>
+<li>Install the Epic Games launcher. A lot of Unreal content is controlled via the Epic Games launcher. Make an Epic Games account if you don't already have one.
+<li>Install the latest version of Unreal Engine via the Epic Games launcher.</ul>
+<p>Optional: Follow any basic Unreal Engine introduction tutorial, just to get a feel for the controls. I followed <a href="https://www.youtube.com/watch?v=ptCN4cysDig">Unreal Engine 5 Beginner Tutorial</a></p>
+<p>Create an Unreal project containing a toon shader. I intend on making mine available for download at some point, but for now here's the tutorial I followed: <a href="https://www.youtube.com/watch?v=mzydOmgN7mc">How to Make a Toon Shader in UE5</a>.</p>
+<h2>Creating a project from an existing Environment</h2>
+<h3>Choose an environment</h3>
+Find an Unreal environment you like from the <a href="https://www.unrealengine.com/marketplace/en-US/store">Unreal Marketplace</a> (also accessible via the Epic Games launcher). I recommend checking out the Free For This Month section, it often has really good environments which are only available for a short time. You can theoretically download environments from places like Sketchfab, but importing them seems more fiddly. 
+<h3>Create a project</h3>
+Open the Library tab in the Epic Launcher and scroll down to the Vault. If your environment has a "Create New Project" button, just click that. 
+<p>If not, create a new empty project by going into Unreal Engine, clicking the &quot;Games&quot; tab and creating an empty project, then close it. Then click &quot;Add to Project&quot; on your asset and add it to the new project.</p>
+<p>I'll call this project EnvironmentProject for clarity.</p>
+<h3>Setting up the project</h3>
+Open your project in Unreal Engine, and open the Content Browser. There should be a pre-made level you can double click on to create a nice environment.
+<p>Go to Edit -&gt; Plugins and make sure 'Movie Render Queue' is enabled.</p>
+<p>In the Content Browser, add a new subfolder of the Content folder called Sequences.</p>
+<p>Remember to 'save all' every now and then!</p>
+<h2>Adding the toon shader to your project</h2>
+<h3>Adding the toon shader</h3>
+Go into the Toon Shader project. Right click on the folder and click "Migrate", then navigate to the content folder of the environment project created in the previous section. 
+<h3>Setting up the toon shader</h3>
+<p>Open EnvironmentProject. Create a material instance of the Toonshader material.</p>
+<p>Go to Volumes/Post Process Volume. In the Details tab, set to Post Process Material. Clickl the + symbol and Choose Asset reference, selecting the toonshader instance. Click the Infinite Extent checkbox.</p>
+<p>The toonshader should now be applied to your whole scene. Tweak the settings until you like how things look.</p>
+<h2>Creating a Render of your Scene</h2>
+<p>First step is to position yourself so you're looking at the view you want to make a render of.</p>
+<h3>Quick and dirty screenshot method</h3> 
+From <a href="https://www.youtube.com/watch?v=Sgq3hamQlaE">How To Render High Resolution Image In Unreal Engine 5 THE FASTEST WAY!</a>. Press G to hide the tools and widgets. Click the hamburger menu (three lines) and choose High Resolution Screenshot. Set the 'screenshot Size Multiplier' to 2 and click Capture. A link to your file will appear in the bottom left corner. 
+<h3>Setting up a Level Sequence</h3>
+This combines the techniques of <a href="https://www.youtube.com/watch?v=bpmO79igrWE">How to Render Still Images in Unreal Engine 5 easily</a> and <a href="https://www.youtube.com/watch?v=WtGV22DZgqc">This is the proper way to render an image on UNREAL ENGINE 5!</a>.
+<p>Right click and create a new Cinematic/Level Sequence, and give it a useful name eg FrontView.</p>
+<p>Either click the Camera symbol to create a new camera with this view, or click +Track/Actor to Sequence to use an existing camera. Select the camera and tweak the position until it looks right in the preview window.</p>
+<p>Optional: in the Details tab for this camera, set Focus Method to Manual and use the eyedropper tool to choose an object to focus on. Custom Clip Plane can remove objects in the foreground.</p>
+<h3>Rendering</h3>
+Click the clapper symbol to open the render queue. Click on the (currently unnamed) preset to tweak the settings. 
+<p>Rename the preset to something like MyPreset. If neccesary, change the output folder, filename, and resolution. Click the 'Use Custom Playback Range' checkbox and set the start frame to 0 and the end frame to 1. Click Accept and then Render Local.</p>
 
-<h3><a class="text-secondary" id="announcing:-alibababa-solitaire" href="/announcing:-alibababa-solitaire/">Announcing: Alibababa Solitaire</a></h3>
-<time datetime="2024-08-10"> 10 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="tutorial:-making-a-toon-shaded-background" href="/tutorial:-making-a-toon-shaded-background/">Tutorial: Making a Toon Shaded Background</a></h3>
-<time datetime="2023-12-25"> 25 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/blender/" class="post-tag">blender</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="more-on-toon-shading" href="/more-on-toon-shading/">More On Toon Shading</a></h3>
-<time datetime="2023-12-23"> 23 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/blender/" class="post-tag">blender</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-visual-novel-house-backgrounds" href="/announcing:-visual-novel-house-backgrounds/">Announcing: Visual Novel House Backgrounds</a></h3>
-<time datetime="2023-12-22"> 22 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-the-spiral-atlas-spritemaker!!" href="/announcing:-the-spiral-atlas-spritemaker!!/">Announcing: The Spiral Atlas Spritemaker!!</a></h3>
-<time datetime="2023-09-28"> 28 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="spritemaker-exampletutorial" href="/spritemaker-exampletutorial/">Spritemaker Example/Tutorial</a></h3>
-<time datetime="2023-09-15"> 15 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="guide-to-to-the-spiral-atlas-spritemaker" href="/guide-to-to-the-spiral-atlas-spritemaker/">Guide to to the Spiral Atlas Spritemaker</a></h3>
-<time datetime="2023-09-15"> 15 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-
- <nav class="flex justify-between px-5 m-auto md:max-w-md" aria-labelledby="blog-pagination">
-    
-    Previous
-    <a href="/blog/1/">Next</a>
-    <a href="/blog/6/">Last</a>
-</nav>
 
 </main>
 
