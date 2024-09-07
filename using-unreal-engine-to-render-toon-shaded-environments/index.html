@@ -121,7 +121,7 @@ Open the Library tab in the Epic Launcher and scroll down to the Vault. If your 
 <p>I'll call this project EnvironmentProject for clarity.</p>
 <h3>Setting up the project</h3>
 Open your project in Unreal Engine, and open the Content Browser. There should be a pre-made level you can double click on to create a nice environment.
-<p>Go to Edit -&gt; Plugins and make sure 'Movie Render Queue' is enabled.</p>
+<p>Go to Edit -&gt; Plugins and make sure 'Movie Render Queue' is enabled. Unreal will restart.</p>
 <p>In the Content Browser, add a new subfolder of the Content folder called Sequences.</p>
 <p>Remember to 'save all' every now and then!</p>
 <h2>Adding the toon shader to your project</h2>
@@ -129,7 +129,7 @@ Open your project in Unreal Engine, and open the Content Browser. There should b
 Go into the Toon Shader project. Right click on the folder and click "Migrate", then navigate to the content folder of the environment project created in the previous section. 
 <h3>Setting up the toon shader</h3>
 <p>Open EnvironmentProject. Create a material instance of the Toonshader material.</p>
-<p>Go to Volumes/Post Process Volume. In the Details tab, set to Post Process Material. Clickl the + symbol and Choose Asset reference, selecting the toonshader instance. Click the Infinite Extent checkbox.</p>
+<p>Open the &quot;Quickly add to the project&quot; menu, marked by a little cube with a plus symbol. CLick Volumes/Post Process Volume. In the Details tab, set to Post Process Material. Clickl the + symbol and Choose Asset reference, selecting the toonshader instance. Click the Infinite Extent checkbox.</p>
 <p>The toonshader should now be applied to your whole scene. Tweak the settings until you like how things look.</p>
 <h2>Creating a Render of your Scene</h2>
 <p>First step is to position yourself so you're looking at the view you want to make a render of.</p>
@@ -141,7 +141,7 @@ This combines the techniques of <a href="https://www.youtube.com/watch?v=bpmO79i
 <p>Either click the Camera symbol to create a new camera with this view, or click +Track/Actor to Sequence to use an existing camera. Select the camera and tweak the position until it looks right in the preview window.</p>
 <p>Optional: in the Details tab for this camera, set Focus Method to Manual and use the eyedropper tool to choose an object to focus on. Custom Clip Plane can remove objects in the foreground.</p>
 <h3>Rendering</h3>
-Click the clapper symbol to open the render queue. Click on the (currently unnamed) preset to tweak the settings. 
+Click the clapper symbol to open the render queue. Click on the (currently unnamed) preset to tweak the settings and then click the name in the top right and Save Preset. 
 <p>Rename the preset to something like MyPreset. If neccesary, change the output folder, filename, and resolution. Click the 'Use Custom Playback Range' checkbox and set the start frame to 0 and the end frame to 1. Click Accept and then Render Local.</p>
 
 
