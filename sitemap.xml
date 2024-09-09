@@ -349,4 +349,10 @@
     <changefreq>monthly</changefreq>
   </url>
   
+  <url>
+    <loc>/environments-to-render/</loc>
+    <lastmod>2024-09-09T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
 </urlset>
