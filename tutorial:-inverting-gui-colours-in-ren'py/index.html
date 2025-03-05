@@ -99,7 +99,7 @@
 </p>
 <time datetime="2025-03-05"> 05 Mar 2025</time>
 
-<p>Thanks to various people on the VNDevs discord. I wanted to record my process before I forget.</p>
+<p>Thanks to various people on the DevTalk discord.</p>
 <h1>Motivation</h1>
 <p>It's important for accessibility reasons that user interface elements use high contrast between the background and text. But this generally means picking one of dark text on a light background <i>or</i> light text on a dark background, and some users will find it much easier to read the reverse.</p>
 <p>By offering an 'invert user interface colours' toggle, your game becomes more accessible without having to create a whole separate colour scheme from scratch.</p>
@@ -140,7 +140,8 @@ In screens.rpy, search for <pre>add FileScreenshot(slot) xalign 0.5</pre> and re
 <h3>Main menu background</h3>
 <p>Here's my original main menu:
 <img src="../images/invertUI/main.jpg" alt="black and dark red on white including title text"></p>
-<p>Here it is inverted:
+<p>I need to work on the aesthetics <i>and</i> contrast but it will do as an example.</p>
+<p>Here it is with the colours inverted and the hue corrected:
 <img src="../images/invertUI/invertmainsimple.jpg" alt="pink and white on black including title text"></p>
 <p>If you like how the main menu image looks when it's inverted, you can skip this step. Otherwise, in screens.rpy, search for <pre>add gui.main_menu_background</pre> and replace with <pre>add gui.main_menu_background at invert_gui</pre></p>
 <p>You may have to increase the opacity of parts of gui/overlay/main_menu.png, depending on your specific user interface design.</p>
