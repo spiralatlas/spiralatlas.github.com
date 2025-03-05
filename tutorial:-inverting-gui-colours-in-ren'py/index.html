@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/blog/3/">
+  <meta property="og:url" content="https://spiralatlas.github.io/tutorial:-inverting-gui-colours-in-ren&amp;#39;py/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Spiral Atlas Games">
+  <meta property="og:title" content="Tutorial: Inverting GUI Colours in Ren&#39;py">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/blog/3/">
-  <meta name="twitter:title" content="Spiral Atlas Games">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/tutorial:-inverting-gui-colours-in-ren&amp;#39;py/">
+  <meta name="twitter:title" content="Tutorial: Inverting GUI Colours in Ren&#39;py">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Spiral Atlas Games</title>
+  <title>Tutorial: Inverting GUI Colours in Ren&#39;py</title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -80,222 +80,74 @@
 </nav>
 
 
-  <main class="max-w-5xl mx-auto">
-
-<h1>Blog Posts</h1>
-
-<br>
-
-<h3><a class="text-secondary" id="music!-art!-release!!" href="/music!-art!-release!!/">Music! Art! RELEASE!!</a></h3>
-<time datetime="2019-11-02"> 02 Nov 2019</time>
-<p></p>
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>Tutorial: Inverting GUI Colours in Ren&#39;py</h1>
 <p>Tags: 
 
 
 <a href="/tags/posts/" class="post-tag">posts</a>,
 
 
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/games/" class="post-tag">games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/northanger-abbey/" class="post-tag">northanger abbey</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="making-song-loops-in-garageband-on-the-mac" href="/making-song-loops-in-garageband-on-the-mac/">Making song loops in Garageband on the Mac</a></h3>
-<time datetime="2019-10-28"> 28 Oct 2019</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
+<a href="/tags/renpy/" class="post-tag">renpy</a>,
 
 
 <a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/music/" class="post-tag">music</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="a-hacky-approach-to-ren&#39;py-text-accessibility" href="/a-hacky-approach-to-ren&#39;py-text-accessibility/">A Hacky approach to Ren&#39;Py Text Accessibility</a></h3>
-<time datetime="2019-10-24"> 24 Oct 2019</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
 
 
 <a href="/tags/accessibility/" class="post-tag">accessibility</a>,
-
-
-<a href="/tags/renpy/" class="post-tag">renpy</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/coding/" class="post-tag">coding</a>,
  
 </p>
+<time datetime="2025-03-05"> 05 Mar 2025</time>
+
+<p>Thanks to various people on the VNDevs discord. I wanted to record my process before I forget.</p>
+<h1>Motivation</h1>
+<p>It's important for accessibility reasons that user interface elements use high contrast between the background and text. But this generally means picking one of dark text on a light background <i>or</i> light text on a dark background, and some users will find it much easier to read the reverse.</p>
+<p>By offering an 'invert user interface colours' toggle, your game becomes more accessible without having to create a whole separate colour scheme from scratch.</p>
+<h2>Inverting the Colours</h2>
+<p>Here's a screenshot of my original UI:
+<img src="../images/invertUI/originalchoice.jpg" alt="black and dark red on white"></p>
+<p>Add this code whereever you define default variables and transforms etc:</p>
+<pre>default persistent.gui_is_inverted = 0.0
+
+transform invert_gui:
+    matrixcolor InvertMatrix(persistent.gui_is_inverted)
+
+define config.layer_transforms = {"screens":[invert_gui]}</pre>
+<p>This will invert the colours of everything on the &quot;screens&quot; layer, like so:
+<img src="../images/invertUI/invert.jpg" alt="colours are now light green and white on black"></p>
+<p>If you want to keep the <i>hue</I> the same and just invert the <i>brightness</i>, use this version instead:</p>
+<pre>default persistent.gui_is_inverted = 0.0
+
+transform invert_gui:
+    matrixcolor InvertMatrix(persistent.gui_is_inverted)*HueMatrix(180*persistent.gui_is_inverted)
+define config.layer_transforms = {"screens":[invert_gui]}</pre>
+<img src="../images/invertUI/inverthue.jpg" alt="colours are now pink and white on black">
+<p>If the inverted version isn't very readable, tweak the colours in gui.rpy, making sure they still look good uninverted.</p>
+<h2>Adding a toggle to the Preferences Menu</h2>
+<p>Search for &quot;screen preferences&quot;  in screens.rpy to find the preferences screen. Wherever makes sense to you, add something like this:</p>
+<pre>vbox:
+    xsize  400
+    spacing 5
+    label _("UI Colours")
+    style_prefix "check"
+    textbutton _("Standard Colours") action SetVariable("persistent.gui_is_inverted", 0.0)   
+    textbutton _("Inverted Colours") action SetVariable("persistent.gui_is_inverted", 1.0)   </pre>
+<img src="../images/invertUI/prefs.jpg" alt="preferences screen">
+<h2>Uninverting specific images</h2>
+<p>Inverting some images looks pretty weird. To stop that, we need to invert the images twice, since that will cancel out.</p>
+<h3>Save and load screen preview images</h3>
+In screens.rpy, search for <pre>add FileScreenshot(slot) xalign 0.5</pre> and replace it with <pre>add FileScreenshot(slot) xalign 0.5 at invert_gui</pre>
+<h3>Main menu background</h3>
+<p>Here's my original main menu:
+<img src="../images/invertUI/main.jpg" alt="black and dark red on white including title text"></p>
+<p>Here it is inverted:
+<img src="../images/invertUI/invertmainsimple.jpg" alt="pink and white on black including title text"></p>
+<p>If you like how the main menu image looks when it's inverted, you can skip this step. Otherwise, in screens.rpy, search for <pre>add gui.main_menu_background</pre> and replace with <pre>add gui.main_menu_background at invert_gui</pre></p>
+<p>You may have to increase the opacity of parts of gui/overlay/main_menu.png, depending on your specific user interface design.</p>
+<p>Here's the new version:
+<img src="../images/invertUI/invertmain.jpg" alt="pink and white on black except the title text which is still dark red on white"></p>
+<p>If both options look bad you could create a unique main menu image which only displays when <pre>persistent.gui_is_inverted&gt;0</pre></p>
 
-<h3><a class="text-secondary" id="regency-romance-title-generator" href="/regency-romance-title-generator/">Regency Romance Title Generator</a></h3>
-<time datetime="2019-09-12"> 12 Sep 2019</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/games/" class="post-tag">games</a>,
-
-
-<a href="/tags/itchio/" class="post-tag">itchio</a>,
-
-
-<a href="/tags/javascript/" class="post-tag">javascript</a>,
-
-
-<a href="/tags/romance-title-generator/" class="post-tag">romance title generator</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="guide-to-the-renpy-sprite-creator" href="/guide-to-the-renpy-sprite-creator/">Guide to the Renpy Sprite Creator</a></h3>
-<time datetime="2019-08-28"> 28 Aug 2019</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/renpy/" class="post-tag">renpy</a>,
-
-
-<a href="/tags/renpy-sprite-creator/" class="post-tag">renpy sprite creator</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="ren&#39;py-sprite-creator" href="/ren&#39;py-sprite-creator/">Ren&#39;py Sprite Creator</a></h3>
-<time datetime="2019-08-12"> 12 Aug 2019</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/renpy/" class="post-tag">renpy</a>,
-
-
-<a href="/tags/tools/" class="post-tag">tools</a>,
-
-
-<a href="/tags/renpy-sprite-creator/" class="post-tag">renpy sprite creator</a>,
-
-
-<a href="/tags/visual-novels/" class="post-tag">visual novels</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="more-rule-63-designs" href="/more-rule-63-designs/">More Rule 63 Designs</a></h3>
-<time datetime="2019-07-21"> 21 Jul 2019</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/gender/" class="post-tag">gender</a>,
-
-
-<a href="/tags/dev-log/" class="post-tag">dev log</a>,
-
-
-<a href="/tags/northanger-abbey/" class="post-tag">northanger abbey</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/visual-novels/" class="post-tag">visual novels</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="changes-are-afoot-for-northanger-abbey!" href="/changes-are-afoot-for-northanger-abbey!/">Changes are afoot for Northanger Abbey!</a></h3>
-<time datetime="2019-06-27"> 27 Jun 2019</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/gender/" class="post-tag">gender</a>,
-
-
-<a href="/tags/dev-log/" class="post-tag">dev log</a>,
-
-
-<a href="/tags/northanger-abbey/" class="post-tag">northanger abbey</a>,
-
-
-<a href="/tags/from-dreamwidth/" class="post-tag">from dreamwidth</a>,
-
-
-<a href="/tags/visual-novels/" class="post-tag">visual novels</a>,
- 
-</p>
-
-
- <nav class="flex justify-between px-5 m-auto md:max-w-md" aria-labelledby="blog-pagination">
-    <a href="/blog/">First</a>
-    <a href="/blog/2/">Previous</a>
-    <a href="/blog/4/">Next</a>
-    <a href="/blog/6/">Last</a>
-</nav>
 
 </main>
 
