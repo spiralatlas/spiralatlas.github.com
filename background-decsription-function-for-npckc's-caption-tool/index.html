@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/useful-stuff-for-putting-a-game-on-steam/">
+  <meta property="og:url" content="https://spiralatlas.github.io/background-decsription-function-for-npckc&amp;#39;s-caption-tool/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Useful stuff for putting a game on Steam">
+  <meta property="og:title" content="Background Decsription Function for npckc&#39;s Caption Tool ">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/useful-stuff-for-putting-a-game-on-steam/">
-  <meta name="twitter:title" content="Useful stuff for putting a game on Steam">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/background-decsription-function-for-npckc&amp;#39;s-caption-tool/">
+  <meta name="twitter:title" content="Background Decsription Function for npckc&#39;s Caption Tool ">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Useful stuff for putting a game on Steam</title>
+  <title>Background Decsription Function for npckc&#39;s Caption Tool </title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -81,30 +81,108 @@
 
 
   <main class="max-w-5xl mx-auto prose dark:prose-dark">
-<h1>Useful stuff for putting a game on Steam</h1>
+<h1>Background Decsription Function for npckc&#39;s Caption Tool </h1>
 <p>Tags: 
 
 
 <a href="/tags/posts/" class="post-tag">posts</a>,
 
 
-<a href="/tags/tutorial-links-steam/" class="post-tag">tutorial, links, steam</a>,
+<a href="/tags/tutorial-accessibility/" class="post-tag">tutorial, accessibility</a>,
  
 </p>
-<time datetime="2025-05-05"> 05 May 2025</time>
+<time datetime="2025-06-17"> 17 Jun 2025</time>
 
-<p>I'm in the process of putting a game on Steam, and thought I might as well keep track of useful links and tips as I go.</p>
-<p>I didn't do any of the account steup, but getting an ABN (Australian Busines Number) was apparently troublesome.</p>
-<p>Links:</p>
-<ul>
-<li><a href="https://vndev.wiki/Guide:Ren'Py_visual_novels_on_Steam">Guide:Ren'Py visual novels on Steam</a> nb some of the image size details are out of date</li>
-<li><a href="https://partner.steamgames.com/doc/store/assets">Graphical Assets - Overview</a></li>
-<li><a href="https://www.steamcapsule.com/guide">Steam Capsule Design Best Practices</a></li>
-</ul>
-<p>Tips:</p>
-<ul>
-<li>No external links at all except in the homepage section of Basic Info, and no links to other storefronts like itchio even then. A link to a site which links to itchio is probably ok (though we'll see how this website does!)</li>
-</ul>
+<p>I really like <a href="https://npckc.itch.io/caption-tool-for-renpy">npckc's caption tool</a> for sound and images. But I got sick of having to copy and paste the background description every time a background showed up, so made a function to do it for me.</p>
+<p>This tutorial is pretty sparse, I'm assuming you already understand the original tool and have a moderate grasp of Renpy. I also didn't double check that all the variant code actually runs, so apologies in advance for any bugs.</p>
+<h3>Dependencies from the Caption Tool</h3>
+This code is heavily inspired by various techniques in the caption tool, and will be more useful if you use the splash-screen and menu edits. But it only directly relies on two lines:
+<pre>default persistent.image_captions = False</pre>
+<p>which defines a persistent variable setting whether image descriptions are shown or not, and:</p>
+<pre>define ic = Character(_(None),condition="persistent.image_captions or _preferences.self_voicing")
+</pre>
+<p>which defines a character to say image descriptions if image captions or self-voicing is on.</p>
+<h3>Simple background description code</h3>
+<pre>init python:
+
+    # This is the text at the start of each background description.
+    backgroundtext = _("Background: ")
+
+    #list of background descriptions
+    background_list = {
+    # "room_name": _("Room short description"),
+    "mcroom": _("MC's room."),
+    "kitchen": _("MC's kitchen."),
+    }
+
+    # Displays image description for the background described by background_name
+    def desc_background(background_name):
+        description = backgroundtext + background_list[background_name] 
+        ic(description)
+</pre>
+<p>This is used like so within the script:</p>
+<pre>scene bg mcroom
+desc_background("mcroom")</pre>
+<p>which would display the &quot;bg mcroom&quot; background (as defined the usual way elsewhere) and show the text &quot;Background: MC's room.&quot;</p>
+<p>I didn't include the background itself inside the function since my background image usage has a lot of variety with variants, adding sprites and then using fade etc. But if you do want to show it, use <a href="https://www.renpy.org/doc/html/statement_equivalents.html#renpy.scene">renpy.scene()</a>.</p>
+<h3>Detailed background description code</h3>
+<pre>init python:
+
+    # This is the text at the start of each background description.
+    backgroundtext = _("Background: ")
+
+    #list of background descriptions
+    background_list = {
+    # "room_name": _("Room short description"),
+    "mcroom": _("MC's room."),
+    "kitchen": _("MC's kitchen."),
+    }
+
+    #list of detailed background descriptions for the first time a room is shown
+    detailed_background_list = {
+        # "room_name": _("Room extra details"),
+        "mcroom": _("It is fairly empty with a few gothy decorative choices, as well as a laptop on the desk with some cup noodles."),
+    }
+
+    # Displays image description for a background described by background_name
+    # If detail = True, add any extra details
+    def desc_background(background_name, detail=False):
+        description = backgroundtext + background_list[background_name] 
+        if detail and (bword in detailed_background_list.keys()): #add extra details
+            description+=detailed_background_list[bword]
+        ic(description)
+</pre>
+<p>The first time mcroom is called within the script:</p>
+<pre>scene bg mcroom day
+desc_background("mcroom",True)</pre>
+<p>which would would display the &quot;bg mcroom&quot; background and the text &quot;Background: MC's room. It is fairly empty with a few gothy decorative choices, as well as a laptop on the desk with some cup noodles.&quot;</p>
+<p>Then later you'd just use</p>
+<pre>scene bg mcroom day
+desc_background("mcroom")</pre>
+<p>to get the shorter text &quot;Background: MC's room.&quot;</p>
+<p>desc_background(&quot;kitchen&quot;, True) and desc_background(&quot;kitchen&quot;) would both display the text &quot;Background: MC's kitchen.&quot; since no detailed description has been added for the kitchen yet. But one can be added to detailed_background_list later, and then desc_background(&quot;kitchen&quot;, True) will display it.</p>
+<h3>Variant Backgrounds</h3>
+<p>This is kind of specific to how I name and use backgrounds: I have a lot of backgrounds of the form &quot;bg [background name] [time of day]&quot; eg &quot;bg mcroom day&quot;. I don't want to write a full separate description for each variant, but do want to be able to quickly note the variant in the description. Everything is the same except the desc_background function.</p>
+<pre>
+    # Displays image description for a background described by the first word in background_name
+    # If detail = True, add any extra details
+    # Any text after the first word in background_name is added as an extra sentence
+    def desc_background(background_name, detail=False):
+
+        split_string = background_name.split() #divides string up by whitespace
+        bword = split_string[0] #the first word in background_name
+        description = backgroundtext
+        if len(split_string)>1: #add the rest of background_name as a sentence
+            description += background_name[(len(bword)+1):].capitalize()+". "
+        description += background_list[bword]
+        if detail and (bword in detailed_background_list.keys()): #add extra details
+            description+=". "+detailed_background_list[bword]
+        ic(description)
+</pre>
+<p>This is used like so within the script:</p>
+<pre>scene bg mcroom day
+desc_background("mcroom day")</pre>
+<p>which would display the &quot;bg mcroom&quot; background and show the text &quot;Background: Day. MC's room.&quot;</p>
 
 
 </main>
