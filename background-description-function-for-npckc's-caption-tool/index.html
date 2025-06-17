@@ -155,7 +155,7 @@ desc_background("mcroom")</pre>
     def desc_background(background_name, detail=False):
         description = backgroundtext + background_list[background_name] 
         if detail and (bword in detailed_background_list.keys()): #add extra details
-            description+=detailed_background_list[bword]
+            description+=" "+detailed_background_list[bword]
         ic(description)
 </pre>
 <p>The first time mcroom is called within the script:</p>
@@ -182,7 +182,7 @@ desc_background("mcroom")</pre>
             description += background_name[(len(bword)+1):].capitalize()+". "
         description += background_list[bword]
         if detail and (bword in detailed_background_list.keys()): #add extra details
-            description+=". "+detailed_background_list[bword]
+            description+=" "+detailed_background_list[bword]
         ic(description)
 </pre>
 <p>This is used like so within the script:</p>
