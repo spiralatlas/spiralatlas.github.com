@@ -391,4 +391,16 @@
     <changefreq>monthly</changefreq>
   </url>
   
+  <url>
+    <loc>/3d-formats-for-blender:-pbr-and-gltf/</loc>
+    <lastmod>2025-09-16T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+  <url>
+    <loc>/making-a-low-res-environment-in-blender/</loc>
+    <lastmod>2025-09-16T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
 </urlset>

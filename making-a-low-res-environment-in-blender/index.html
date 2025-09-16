@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/blog/1/">
+  <meta property="og:url" content="https://spiralatlas.github.io/making-a-low-res-environment-in-blender/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Spiral Atlas Games">
+  <meta property="og:title" content="Making A Low Res Environment In Blender">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/blog/1/">
-  <meta name="twitter:title" content="Spiral Atlas Games">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/making-a-low-res-environment-in-blender/">
+  <meta name="twitter:title" content="Making A Low Res Environment In Blender">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Spiral Atlas Games</title>
+  <title>Making A Low Res Environment In Blender</title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -80,186 +80,59 @@
 </nav>
 
 
-  <main class="max-w-5xl mx-auto">
-
-<h1>Blog Posts</h1>
-
-<br>
-
-<h3><a class="text-secondary" id="environments-to-render" href="/environments-to-render/">Environments To Render</a></h3>
-<time datetime="2024-09-09"> 09 Sep 2024</time>
-<p></p>
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>Making A Low Res Environment In Blender</h1>
 <p>Tags: 
 
 
 <a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="using-unreal-engine-to-render-toon-shaded-environments" href="/using-unreal-engine-to-render-toon-shaded-environments/">Using Unreal Engine to Render Toon Shaded Environments</a></h3>
-<time datetime="2024-08-11"> 11 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
 
 
 <a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-alibababa-solitaire" href="/announcing:-alibababa-solitaire/">Announcing: Alibababa Solitaire</a></h3>
-<time datetime="2024-08-10"> 10 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="tutorial:-making-a-toon-shaded-background" href="/tutorial:-making-a-toon-shaded-background/">Tutorial: Making a Toon Shaded Background</a></h3>
-<time datetime="2023-12-25"> 25 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
 
 
 <a href="/tags/blender/" class="post-tag">blender</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
  
 </p>
+<time datetime="2025-09-16"> 16 Sep 2025</time>
 
-<h3><a class="text-secondary" id="more-on-toon-shading" href="/more-on-toon-shading/">More On Toon Shading</a></h3>
-<time datetime="2023-12-23"> 23 Dec 2023</time>
-<p></p>
-<p>Tags: 
+<p>I was recently hired to make a low res environment and thought I'd write up/demonstrate the couple of things I learned in the process. There's a lot of cool tutorials on this topic and I have a lot left to learn!</p>
+<h2>Making the Environment</h2>
+<p>I downloaded a bunch of low res creative commons models from <a href="https://quaternius.com/">Quaternius</a> (mostly the Ultimate House Interior Pack) and placed them around a room made of planes. Searching &quot;loungeroom furniture layout&quot; gave useful inspiration.</p>
+<p>This is rendered in cycles with a couple of yellow-ish point lights.</p>
+<img src ="../images/lowreslounge/draft1.jpg">
+<p>I watched some tutorials on low res environments and looked up loungeroom colour schemes. I tweaked some models, added extra details, and added more harmonious gradient textures. I also added a bunch of coloured lights.</p>
+<img src ="../images/lowreslounge/draft2.jpg">
+<h2>Gradient colours</h2>
+<p>The simple surfaces of low poly models are particularly well suited to simulated shading created via a gradient. The simplest sort, used in this environment, is dark/cool/desaturated on the bottom and light/warm/saturated at the top.</p>
+<img src ="../images/lowreslounge/colour theory.jpg" alt = "colour wheel with yellow at the top and blue at the bottom, lines marked cooler curve down around each side from yellow to blue"> 
+<p>So a red object has dark purple-red shading etc.</p>
+<p>For pure yellow I just try both orange-yellow and green-yellow shading and see which looks better in context, similarly for pure blue.</p>
+<h3>Procedural Gradients</h3> 
+<p>This can be useful for tweaking textures even if you're eventually going to replace everything with image files.</p>
+<p>Take the coordinates from a Texture Coordinate node and separate out the z component (height) then pipe that into a color ramp using the sort of gradient described above.</p>
+<img src ="../images/lowreslounge/procedural.jpg" alt="illustration of procedural red gradient on a cube"> 
+<h3>Using a Single Material For Every Object</h3>
+<p>This is something you'd only do for exporting into formats like <a href="../3d-formats-for-blender:-pbr-and-gltf/">glTF</a> for game engines etc, it makes the file much smaller and quicker to load but is a little fiddly. If I wasn't making my materials for export, I'd have used procedural textures instead.</p>
+<p>I followed the technique described in <a href="https://www.youtube.com/embed/9ITJgW9hVrE">Make Low Poly Models Look AMAZING With This Simple Gradient Trick!</a>.</p>
+<ol><li>Create/download a single image with every gradient you need on it, and create a single material piping it into a high roughness Principled BDSF node:
+<img src ="../images/lowreslounge/material.jpg"> 
+<p>Here's the image I created for this environment. In retrospect it was a huge mistake not leaving myself extra room to add more colours later if I realised I needed them:</p>
+<img src ="../images/lowreslounge/palette.jpg" alt ="gradients in shades of green and brown"> 
+<li>Go into front view in the 3d viewport, and open your image texture in the UV editor in another window. 
+<li>For each object in turn, go into Edit mode and UV unwrap via "Project from View: Bounds". 
+<li> For every colour on the object, select the relevant vertices, and scale them in the UV editor until they line up with the correct part of your texture.
+<img src ="../images/lowreslounge/uv.jpg" alt ="this process illustrated for a couch">
+</ul>
+<p>It probably would have made life easier if I'd assigned the vertices to labelled vertex groups. Next time I might just use a big texture atlas like <a href="https://milkandbanana.itch.io/gradient-color-pallete">Gradient Colour Atlas</a>.</p>
+<h2>Rendering and Lighting</h2>
+<p>I again took a pretty simple approach since this was my first attempt at low res. I rendered in Cycles since that seemed closest to the kind of shader used in the intended final rendering engine (Ren'py).</p>
+<p>Here it is with only a few yellow point lights:
+<img src ="../images/lowreslounge/no colour.jpg"></p>
+<p>Here's the same environment rendered in Eevee:
+<img src ="../images/lowreslounge/eevee.jpg"></p>
+<p>I tried compositing with the Ambient Occlusion as in <a href="The Secret to Stunning Low Poly Rendering">https://www.youtube.com/watch?v=2ato6NALUL8</a>, but while it mostly looked pretty good there were ugly weird artifacts on the ceiling light.</p>
 
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/blender/" class="post-tag">blender</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-visual-novel-house-backgrounds" href="/announcing:-visual-novel-house-backgrounds/">Announcing: Visual Novel House Backgrounds</a></h3>
-<time datetime="2023-12-22"> 22 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-the-spiral-atlas-spritemaker!!" href="/announcing:-the-spiral-atlas-spritemaker!!/">Announcing: The Spiral Atlas Spritemaker!!</a></h3>
-<time datetime="2023-09-28"> 28 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="spritemaker-exampletutorial" href="/spritemaker-exampletutorial/">Spritemaker Example/Tutorial</a></h3>
-<time datetime="2023-09-15"> 15 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-
- <nav class="flex justify-between px-5 m-auto md:max-w-md" aria-labelledby="blog-pagination">
-    <a href="/blog/">First</a>
-    <a href="/blog/">Previous</a>
-    <a href="/blog/2/">Next</a>
-    <a href="/blog/7/">Last</a>
-</nav>
 
 </main>
 

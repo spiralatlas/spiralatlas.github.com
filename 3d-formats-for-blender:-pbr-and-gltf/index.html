@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/blog/1/">
+  <meta property="og:url" content="https://spiralatlas.github.io/3d-formats-for-blender:-pbr-and-gltf/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Spiral Atlas Games">
+  <meta property="og:title" content="3D formats for Blender: PBR and glTF">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/blog/1/">
-  <meta name="twitter:title" content="Spiral Atlas Games">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/3d-formats-for-blender:-pbr-and-gltf/">
+  <meta name="twitter:title" content="3D formats for Blender: PBR and glTF">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Spiral Atlas Games</title>
+  <title>3D formats for Blender: PBR and glTF</title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -80,186 +80,44 @@
 </nav>
 
 
-  <main class="max-w-5xl mx-auto">
-
-<h1>Blog Posts</h1>
-
-<br>
-
-<h3><a class="text-secondary" id="environments-to-render" href="/environments-to-render/">Environments To Render</a></h3>
-<time datetime="2024-09-09"> 09 Sep 2024</time>
-<p></p>
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>3D formats for Blender: PBR and glTF</h1>
 <p>Tags: 
 
 
 <a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="using-unreal-engine-to-render-toon-shaded-environments" href="/using-unreal-engine-to-render-toon-shaded-environments/">Using Unreal Engine to Render Toon Shaded Environments</a></h3>
-<time datetime="2024-08-11"> 11 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
 
 
 <a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-alibababa-solitaire" href="/announcing:-alibababa-solitaire/">Announcing: Alibababa Solitaire</a></h3>
-<time datetime="2024-08-10"> 10 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="tutorial:-making-a-toon-shaded-background" href="/tutorial:-making-a-toon-shaded-background/">Tutorial: Making a Toon Shaded Background</a></h3>
-<time datetime="2023-12-25"> 25 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
 
 
 <a href="/tags/blender/" class="post-tag">blender</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
  
 </p>
+<time datetime="2025-09-16"> 16 Sep 2025</time>
 
-<h3><a class="text-secondary" id="more-on-toon-shading" href="/more-on-toon-shading/">More On Toon Shading</a></h3>
-<time datetime="2023-12-23"> 23 Dec 2023</time>
-<p></p>
-<p>Tags: 
+<p>This came up in a few other tutorials and felt worth making a separate post for. I am absolutely not an expert on these things, I just couldn't find any relevant, concise documentation so this is my best understanding. This post assumes a basic familiarity with Blender materials and UV maps.</p>
+<h2>PBR: Physically Based Rendering</h2>
+<p>This is a standard approach to rendering 3D materials, used by the glTF Format. It's the format most downloaded/exported models use and what will be expected if you upload materials to places like <a href="https://www.blenderkit.com/docs/pure-pbr-assetes/#">Blenderkit</a>. This is also the format Blender uses for texture painting. I can't find a simple definition anywhere but what it generally looks like in Blender is a bunch of UV mapped image textures piped into a Principled BDSF Shader.</p>
+<p>Specifically, we have a Base Image piped into Color, associated images piped into Roughness, Metallic, and Alpha, and a Normal image piped in via a Bump Map.</p>
+<p>Here's an example PBR model, created with texture painting in Blender:</p>
+<img src = "../images/lowreslounge/pbr.jpg">
+<h2>glTF Format</h2>
+<p>Graphics Library Transmission Format, formerly known as WebGL TF, is a standard file format for 3D models. In my experience it's the best format for exporting/loading models created for game engines like Unity or Unreal, and is the format used for importing into Ren'py.</p>
+<p>glTF files are imported via &quot;File &gt; Import &gt; GLTF (.glb, .gltf)&quot; and exported via &quot;File &gt; Export &gt; GLTF (.glb, .gltf)&quot;. I do not understand the difference between .gltf and .glb, I just use whatever I'm given &gt;.&gt;</p>
+<p>I have only used glTF files after they're imported to Blender, at which point they usually look similar to the PBR format above. However instead of separate Metallic and Roughness images there's a single &quot;METALLIC ROUGHNESS&quot; image which stores Metallic in the blue channel and Roughness in the green channel.</p>
+<p>Here's the PBR model above, exported as glTF and then re-imported to Blender:
+<img src = "../images/lowreslounge/glTF.jpg" alt="all the node names are in all caps"></p>
+<p>I haven't been able to find a list of the full range of node types that show up in imported glTF objects, but some I've observed:</p>
+<ul><li>Mapping nodes used to transform the coordinates sent to image textures
+<li>Alpha of the BASE IMAGE sent to the alpha input of the Principled BDSF via some math nodes
+<li>EMISSION image sent to the emmission input of the Principled BDSF
+<li> DISPLACEMENT image sent to the displacement input of the Material Output node
+<li> Sending the Vertex Color to the color input of the Principled BDSF instead of an image texture
+<li>OCCLUSION image sent to a group called "glTF Material" that afaict doesn't do anything because Blender doesn't support it.
+</ul> 
+<p>I haven't had to export any very complex Blender files into glTF but <a href="https://docs.blender.org/manual/en/latest/addons/import_export/scene_gltf2.html">here's the documentation</a> on what is possible. From a brief experiment the exporter doesn't handle procedural textures well. You generally have to stick to flat colours, image textures, and vertex colours for your textures and not use any modifiers on your meshes etc.</p>
 
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/blender/" class="post-tag">blender</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-visual-novel-house-backgrounds" href="/announcing:-visual-novel-house-backgrounds/">Announcing: Visual Novel House Backgrounds</a></h3>
-<time datetime="2023-12-22"> 22 Dec 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-the-spiral-atlas-spritemaker!!" href="/announcing:-the-spiral-atlas-spritemaker!!/">Announcing: The Spiral Atlas Spritemaker!!</a></h3>
-<time datetime="2023-09-28"> 28 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="spritemaker-exampletutorial" href="/spritemaker-exampletutorial/">Spritemaker Example/Tutorial</a></h3>
-<time datetime="2023-09-15"> 15 Sep 2023</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/sprites/" class="post-tag">sprites</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/spritemaker/" class="post-tag">spritemaker</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
- 
-</p>
-
-
- <nav class="flex justify-between px-5 m-auto md:max-w-md" aria-labelledby="blog-pagination">
-    <a href="/blog/">First</a>
-    <a href="/blog/">Previous</a>
-    <a href="/blog/2/">Next</a>
-    <a href="/blog/7/">Last</a>
-</nav>
 
 </main>
 
