@@ -120,20 +120,12 @@
 <img src="../images/house_backgrounds/draft1.jpg" width=700></p>
 <p>This looks pretty good, and you could stop here.</p>
 <h1>Lines</h1>
-<p>Unfortunately the only way I know how to create lines as a separate layer is with Cycles.</p>
-<p>I used the technique from <a href="https://artisticrender.com/a-guide-to-blender-freestyle-rendering-with-eevee-and-cycles/">a guide to Blender freestyle rendering with Eevee and Cycles</a>, which I will briefly summarise here:</p>
 <ul>
-<li>The top right corner of the Scene dropdown will have the name of the View layer. Name the current View Layer &quot;Base&quot;. Click the dropdown to choose “linked copy”. Call this new view layer &quot;Lines&quot;.</li>
-<li>In the Render Settings tab: set Render Engine to Cycles. Check Film -&gt; Transparency. Turn on Freestyle.</li>
-<li>View Layer tab: Turn off everything in Filters. Tweak the Freestyle settings. I use the default settings with some editing of the line width:
+<li>In the Render Settings tab, check Film -&gt; Transparency. Turn on Freestyle.</li>
+<li>View Layer tab: Tweak the Freestyle settings. Click &quot;Render Pass&quot;. I use the default settings with some editing of the line width:
 <img src="../images/house_backgrounds/freestyle.jpg" width=500></li>
 </ul>
 <p>You can now render the lines.</p>
-<p>Switching back and forth:</p>
-<ul>
-<li>To render the actual scene: Set Render Engine to Eevee. Make sure the &quot;Base&quot; View Layer has &quot;Use for Rendering&quot; checked on, while the &quot;Lines&quot; view layer has &quot;Use for Rendering&quot; checked off. Make sure the &quot;Base&quot; View Layer has freestyle turned off.</li>
-<li>To render the lines: Set Render Engine to Cycles. Make sure base View Layer has &quot;Use for Rendering&quot; checked off, while the Lines view layer has &quot;Use for Rendering&quot; checked on.</li>
-</ul>
 <p>Here's the rendered lines:
 <img src="../images/house_backgrounds/lines.jpg" width=700></p>
 <p>Post process as described in the first section of <a href="../tutorial:-post-processing-3d-renders/">Tutorial: Post Processing 3D Renders</a></p>
