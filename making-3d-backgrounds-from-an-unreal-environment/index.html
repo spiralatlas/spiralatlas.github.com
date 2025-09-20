@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/tags/unreal/">
+  <meta property="og:url" content="https://spiralatlas.github.io/making-3d-backgrounds-from-an-unreal-environment/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Tagged “{{ tag }}”">
+  <meta property="og:title" content="Making 3D Backgrounds from An Unreal Environment">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/tags/unreal/">
-  <meta name="twitter:title" content="Tagged “{{ tag }}”">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/making-3d-backgrounds-from-an-unreal-environment/">
+  <meta name="twitter:title" content="Making 3D Backgrounds from An Unreal Environment">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Tagged “{{ tag }}”</title>
+  <title>Making 3D Backgrounds from An Unreal Environment</title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -80,14 +80,8 @@
 </nav>
 
 
-  <main class="max-w-5xl mx-auto">
-<h1>Posts tagged “unreal”</h1>
-
-
-
-<h3><a class="text-secondary" id="making-3d-backgrounds-from-an-unreal-environment" href="/making-3d-backgrounds-from-an-unreal-environment/">Making 3D Backgrounds from An Unreal Environment</a></h3>
-<time datetime="2025-09-19"> 19 Sep 2025</time>
-<p></p>
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>Making 3D Backgrounds from An Unreal Environment</h1>
 <p>Tags: 
 
 
@@ -106,49 +100,80 @@
 <a href="/tags/unreal/" class="post-tag">unreal</a>,
  
 </p>
+<time datetime="2025-09-19"> 19 Sep 2025</time>
 
-<h3><a class="text-secondary" id="environments-to-render" href="/environments-to-render/">Environments To Render</a></h3>
-<time datetime="2024-09-09"> 09 Sep 2024</time>
-<p></p>
-<p>Tags: 
+<p>This is my current workflow, I've written up a lot of these techniques separately but wanted to write up the whole process. The later parts could also be applied to other sorts of 3D renders.</p>
+<p>I'll go through how I made <a href="https://spiralatlas.itch.io/19th-century-english-street">19th Century English Street Backgrounds</a>.</p>
+<img src="../images/vicstreet/contrast.jpg">
+<h2>Download and Export An Unreal Environment</h2>
+<p>I get most of my environments from <a href="https://www.fab.com/limited-time-free">Fab's free section</a>, or <a href="https://cosmos.leartesstudios.com/free">Laertes</a> on sale.</p>
+<p>If you download the environment from Fab it should automatically show up as a project in Unreal engine. If you download it from somewhere else, put it in a usefully named folder in the Unreal Projects folder and open it from there.</p>
+<p>Open the Content Browser. Find the Map or Level with the environment you want set up, and open it.</p>
+<p>At this point you can try following <a href="https://spiralatlas.github.io/using-unreal-engine-to-render-toon-shaded-environments/">my tutorial on rendering in Unreal</a>. Here's how the Victorian Street looks in Unreal:
+<img src="../images/vicstreet/unreal.jpg"></p>
+<p>If you like how the unreal render looks you're done! Otherwise it's time to edit things in Blender. Export the scene as glTF format.</p>
+<h2>Import into Blender and add toon shader</h2> 
+<p>Import the glTF file you just made into Blender.</p>
+<p>At this point I like to organise the objects into meshes, lights, cameras, and Unreal specific objects that don't do anything any more.</p>
+<p>I then run <a href="https://spiralatlas.github.io/miscellaneous-tools-for-3d-backgrounds/">toon_shader_process.py</a> to make all the materials toon shaded, and fix them up one by one.</p>
+<p>Many of the lighting/shading objects may not work properly any more, so you'll probably need to add more.</p>
+<p>Here's the Victorian street after my first basic edits:
+<img src="../images/vicstreet/draft1.jpg"></p>
+<p>And here it is after a bunch more:
+<img src="../images/vicstreet/draft2.jpg"></p>
+<h2>Create and save renders in Blender</h2>
+<p>You can do this manually but I use <a href="https://spiralatlas.github.io/miscellaneous-tools-for-3d-backgrounds/">render_cameras.py</a>.</p>
+<p>This saves the following files:</p>
+<p>Render:
+<img src="../images/vicstreet/draft2.jpg"></p>
+<p>Lines:
+<img src="../images/vicstreet/lines og.jpg"></p>
+<p>Mist (distance from camera):
+<img src="../images/vicstreet/mist og.jpg"></p>
+<p>Ambient Occlusion/ao (corner shadows):
+<img src="../images/vicstreet/ao.jpg"></p>
+<p>In future I may also save the Bloom which makes light sources and bright areas glow.</p>
+<h2>Edit and Layer Renders in Image Editor</h3>
+<p>I use Clip Studio Paint but any decent image editor like Krita or GIMP would work too.</p>
+<h3>Turning the Mist and Ambient Occlusion renders into masks</h3>
+<p>There's probably a better way to do this, and the specific method is likely different in other programs.</p>
+<ol><li>Edit: Tonal Correction: Level Correction to make the whites whiter and blacks blacker. 
+<li>Edit: Convert Brightness to Opacity
+<li>Level: Selection from Layer
+<li>Add a new mask to whatever I wish to mask using this selection. 
+<li> If necessary, apply Edit:Tonal Correction:Reverse Gradient to the mask to flip the opacity.</ol>
+<h3>Making a rough paintover</h3>
+Take the base render and do a quick fuzzy paintover with a textured brush, softening the edges and adding extra colour here and there: 
+<img src="../images/vicstreet/soft light.jpg">
+<h3>Layers</h3>
+<h4>Base Colours and Lines</h4>
+<img src="../images/vicstreet/layers.jpg">
+<p>Layer the base render, any edits I want to draw by hand (eg I removed a pale spot), and the fuzzy paintover as a soft light layer.</p>
+<p>Apply a dark purple multiply layer using the ambient occlusion mask created above. Apply another dark purple multiply layer using the lines as an alpha mask, softened by a semi-transparent version of the original render. Mask out any lines you don't like.</p>
+<img src="../images/vicstreet/lines.jpg">
+<h4>Background and colour edits</h4>
+<img src="../images/vicstreet/mist layers.jpg">
+<p>Create a folder which uses the mist mask created above. This will adjust the background elements of the picture. Add colour/shading adjustments, and a semi-transparent blurred version of the original render.</p>
+<p>In some cases I also have a folder which just adjusts the foreground.</p>
+<p>Add any general extra colour/shading edits.
+<img src="../images/vicstreet/extra colour.jpg"></p>
+<h4>Generic adjustments</h4>
+<img src="../images/vicstreet/adjust.jpg">
+<p>I have a generic adjustments folder I apply to every background. Here's the final result:
+<img src="../images/vicstreet/csp.jpg"></p>
+<h2>Filter in Fotosketcher and layer</h2>
+<p><a href="https://spiralatlas.github.io/miscellaneous-tools-for-3d-backgrounds/">I batch process the images via fotosketcher</a>.</p>
+<img src="../images/vicstreet/foto.jpg">
+<h2>Add filtered version in Image Editor</h2>
+<img src="../images/vicstreet/foto mist.jpg">
+<p>I apply an edited version of the mist/background mask to the fotosketcher result, bumping the blacks up to light grey and setting the overall opacity to 70%. For this specific image I decided to also add a little extra contrast.</p>
+<p>Here's the final result!
+<img src="../images/vicstreet/contrast.jpg"></p>
+<p>I'm probably going to tweak the final image some more after posting this tutorial but will try and update this post with any significant new techniques I come up with. And if you try out these techniques yourself, on my renders or something else, I'd love to see it, there's so many ways someone with different tastes could do things in different ways.</p>
 
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="using-unreal-engine-to-render-toon-shaded-environments" href="/using-unreal-engine-to-render-toon-shaded-environments/">Using Unreal Engine to Render Toon Shaded Environments</a></h3>
-<time datetime="2024-08-11"> 11 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
 
 </main>
+
 
   <footer class="text-center">
 

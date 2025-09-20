@@ -161,7 +161,7 @@ Append from "toon script.blend":
 <ul><li>In "Render Settings" turn on Freestyle and Film -> Transparency. 
 <li>In "View Layer" turn on Mist and Ambient Occlusion. Scroll down to Freestyle Settings. Click "Render as render Layer". 
 <li>Tweak the Freestyle Settings to your personal taste. 
-<li>Add "render_cameras.py". Edit the "path" variable to save in the folder you want. 
+<li>Add "render_cameras.py". Edit the "path" variable to save in the folder you want, and "current folder" to whatever image set is being edited, eg "diner". 
 <li>Select "Use nodes" in the compositor.
 </ul>
 <h3>How I set up my freestyle lines</h3>
@@ -175,6 +175,16 @@ The other is &quot;Distance from camera&quot;, curving from 1 when the distance 
 Put the cameras you want to render with into a collection, then select it. 
 <p>In the text editor, open &quot;render_cameras.py&quot; and run it. This will set up the compositor and then render and save all the images into images named after each camera and in folders names lines/ao/renders/mist.</p>
 <p>After this, if you want to tweak your scene and rerender without resetting the compositor, comment out the line &quot;setup()&quot; in render_cameras.py.</p>
+<p>The script saves the following files:</p>
+<p>Render:
+<img src="../images/vicstreet/draft2.jpg"></p>
+<p>Lines:
+<img src="../images/vicstreet/lines og.jpg"></p>
+<p>Mist (distance from camera):
+<img src="../images/vicstreet/mist og.jpg"></p>
+<p>Ambient Occlusion/ao (corner shadows):
+<img src="../images/vicstreet/ao.jpg"></p>
+<p>In future I may also save the Bloom which makes light sources and bright areas glow.</p>
 
 
 </main>
