@@ -99,7 +99,8 @@
 </p>
 <time datetime="2025-12-23"> 23 Dec 2025</time>
 
-<p>This is an update to the &quot;Rendering multiple outputs from multiple cameras&quot; section in <a href="https://spiralatlas.github.io/miscellaneous-tools-for-3d-backgrounds/">Miscellaneous Tools for 3D Backgrounds</a> to take advantage of new features in Blender 5.0. It doesn't render from multiple cameras, but does render multiple outputs. To render multiple camera outputs you'd still need a script, but I haven't written one yet.</p>
+<p>This is an update to the &quot;Rendering multiple outputs from multiple cameras&quot; section in <a href="https://spiralatlas.github.io/miscellaneous-tools-for-3d-backgrounds/">Miscellaneous Tools for 3D Backgrounds</a> to take advantage of new features in Blender 5.0. It doesn't render from multiple cameras, but does render multiple outputs.</p>
+<p>The method below saves images in the form &quot;[Camera][Socket]&quot; eg houseMist.png is the Mist image for the camera named &quot;house&quot;. I haven't managed to get it to save to seperate folders yet but it should be possible. To render multiple camera outputs you'd probably still need a script, but I haven't written one yet.</p>
 <p>Check out the Blender docs on <a href="https://docs.blender.org/manual/en/latest/compositing/types/output/file_output.html">File Output Node</a> and <a href="https://docs.blender.org/manual/en/latest/files/file_paths.html">File Paths</a> for more information.</p>
 <h3>Rendering multiple files in the Compositor</h3>
 First, create whatever render layers you want. Here's mine:
@@ -112,12 +113,12 @@ First, create whatever render layers you want. Here's mine:
 <li>Go into the Compositor and create a new node tree. 
 <li>Add a "File Output" node. Set "Directory" to wherever you want the files to be saved.
 <li>Drag whatever outputs you want (Image, Freestyle etc) from the Render Layers node to the unused input socket of the File Output node one by one. 
-<li>Add any post-processing like Bloom.  
+<li>Add any post-processing nodes like Glare:Bloom.  
 <li>Select the File Output node and open the Nodes:Properties section of the sidebar. 
 <li>Set File Name to "{camera_name}" or whatever combination of text and <a href="https://docs.blender.org/manual/en/latest/files/file_paths.html">File Paths</a> you prefer.
 <li>Set Media Type to Image to save as individual pngs. 
 </ul>
-<p>Now just choose &quot;Render Image&quot; from the render menu and everything should be saved correctly. I haven't managed to get it to save to seperate folders yet but it should be possible.</p>
+<p>Now just choose &quot;Render Image&quot; from the render menu and everything should be saved correctly. If you change the active camera, the saved image names should update automatically.</p>
 
 
 </main>
