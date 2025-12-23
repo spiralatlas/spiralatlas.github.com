@@ -427,4 +427,10 @@
     <changefreq>monthly</changefreq>
   </url>
   
+  <url>
+    <loc>/multiple-file-outputs-in-blender-5.0/</loc>
+    <lastmod>2025-12-23T00:00:00.000Z</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  
 </urlset>

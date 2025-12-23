@@ -28,9 +28,9 @@
   <!-- Social -->
 
   <!-- Facebook -->
-  <meta property="og:url" content="https://spiralatlas.github.io/blog/1/">
+  <meta property="og:url" content="https://spiralatlas.github.io/multiple-file-outputs-in-blender-5.0/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Spiral Atlas Games">
+  <meta property="og:title" content="Multiple File Outputs in Blender 5.0">
   <meta property="og:description" content="Small Australian creator of visual novels and other diversions.">
   <meta property="og:site_name" content="Spiral Atlas Games">
   <meta property="og:locale" content="en_AU">
@@ -39,11 +39,11 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:creator" content="@spiral_atlas">
-  <meta name="twitter:url" content="https://spiralatlas.github.io/blog/1/">
-  <meta name="twitter:title" content="Spiral Atlas Games">
+  <meta name="twitter:url" content="https://spiralatlas.github.io/multiple-file-outputs-in-blender-5.0/">
+  <meta name="twitter:title" content="Multiple File Outputs in Blender 5.0">
   <meta name="twitter:description" content="Small Australian creator of visual novels and other diversions.">
 
-  <title>Spiral Atlas Games</title>
+  <title>Multiple File Outputs in Blender 5.0</title>
 
 
   <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,700|Material+Icons:400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -80,15 +80,8 @@
 </nav>
 
 
-  <main class="max-w-5xl mx-auto">
-
-<h1>Blog Posts</h1>
-
-<br>
-
-<h3><a class="text-secondary" id="useful-stuff-for-putting-a-game-on-steam" href="/useful-stuff-for-putting-a-game-on-steam/">Useful stuff for putting a game on Steam</a></h3>
-<time datetime="2025-05-05"> 05 May 2025</time>
-<p></p>
+  <main class="max-w-5xl mx-auto prose dark:prose-dark">
+<h1>Multiple File Outputs in Blender 5.0</h1>
 <p>Tags: 
 
 
@@ -96,140 +89,35 @@
 
 
 <a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/links/" class="post-tag">links</a>,
-
-
-<a href="/tags/steam/" class="post-tag">steam</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="commission-information" href="/commission-information/">Commission Information</a></h3>
-<time datetime="2025-03-11"> 11 Mar 2025</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="tutorial:-inverting-gui-colours-in-ren&#39;py" href="/tutorial:-inverting-gui-colours-in-ren&#39;py/">Tutorial: Inverting GUI Colours in Ren&#39;py</a></h3>
-<time datetime="2025-03-05"> 05 Mar 2025</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/renpy/" class="post-tag">renpy</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/accessibility/" class="post-tag">accessibility</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="tutorial:-post-processing-3d-renders" href="/tutorial:-post-processing-3d-renders/">Tutorial: Post Processing 3D Renders</a></h3>
-<time datetime="2025-02-15"> 15 Feb 2025</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
 
 
 <a href="/tags/blender/" class="post-tag">blender</a>,
 
 
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
 <a href="/tags/art/" class="post-tag">art</a>,
  
 </p>
+<time datetime="2025-12-23"> 23 Dec 2025</time>
 
-<h3><a class="text-secondary" id="how-much-i-get-paid-for-my-games-and-game-dev-tools-on-itchio" href="/how-much-i-get-paid-for-my-games-and-game-dev-tools-on-itchio/">How much I get paid for my games and game dev tools on itchio</a></h3>
-<time datetime="2024-11-09"> 09 Nov 2024</time>
-<p></p>
-<p>Tags: 
+<p>This is an update to the &quot;Rendering multiple outputs from multiple cameras&quot; section in <a href="https://spiralatlas.github.io/miscellaneous-tools-for-3d-backgrounds/">Miscellaneous Tools for 3D Backgrounds</a> to take advantage of new features in Blender 5.0. It doesn't render from multiple cameras, but does render multiple outputs. To render multiple camera outputs you'd still need a script, but I haven't written one yet.</p>
+<p>Check out the Blender docs on <a href="https://docs.blender.org/manual/en/latest/compositing/types/output/file_output.html">File Output Node</a> and <a href="https://docs.blender.org/manual/en/latest/files/file_paths.html">File Paths</a> for more information.</p>
+<h3>Rendering multiple files in the Compositor</h3>
+First, create whatever render layers you want. Here's mine:
+<ul><li>In "Render Settings" turn on Freestyle and Film -> Transparency. 
+<li>In "View Layer" turn on Mist and Ambient Occlusion. Scroll down to Freestyle Settings. Click "Render as render Layer". 
+<li>Tweak the Freestyle Settings to your personal taste. 
+</ul>
+<p>Now, set up the compositor:</p>
+<ul>
+<li>Go into the Compositor and create a new node tree. 
+<li>Add a "File Output" node. Set "Directory" to wherever you want the files to be saved.
+<li>Drag whatever outputs you want (Image, Freestyle etc) from the Render Layers node to the unused input socket of the File Output node one by one. 
+<li>Add any post-processing like Bloom.  
+<li>Select the File Output node and open the Nodes:Properties section of the sidebar. 
+<li>Set File Name to "{camera_name}" or whatever combination of text and <a href="https://docs.blender.org/manual/en/latest/files/file_paths.html">File Paths</a> you prefer.
+<li>Set Media Type to Image to save as individual pngs. 
+</ul>
 
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/itchio/" class="post-tag">itchio</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="environments-to-render" href="/environments-to-render/">Environments To Render</a></h3>
-<time datetime="2024-09-09"> 09 Sep 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="using-unreal-engine-to-render-toon-shaded-environments" href="/using-unreal-engine-to-render-toon-shaded-environments/">Using Unreal Engine to Render Toon Shaded Environments</a></h3>
-<time datetime="2024-08-11"> 11 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/art/" class="post-tag">art</a>,
-
-
-<a href="/tags/backgrounds/" class="post-tag">backgrounds</a>,
-
-
-<a href="/tags/tutorial/" class="post-tag">tutorial</a>,
-
-
-<a href="/tags/unreal/" class="post-tag">unreal</a>,
- 
-</p>
-
-<h3><a class="text-secondary" id="announcing:-alibababa-solitaire" href="/announcing:-alibababa-solitaire/">Announcing: Alibababa Solitaire</a></h3>
-<time datetime="2024-08-10"> 10 Aug 2024</time>
-<p></p>
-<p>Tags: 
-
-
-<a href="/tags/posts/" class="post-tag">posts</a>,
-
-
-<a href="/tags/my-games/" class="post-tag">my games</a>,
-
-
-<a href="/tags/announcement/" class="post-tag">announcement</a>,
- 
-</p>
-
-
- <nav class="flex justify-between px-5 m-auto md:max-w-md" aria-labelledby="blog-pagination">
-    <a href="/blog/">First</a>
-    <a href="/blog/">Previous</a>
-    <a href="/blog/2/">Next</a>
-    <a href="/blog/7/">Last</a>
-</nav>
 
 </main>
 
