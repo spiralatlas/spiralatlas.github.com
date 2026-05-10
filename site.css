@@ -1088,6 +1088,26 @@ a.inverted:hover {
   border-width: 0;
 }
 
+.visible {
+  visibility: visible;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.static {
+  position: static;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1111,12 +1131,20 @@ a.inverted:hover {
   margin-bottom: 1.5rem;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
 
 .table {
   display: table;
+}
+
+.contents {
+  display: contents;
 }
 
 .hidden {
@@ -1137,6 +1165,22 @@ a.inverted:hover {
 
 .flex-1 {
   flex: 1 1 0%;
+}
+
+.shrink {
+  flex-shrink: 1;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.resize {
+  resize: both;
 }
 
 .flex-col {
@@ -1169,6 +1213,10 @@ a.inverted:hover {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.border {
+  border-width: 1px;
 }
 
 .bg-blue-500 {
@@ -1245,6 +1293,10 @@ a.inverted:hover {
   text-transform: uppercase;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 .leading-normal {
   line-height: 1.5;
 }
@@ -1284,8 +1336,17 @@ a.inverted:hover {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.outline {
+  outline-style: solid;
+}
+
 .blur {
   --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.invert {
+  --tw-invert: invert(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
